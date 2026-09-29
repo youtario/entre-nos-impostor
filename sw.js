@@ -1,5 +1,5 @@
-const CACHE = 'entre-nos-app-v1';
-const CORE = ['./', './index.html', './style.css', './words.js', './hints.js', './app.js', './install.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
+const CACHE = 'entre-nos-app-v2';
+const CORE = ['./', './index.html', './style.css', './words.js', './hints.js', './questions.js', './app.js', './install.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)));

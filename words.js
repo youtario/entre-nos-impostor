@@ -8,7 +8,7 @@ window.CATEGORIES = [
     "pairs": [
       [
         "Borracha",
-        "Apontador"
+        "Corretivo"
       ],
       [
         "Caneta",
@@ -89,10 +89,50 @@ window.CATEGORIES = [
       [
         "Janela",
         "Porta"
+      ],
+      [
+        "Tesoura",
+        "Apontador"
+      ],
+      [
+        "Escova de dentes",
+        "Fio dental"
+      ],
+      [
+        "Panela",
+        "Frigideira"
+      ],
+      [
+        "Ventilador",
+        "Ar-condicionado"
+      ],
+      [
+        "Controle remoto",
+        "Mouse"
+      ],
+      [
+        "Fone de ouvido",
+        "Caixa de som"
+      ],
+      [
+        "Guarda-chuva",
+        "Capa de chuva"
+      ],
+      [
+        "Cobertor",
+        "Edredom"
+      ],
+      [
+        "Esponja",
+        "Pano de limpeza"
+      ],
+      [
+        "Chave de fenda",
+        "Chave Phillips"
       ]
     ],
     "connections": [
-      "Acessórios de estojo usados ao escrever ou desenhar com lápis.",
+      "Materiais de papelaria que corrigem marcas e erros no papel.",
       "Instrumentos para escrever ou desenhar no papel.",
       "Objetos que iluminam um ambiente ou uma mesa.",
       "Peças macias usadas para apoiar o corpo e dar conforto.",
@@ -112,7 +152,17 @@ window.CATEGORIES = [
       "Objetos ligados a trancar e proteger acessos.",
       "Calçados abertos usados no dia a dia.",
       "Objetos usados para arrumar a aparência e o cabelo.",
-      "Aberturas de ambientes que podem ser abertas e fechadas."
+      "Aberturas de ambientes que podem ser abertas e fechadas.",
+      "Utensílios de estojo que usam lâminas para cortar papel ou aparar lápis.",
+      "Utensílios usados na higiene bucal.",
+      "Utensílios de cozinha que aquecem alimentos diretamente no fogão.",
+      "Aparelhos usados para refrescar ambientes.",
+      "Dispositivos de mão que enviam comandos a equipamentos eletrônicos.",
+      "Equipamentos que reproduzem áudio.",
+      "Objetos de proteção contra a chuva.",
+      "Peças de cama usadas para aquecer durante o descanso.",
+      "Utensílios que limpam superfícies com contato e fricção.",
+      "Ferramentas manuais usadas para apertar e soltar parafusos."
     ]
   },
   {
@@ -132,7 +182,7 @@ window.CATEGORIES = [
       ],
       [
         "Shrek",
-        "Monstros S.A."
+        "Gato de Botas"
       ],
       [
         "Procurando Nemo",
@@ -140,7 +190,7 @@ window.CATEGORIES = [
       ],
       [
         "Toy Story",
-        "Os Incríveis"
+        "Monstros S.A."
       ],
       [
         "Frozen",
@@ -204,15 +254,55 @@ window.CATEGORIES = [
       ],
       [
         "Ratatouille",
-        "Kung Fu Panda"
+        "Tá Chovendo Hambúrguer"
+      ],
+      [
+        "Os Incríveis",
+        "Megamente"
+      ],
+      [
+        "Kung Fu Panda",
+        "Zootopia"
+      ],
+      [
+        "Divertida Mente",
+        "Soul"
+      ],
+      [
+        "Viva: A Vida é uma Festa",
+        "Encanto"
+      ],
+      [
+        "Wall-E",
+        "Robôs"
+      ],
+      [
+        "Interstellar",
+        "Perdido em Marte"
+      ],
+      [
+        "Um Lugar Silencioso",
+        "Bird Box"
+      ],
+      [
+        "Jumanji",
+        "Zathura"
+      ],
+      [
+        "O Máskara",
+        "Todo Poderoso"
+      ],
+      [
+        "A Era do Gelo",
+        "Os Croods"
       ]
     ],
     "connections": [
       "Romances dramáticos com casais separados por diferenças sociais e familiares.",
       "Ficções científicas sobre conflitos por recursos em mundos alienígenas.",
-      "Animações com monstros carismáticos como protagonistas.",
+      "Animações do mesmo universo que brincam com personagens de contos de fadas.",
       "Animações de aventura no oceano em busca de familiares.",
-      "Animações da Pixar com um grupo de personagens que esconde sua vida extraordinária dos humanos comuns.",
+      "Animações da Pixar que mostram uma sociedade secreta de seres que os humanos não compreendem.",
       "Animações da Disney com jovens heroínas e jornadas ligadas a poderes da natureza.",
       "Animações com leões e outros animais africanos como personagens centrais.",
       "Aventuras do mesmo universo de bruxos, feitiços e criaturas mágicas.",
@@ -228,7 +318,17 @@ window.CATEGORIES = [
       "Distopias com jovens heroínas enfrentando sociedades autoritárias.",
       "Jornadas de fantasia na Terra-média, com hobbits e uma companhia de aventureiros.",
       "Aventuras de fantasia com piratas, navios e capitães famosos.",
-      "Animações sobre animais que tentam dominar uma arte para a qual ninguém os considera adequados."
+      "Animações em que a comida e a criação de refeições movem a história.",
+      "Animações centradas em heróis, supervilões e poderes extraordinários.",
+      "Animações com animais antropomórficos e protagonistas que desafiam preconceitos sobre sua espécie.",
+      "Animações da Pixar que transformam conceitos abstratos da vida em personagens e mundos.",
+      "Animações musicais centradas em famílias latino-americanas e elementos sobrenaturais.",
+      "Animações protagonizadas por robôs em sociedades tecnológicas.",
+      "Filmes de ficção científica com astronautas enfrentando sobrevivência e isolamento no espaço.",
+      "Filmes em que sobreviver exige restringir um dos sentidos.",
+      "Aventuras nas quais um jogo de tabuleiro cria perigos reais para os jogadores.",
+      "Comédias sobre homens comuns que ganham poderes sobrenaturais.",
+      "Animações de aventura ambientadas na pré-história, com grupos buscando segurança."
     ]
   },
   {
@@ -291,8 +391,8 @@ window.CATEGORIES = [
         "Energia natural"
       ],
       [
-        "Akatsuki",
-        "ANBU"
+        "ANBU",
+        "Raiz"
       ],
       [
         "Kurama",
@@ -321,6 +421,50 @@ window.CATEGORIES = [
       [
         "Ninjutsu",
         "Genjutsu"
+      ],
+      [
+        "Asuma",
+        "Kurenai"
+      ],
+      [
+        "Hidan",
+        "Kakuzu"
+      ],
+      [
+        "Deidara",
+        "Sasori"
+      ],
+      [
+        "Pain",
+        "Nagato"
+      ],
+      [
+        "Killer Bee",
+        "Yugito Nii"
+      ],
+      [
+        "Hiruzen",
+        "Asuma"
+      ],
+      [
+        "Sai",
+        "Yamato"
+      ],
+      [
+        "Susanoo",
+        "Modo Sábio"
+      ],
+      [
+        "Vila da Nuvem",
+        "Vila da Névoa"
+      ],
+      [
+        "Akatsuki",
+        "Sete Espadachins da Névoa"
+      ],
+      [
+        "Hashirama",
+        "Yamato"
       ]
     ],
     "connections": [
@@ -337,14 +481,25 @@ window.CATEGORIES = [
       "Poderes oculares hereditários de clãs ninja.",
       "Vilas ninja lideradas por um Kage.",
       "Fontes de energia usadas para executar técnicas ninja.",
-      "Grupos de combatentes reconhecidos por vestimentas que ocultam sua identidade.",
+      "Organizações de operações secretas de Konoha, associadas a máscaras e missões sigilosas.",
       "Bestas com caudas que foram seladas em jovens ninjas.",
       "Especialistas em taijutsu e nos Oito Portões.",
       "Ninjas cujo combate depende de equipamentos e armas.",
       "Amigos de Konoha e membros da formação Ino-Shika-Cho.",
       "Hokages ligados ao uso da técnica de teletransporte Hiraishin.",
       "Uchihas centrais em planos envolvendo uma grande ilusão mundial.",
-      "Categorias de técnicas usadas pelos ninjas."
+      "Categorias de técnicas usadas pelos ninjas.",
+      "Professores de equipes da mesma geração de jovens ninjas de Konoha.",
+      "A dupla da Akatsuki conhecida por formas extraordinárias de sobreviver a ferimentos.",
+      "Artistas da Akatsuki que combatem usando criações fabricadas por eles.",
+      "A identidade de combate e o controlador dos Seis Caminhos de Pain.",
+      "Jinchurikis da Vila da Nuvem.",
+      "Pai e filho da família Sarutobi, conhecidos por técnicas de combate e pela Vila da Folha.",
+      "Ninjas ligados à ANBU que passam a integrar a equipe de Naruto.",
+      "Recursos de combate que ampliam poder e defesa por meio de chakra especial.",
+      "Grandes vilas ninja lideradas por um Kage.",
+      "Grupos de ninjas perigosos conhecidos por integrantes especializados e armas ou técnicas marcantes.",
+      "Ninjas da Folha capazes de utilizar o Estilo Madeira."
     ]
   },
   {
@@ -368,7 +523,7 @@ window.CATEGORIES = [
       ],
       [
         "Netero",
-        "Zeno"
+        "Ging Freecss"
       ],
       [
         "Chrollo",
@@ -433,13 +588,57 @@ window.CATEGORIES = [
       [
         "Trupe Fantasma",
         "Formigas Quimera"
+      ],
+      [
+        "Morel",
+        "Knov"
+      ],
+      [
+        "Knuckle",
+        "Shoot"
+      ],
+      [
+        "Pakunoda",
+        "Kortopi"
+      ],
+      [
+        "Nobunaga",
+        "Franklin"
+      ],
+      [
+        "Silva Zoldyck",
+        "Zeno"
+      ],
+      [
+        "Kite",
+        "Gon"
+      ],
+      [
+        "Leol",
+        "Cheetu"
+      ],
+      [
+        "Genthru",
+        "Razor"
+      ],
+      [
+        "Ko",
+        "Ken"
+      ],
+      [
+        "Licença Hunter",
+        "Cartas de Greed Island"
+      ],
+      [
+        "Kalluto Zoldyck",
+        "Illumi"
       ]
     ],
     "connections": [
       "Jovens amigos que treinam e se aventuram juntos.",
       "Amigos do grupo principal que se encontram no Exame Hunter.",
       "Combatentes perigosos que participam do Exame Hunter e fazem acordos entre si.",
-      "Veteranos de grande poder que atuam juntos numa missão contra as Formigas Quimera.",
+      "Hunters de enorme renome, experiência e domínio de Nen.",
       "Integrantes da Trupe Fantasma com funções de liderança em momentos diferentes.",
       "Instrutores que ensinam Nen aos protagonistas.",
       "Integrantes do núcleo real das Formigas Quimera.",
@@ -455,7 +654,18 @@ window.CATEGORIES = [
       "Categorias de Nen usadas em habilidades de efeitos particulares.",
       "Desafios em etapas que testam as habilidades dos participantes.",
       "Cenários de arcos envolvendo itens raros, dinheiro e disputas entre usuários de Nen.",
-      "Grupos de antagonistas que representam grandes ameaças aos Hunters."
+      "Grupos de antagonistas que representam grandes ameaças aos Hunters.",
+      "Hunters veteranos que auxiliam Netero na missão contra as Formigas Quimera.",
+      "Alunos de Morel que treinam os protagonistas para a missão contra as Formigas Quimera.",
+      "Integrantes da Trupe Fantasma cujos poderes ajudam a coletar informação e enganar adversários.",
+      "Combatentes da Trupe Fantasma especializados em um tipo definido de ataque.",
+      "Assassinos veteranos da família Zoldyck e pai e filho.",
+      "Hunters ligados pelo legado de Ging e por uma jornada que envolve as Formigas Quimera.",
+      "Formigas Quimera de aparência felina que enfrentam Hunters.",
+      "Usuários de Nen poderosos que impõem desafios aos jogadores de Greed Island.",
+      "Técnicas avançadas de Nen que distribuem aura para combate e proteção.",
+      "Itens valiosos que oferecem acesso a recursos e vantagens no mundo dos Hunters.",
+      "Irmãos da família Zoldyck associados à Manipulação de Nen."
     ]
   },
   {
@@ -547,7 +757,51 @@ window.CATEGORIES = [
       ],
       [
         "Kon",
+        "Ririn"
+      ],
+      [
+        "Jushiro Ukitake",
+        "Shunsui"
+      ],
+      [
+        "Shinji Hirako",
+        "Hiyori Sarugaki"
+      ],
+      [
+        "Starrk",
+        "Harribel"
+      ],
+      [
+        "Neliel",
+        "Nnoitra"
+      ],
+      [
+        "Yhwach",
+        "Jugram Haschwalth"
+      ],
+      [
+        "Zabimaru",
+        "Senbonzakura"
+      ],
+      [
+        "Sode no Shirayuki",
+        "Hyorinmaru"
+      ],
+      [
+        "Hado",
+        "Bakudo"
+      ],
+      [
+        "Shunpo",
+        "Sonido"
+      ],
+      [
+        "Nemu",
         "Yachiru"
+      ],
+      [
+        "Sajin Komamura",
+        "Kenpachi"
       ]
     ],
     "connections": [
@@ -571,7 +825,18 @@ window.CATEGORIES = [
       "Ataques que disparam energia espiritual à distância.",
       "Conceitos distintos ligados ao poder espiritual e à sua manifestação.",
       "Artefatos de enorme poder envolvidos nos conflitos da Soul Society.",
-      "Companheiros de aparência pequena e comportamento cômico ligados a guerreiros poderosos."
+      "Almas modificadas que podem habitar corpos artificiais.",
+      "Capitães veteranos, amigos próximos e antigos alunos de Yamamoto.",
+      "Visored que combinam poderes de Shinigami e Hollow.",
+      "Arrancars de alta posição entre os Espada.",
+      "Arrancars com passado de rivalidade dentro dos Espada.",
+      "Figuras de comando do exército Quincy do Wandenreich.",
+      "Zanpakutos que mudam a forma da lâmina e ampliam o alcance dos ataques.",
+      "Zanpakutos cujas técnicas são ligadas ao gelo.",
+      "Categorias de magia Kido utilizadas pelos Shinigami.",
+      "Técnicas de diferentes grupos para se deslocar rapidamente em combate.",
+      "Personagens que servem como tenentes e acompanham capitães de grande poder.",
+      "Capitães que usam força física e grandes manifestações de combate para enfrentar adversários."
     ]
   },
   {
@@ -594,8 +859,8 @@ window.CATEGORIES = [
         "Suguru Geto"
       ],
       [
-        "Sukuna",
-        "Mahito"
+        "Mahito",
+        "Dagon"
       ],
       [
         "Maki Zenin",
@@ -618,8 +883,8 @@ window.CATEGORIES = [
         "Eso"
       ],
       [
-        "Toji Fushiguro",
-        "Naobito Zenin"
+        "Naobito Zenin",
+        "Naoya Zenin"
       ],
       [
         "Kasumi Miwa",
@@ -664,19 +929,63 @@ window.CATEGORIES = [
       [
         "Kokushen",
         "Punho divergente"
+      ],
+      [
+        "Kinji Hakari",
+        "Kirara Hoshi"
+      ],
+      [
+        "Hiromi Higuruma",
+        "Hajime Kashimo"
+      ],
+      [
+        "Yuki Tsukumo",
+        "Mei Mei"
+      ],
+      [
+        "Noritoshi Kamo",
+        "Kokichi Muta"
+      ],
+      [
+        "Masamichi Yaga",
+        "Yoshinobu Gakuganji"
+      ],
+      [
+        "Sukuna",
+        "Kenjaku"
+      ],
+      [
+        "Mahoraga",
+        "Cão Divino"
+      ],
+      [
+        "Fala Amaldiçoada",
+        "Manipulação de Sangue"
+      ],
+      [
+        "Reino da Prisão",
+        "Cortina"
+      ],
+      [
+        "Incidente de Shibuya",
+        "Jogo do Abate"
+      ],
+      [
+        "Toji Fushiguro",
+        "Maki Zenin"
       ]
     ],
     "connections": [
       "Estudantes protagonistas com grande poder e ligação com entidades perigosas.",
       "Colegas do primeiro ano da escola de Tóquio.",
       "Feiticeiros que foram colegas de escola e amigos próximos.",
-      "Antagonistas capazes de alterar violentamente o corpo de seus alvos.",
+      "Maldições inteligentes do mesmo grupo de antagonistas.",
       "Irmãs gêmeas do clã Zenin.",
       "Colegas do segundo ano da escola de Tóquio.",
       "Feiticeiros que orientam Yuji em combates importantes.",
       "Maldições ligadas ao medo de fenômenos da natureza.",
       "Irmãos originados das Pinturas da Morte.",
-      "Combatentes adultos ligados ao clã Zenin.",
+      "Membros do clã Zenin que utilizam a Técnica de Projeção.",
       "Estudantes da escola jujutsu de Kyoto.",
       "Feiticeiras adultas que exercem funções de apoio e ensino.",
       "Formas de energia usadas para alimentar técnicas de feiticeiros.",
@@ -687,7 +996,18 @@ window.CATEGORIES = [
       "Aplicações do controle espacial de Gojo.",
       "Formas que podem abrigar ou concentrar uma ameaça amaldiçoada.",
       "Instituições que treinam feiticeiros jujutsu.",
-      "Golpes físicos cujo efeito depende do momento de aplicação da energia."
+      "Golpes físicos cujo efeito depende do momento de aplicação da energia.",
+      "Estudantes ligados à escola de Tóquio e ao clube de lutas de Hakari.",
+      "Feiticeiros de grande poder apresentados no Jogo do Abate.",
+      "Feiticeiras adultas que trabalham com grande autonomia em relação às escolas.",
+      "Estudantes da escola de Kyoto que atacam utilizando recursos especiais à distância.",
+      "Diretores das duas escolas jujutsu.",
+      "Feiticeiros antigos que sobrevivem através de outros corpos e ameaçam o mundo jujutsu.",
+      "Shikigamis que podem ser invocados pela Técnica das Dez Sombras.",
+      "Técnicas hereditárias de clãs de feiticeiros.",
+      "Recursos jujutsu que isolam pessoas ou regiões por meio de barreiras.",
+      "Arcos com confrontos de grande escala, barreiras e vários grupos de combatentes.",
+      "Combatentes ligados ao clã Zenin cujo potencial físico está associado à Restrição Celestial."
     ]
   },
   {
@@ -703,11 +1023,11 @@ window.CATEGORIES = [
       ],
       [
         "Gohan",
-        "Trunks"
+        "Pan"
       ],
       [
         "Goten",
-        "Pan"
+        "Trunks"
       ],
       [
         "Piccolo",
@@ -723,11 +1043,11 @@ window.CATEGORIES = [
       ],
       [
         "Freeza",
-        "Cell"
+        "Cooler"
       ],
       [
-        "Majin Boo",
-        "Janemba"
+        "Cell",
+        "Majin Boo"
       ],
       [
         "Beerus",
@@ -784,17 +1104,57 @@ window.CATEGORIES = [
       [
         "Cápsula",
         "Máquina do tempo"
+      ],
+      [
+        "Android 17",
+        "Android 18"
+      ],
+      [
+        "Android 16",
+        "Dr. Gero"
+      ],
+      [
+        "Goku Black",
+        "Zamasu"
+      ],
+      [
+        "Jiren",
+        "Toppo"
+      ],
+      [
+        "Hit",
+        "Dyspo"
+      ],
+      [
+        "Mestre Kame",
+        "Mestre Karin"
+      ],
+      [
+        "Yamcha",
+        "Chaoz"
+      ],
+      [
+        "Potara",
+        "Dança da Fusão"
+      ],
+      [
+        "Torneio do Poder",
+        "Torneio de Artes Marciais"
+      ],
+      [
+        "Janemba",
+        "Hirudegarn"
       ]
     ],
     "connections": [
       "Guerreiros saiyajins rivais que defendem a Terra.",
-      "Descendentes de saiyajins com grande potencial de combate.",
-      "Jovens descendentes da família de Goku.",
+      "Pai e filha de ascendência saiyajin e humana.",
+      "Jovens amigos saiyajins que realizam a fusão Gotenks.",
       "Namekuseijins profundamente ligados entre si e à proteção da Terra.",
       "Artistas marciais humanos que lutam ao lado dos saiyajins.",
       "Personagens humanas ligadas às famílias dos protagonistas.",
-      "Grandes antagonistas com várias formas de transformação.",
-      "Vilões com poderes sobrenaturais e corpos de formas incomuns.",
+      "Irmãos da mesma espécie, conhecidos por liderar forças e assumir transformações.",
+      "Antagonistas que absorvem outros seres e podem regenerar o corpo.",
       "Irmãos que são Deuses da Destruição de universos diferentes.",
       "Anjos que acompanham e treinam Deuses da Destruição.",
       "Saiyajins com transformações musculosas de enorme poder.",
@@ -808,7 +1168,17 @@ window.CATEGORIES = [
       "Meios de transporte usados nas aventuras dos protagonistas.",
       "Armas associadas ao treinamento de guerreiros.",
       "Recursos usados para recuperar guerreiros feridos.",
-      "Tecnologias da Corporação Cápsula que tornam grandes viagens e equipamentos possíveis."
+      "Tecnologias da Corporação Cápsula que tornam grandes viagens e equipamentos possíveis.",
+      "Irmãos transformados por Dr. Gero e conhecidos como androides.",
+      "Androides criados no projeto de vingança de Dr. Gero.",
+      "Antagonistas do arco do futuro de Trunks envolvidos no mesmo plano.",
+      "Combatentes das Tropas do Orgulho que representam o Universo 11.",
+      "Guerreiros de outros universos cujo combate exige lidar com movimentos extremamente rápidos.",
+      "Mestres que ajudam Goku a se desenvolver em etapas de sua jornada.",
+      "Aliados terrestres que participam de torneios e batalhas com o grupo de Goku.",
+      "Métodos diferentes de unir dois guerreiros numa única pessoa.",
+      "Torneios que reúnem guerreiros para disputar combates.",
+      "Vilões sobrenaturais de filmes de Dragon Ball Z, associados a grandes ameaças à Terra."
     ]
   },
   {
@@ -852,7 +1222,7 @@ window.CATEGORIES = [
       ],
       [
         "Doutor Estranho",
-        "Doutor Destino (DC)"
+        "Senhor Destino"
       ],
       [
         "Homem-Aranha",
@@ -901,6 +1271,46 @@ window.CATEGORIES = [
       [
         "Ravena",
         "Jean Grey"
+      ],
+      [
+        "Super Choque",
+        "Raio Negro"
+      ],
+      [
+        "Homem de Gelo",
+        "Nevasca (DC)"
+      ],
+      [
+        "Falcão",
+        "Gavião Negro"
+      ],
+      [
+        "Demolidor",
+        "Caçadora"
+      ],
+      [
+        "Motoqueiro Fantasma",
+        "Etrigan"
+      ],
+      [
+        "Senhor Fantástico",
+        "Homem-Borracha"
+      ],
+      [
+        "Besouro Azul",
+        "Aço"
+      ],
+      [
+        "Doutor Manhattan",
+        "Surfista Prateado"
+      ],
+      [
+        "Tempestade",
+        "Mera"
+      ],
+      [
+        "Luke Cage",
+        "Colossus"
       ]
     ],
     "connections": [
@@ -924,7 +1334,17 @@ window.CATEGORIES = [
       "Heroínas com grandes poderes mágicos.",
       "Heróis que usam tecnologia para reduzir o tamanho do corpo.",
       "Heróis cujos corpos incorporam tecnologia avançada.",
-      "Heroínas com poderes mentais ou emocionais ligadas a forças muito perigosas."
+      "Heroínas com poderes mentais ou emocionais ligadas a forças muito perigosas.",
+      "Heróis da DC com poderes elétricos.",
+      "Personagens que usam gelo e frio como poderes.",
+      "Heróis alados que usam equipamento para combater pelo ar.",
+      "Vigilantes urbanos que dependem de treinamento e armas de combate.",
+      "Personagens sobrenaturais de aparência demoníaca que utilizam fogo infernal.",
+      "Heróis capazes de alongar e deformar o próprio corpo.",
+      "Heróis da DC que combatem com armaduras avançadas.",
+      "Personagens de pele incomum e enorme poder sobre energia ou matéria.",
+      "Heroínas capazes de controlar forças e elementos da natureza.",
+      "Heróis da Marvel com força elevada e corpos extremamente resistentes."
     ]
   },
   {
@@ -956,23 +1376,23 @@ window.CATEGORIES = [
       ],
       [
         "Aura",
-        "Mewing"
+        "Farmar aura"
       ],
       [
-        "Farmar aura",
-        "Moggado"
+        "Mewing",
+        "Looksmaxxing"
       ],
       [
         "Absolute Cinema",
-        "Aura"
+        "Plot twist"
       ],
       [
         "Trollface",
-        "Chill Guy"
+        "Trollagem"
       ],
       [
-        "Trollagem",
-        "POV"
+        "POV",
+        "Main character"
       ],
       [
         "Skibidi Toilet",
@@ -1008,7 +1428,7 @@ window.CATEGORIES = [
       ],
       [
         "Nonchalant",
-        "Delulu"
+        "Chill Guy"
       ],
       [
         "Morango do amor",
@@ -1021,6 +1441,54 @@ window.CATEGORIES = [
       [
         "Eu sou o Steve",
         "Chicken Jockey"
+      ],
+      [
+        "Gato Oiia",
+        "Gato Banana"
+      ],
+      [
+        "Let him cook",
+        "Cooked"
+      ],
+      [
+        "Rizz",
+        "Rizzler"
+      ],
+      [
+        "NPC",
+        "Main character"
+      ],
+      [
+        "Flop",
+        "Hype"
+      ],
+      [
+        "Canon event",
+        "Plot twist"
+      ],
+      [
+        "Lock in",
+        "Let him cook"
+      ],
+      [
+        "John Pork",
+        "Bombastic side eye"
+      ],
+      [
+        "Chipi Chipi Chapa Chapa",
+        "Pedro Pedro Pedro"
+      ],
+      [
+        "Boneca Ambalabu",
+        "Burbaloni Luliloli"
+      ],
+      [
+        "Moggado",
+        "Gigachad"
+      ],
+      [
+        "Delulu",
+        "Rizz"
       ]
     ],
     "connections": [
@@ -1029,11 +1497,11 @@ window.CATEGORIES = [
       "Bordões que viralizaram em vídeos ligados ao futebol.",
       "Respostas curtas e humorísticas usadas em interações nas redes.",
       "Estereótipos exagerados de confiança masculina em memes.",
-      "Termos de memes ligados à aparência e à presença pessoal.",
-      "Expressões sobre impressionar ou ser ofuscado numa comparação.",
-      "Expressões usadas para elogiar o impacto de uma cena ou atitude.",
-      "Personagens desenhados usados para representar atitudes em memes.",
-      "Formatos de conteúdo que encenam uma situação para provocar reação.",
+      "Memes que tratam presença, confiança e atitudes impressionantes como pontos de aura.",
+      "Termos de memes associados à aparência e à busca por um rosto considerado atraente.",
+      "Reações que descrevem acontecimentos como momentos marcantes de um filme.",
+      "Memes ligados a provocar, enganar e causar reações de propósito.",
+      "Formatos de humor que colocam alguém num ponto de vista ou papel dentro de uma cena.",
       "Personagens rivais do mesmo universo de animações absurdas.",
       "Criaturas de brainrot que combinam animais com formas incomuns.",
       "Personagens de brainrot que misturam animais e aeronaves militares.",
@@ -1042,10 +1510,22 @@ window.CATEGORIES = [
       "Personagens de brainrot apresentados com nomes rítmicos em narrações absurdas.",
       "Bordões repetidos com entonação exagerada em vídeos e reações.",
       "Tipos de humor de internet feitos para provocar reações.",
-      "Gírias inglesas usadas para descrever a atitude de uma pessoa.",
+      "Memes de alguém tranquilo e pouco abalado pelo que acontece ao redor.",
       "Doces que viraram tendências em vídeos e memes de consumo.",
       "Produtos de estética fofa que viraram febres de consumo e memes.",
-      "Bordões popularizados pelo filme de Minecraft."
+      "Bordões popularizados pelo filme de Minecraft.",
+      "Gatos transformados em personagens de vídeos de humor com sons marcantes.",
+      "Gírias da internet que usam a ideia de cozinhar para avaliar uma situação.",
+      "Termos de humor associados a carisma e conquista.",
+      "Memes que comparam o comportamento de pessoas a papéis numa narrativa ou jogo.",
+      "Gírias sobre popularidade e repercussão na internet.",
+      "Memes que tratam acontecimentos da vida como partes de um roteiro.",
+      "Expressões usadas para incentivar alguém a se concentrar e continuar uma ação.",
+      "Memes de reação que tornam uma interação comum estranha ou exagerada.",
+      "Memes de animais dançando com refrões repetitivos.",
+      "Criaturas híbridas de brainrot com nomes sonoros e aparência absurda.",
+      "Memes que comparam aparência, presença ou superioridade entre pessoas.",
+      "Gírias usadas em memes sobre expectativas e interações românticas."
     ]
   },
   {
@@ -1129,15 +1609,51 @@ window.CATEGORIES = [
       ],
       [
         "Rocket League",
-        "EA Sports FC"
+        "Rematch"
       ],
       [
         "Fall Guys",
-        "Super Mario"
+        "Stumble Guys"
       ],
       [
         "Lethal Company",
         "R.E.P.O."
+      ],
+      [
+        "Sekiro",
+        "Nioh"
+      ],
+      [
+        "Overwatch 2",
+        "Paladins"
+      ],
+      [
+        "Hades",
+        "Dead Cells"
+      ],
+      [
+        "Clash of Clans",
+        "Clash Royale"
+      ],
+      [
+        "Genshin Impact",
+        "Honkai: Star Rail"
+      ],
+      [
+        "The Sims 4",
+        "inZOI"
+      ],
+      [
+        "Portal 2",
+        "It Takes Two"
+      ],
+      [
+        "Subnautica",
+        "Raft"
+      ],
+      [
+        "Phasmophobia",
+        "Demonologist"
       ]
     ],
     "connections": [
@@ -1159,9 +1675,18 @@ window.CATEGORIES = [
       "Séries de plataforma com mascotes, fases e coleta de itens.",
       "Simuladores de futebol com clubes e partidas.",
       "Aventuras de exploração em 2D com habilidades que liberam novos caminhos.",
-      "Jogos em equipes cujo objetivo principal envolve marcar gols.",
-      "Jogos com saltos, plataformas e percursos de obstáculos.",
-      "Terror cooperativo com coleta de objetos valiosos em locais perigosos."
+      "Jogos de futebol em equipes nos quais cada participante controla um único competidor.",
+      "Jogos de obstáculos com muitos participantes e eliminação por rodadas.",
+      "Terror cooperativo com coleta de objetos valiosos em locais perigosos.",
+      "Jogos de ação exigentes com espadas e ambientação inspirada no Japão.",
+      "Jogos de tiro em equipes com personagens de habilidades próprias.",
+      "Jogos de ação em que morrer inicia uma nova tentativa com combinações diferentes.",
+      "Jogos da Supercell com tropas de fantasia e estratégia em batalhas.",
+      "RPGs da HoYoverse com personagens colecionáveis e equipes de habilidades variadas.",
+      "Jogos de simulação de vida com criação de personagens e casas.",
+      "Jogos em que duas pessoas cooperam para resolver desafios e quebra-cabeças.",
+      "Jogos de sobrevivência no mar com coleta de recursos e construção.",
+      "Jogos de terror cooperativo focados em investigar entidades e reunir evidências."
     ]
   },
   {
@@ -1250,6 +1775,66 @@ window.CATEGORIES = [
       [
         "Encanadores",
         "Cavaleiros Eternos"
+      ],
+      [
+        "Bala de Canhão",
+        "Gigante"
+      ],
+      [
+        "Glutão",
+        "Cromático"
+      ],
+      [
+        "Alien X",
+        "Contra-Tempo"
+      ],
+      [
+        "NRG",
+        "Atômico"
+      ],
+      [
+        "Anfíbio",
+        "Feedback"
+      ],
+      [
+        "Iguana Ártica",
+        "Friagem"
+      ],
+      [
+        "Gigante",
+        "Enormossauro"
+      ],
+      [
+        "Armatu",
+        "Quatro Braços"
+      ],
+      [
+        "Gravattack",
+        "Gosma"
+      ],
+      [
+        "Macaco-Aranha",
+        "Besta"
+      ],
+      [
+        "Idem",
+        "Eco Eco"
+      ],
+      [
+        "Terraspin",
+        "Astrodáctilo"
+      ],
+      [
+        "Kevin Levin",
+        "Malware"
+      ],
+      [
+        "Chocante",
+        "Anfíbio"
+      ],
+      [
+        "Cipó Selvagem",
+        "Fogo Fátuo"
       ]
     ],
     "connections": [
@@ -1272,7 +1857,22 @@ window.CATEGORIES = [
       "Transformações que usam ataques sonoros.",
       "Transformações usadas para voar e atacar pelo ar.",
       "Transformações que manipulam energia elétrica.",
-      "Organizações envolvidas em conflitos com tecnologia alienígena."
+      "Organizações envolvidas em conflitos com tecnologia alienígena.",
+      "Aliens usados para golpes de grande impacto e resistência física.",
+      "Aliens que absorvem materiais ou energia e os convertem em disparos.",
+      "Aliens capazes de interferir em aspectos fundamentais da realidade, como tempo e existência.",
+      "Aliens cujos poderes envolvem energia nuclear ou radioatividade.",
+      "Aliens que absorvem energia elétrica e a liberam em ataques.",
+      "Aliens que utilizam frio e congelamento.",
+      "Aliens de grande tamanho usados em combates de força e impacto.",
+      "Aliens usados para força física e golpes pesados com os braços.",
+      "Aliens cuja movimentação ou habilidade envolve controlar a gravidade.",
+      "Aliens de aparência animal usados para agilidade, escalada e perseguição.",
+      "Aliens que multiplicam o próprio corpo em cópias.",
+      "Aliens voadores que usam movimentos e energia para se deslocar pelo ar.",
+      "Personagens que absorvem materiais ou tecnologia para ampliar suas habilidades.",
+      "Aliens com poderes de controlar e emitir eletricidade.",
+      "Aliens de corpo vegetal que utilizam habilidades de plantas."
     ]
   },
   {
@@ -1284,11 +1884,11 @@ window.CATEGORIES = [
     "pairs": [
       [
         "Tanjiro Kamado",
-        "Inosuke Hashibira"
+        "Zenitsu Agatsuma"
       ],
       [
-        "Zenitsu Agatsuma",
-        "Kanao Tsuyuri"
+        "Kanao Tsuyuri",
+        "Genya Shinazugawa"
       ],
       [
         "Nezuko Kamado",
@@ -1361,11 +1961,59 @@ window.CATEGORIES = [
       [
         "Arco do Treinamento dos Hashiras",
         "Seleção Final"
+      ],
+      [
+        "Genya Shinazugawa",
+        "Nezuko Kamado"
+      ],
+      [
+        "Yushiro",
+        "Tamayo"
+      ],
+      [
+        "Kagaya Ubuyashiki",
+        "Amane Ubuyashiki"
+      ],
+      [
+        "Hotaru Haganezuka",
+        "Kozo Kanamori"
+      ],
+      [
+        "Sabito",
+        "Makomo"
+      ],
+      [
+        "Gyokko",
+        "Hantengu"
+      ],
+      [
+        "Nakime",
+        "Kaigaku"
+      ],
+      [
+        "Respiração do Sol",
+        "Respiração da Lua"
+      ],
+      [
+        "Respiração da Pedra",
+        "Respiração da Besta"
+      ],
+      [
+        "Marca do Caçador",
+        "Mundo Transparente"
+      ],
+      [
+        "Corvo Kasugai",
+        "Pardal Chuntaro"
+      ],
+      [
+        "Inosuke Hashibira",
+        "Respiração da Besta"
       ]
     ],
     "connections": [
-      "Jovens caçadores que viajam juntos e lutam com espadas.",
-      "Jovens espadachins aprovados na mesma Seleção Final.",
+      "Jovens caçadores companheiros de viagem, com sentidos especialmente aguçados.",
+      "Jovens caçadores que passam pela mesma Seleção Final de Tanjiro.",
       "Demônias que ajudam os humanos contra outros demônios.",
       "Mestres ligados à Respiração da Água.",
       "Hashiras que lideram missões importantes ao lado do trio principal.",
@@ -1383,7 +2031,19 @@ window.CATEGORIES = [
       "Armas utilizadas por caçadores para lutar ou praticar.",
       "Recursos que representam perigo para a maioria dos demônios.",
       "Arcos de missões em que o trio principal atua com um Hashira.",
-      "Etapas de preparação ou avaliação dos caçadores."
+      "Etapas de preparação ou avaliação dos caçadores.",
+      "Personagens aliados dos caçadores que utilizam poderes de demônio.",
+      "Demônios que trabalham juntos contra Muzan e ajudam os protagonistas.",
+      "Membros da família Ubuyashiki responsáveis por apoiar a organização dos caçadores.",
+      "Ferreiros da Vila dos Ferreiros que trabalham com espadas Nichirin.",
+      "Discípulos de Urokodaki ligados ao treinamento de Tanjiro.",
+      "Luas Superiores que ameaçam a Vila dos Ferreiros.",
+      "Demônios que ocupam posições de Lua Superior e atuam na fase do Castelo Infinito.",
+      "Estilos de espada associados a Yoriichi e Kokushibo e à origem das respirações.",
+      "Respirações de caçadores que utilizam armas e movimentos pouco convencionais.",
+      "Habilidades avançadas que ampliam a capacidade de combate de caçadores.",
+      "Aves que acompanham caçadores e ajudam na comunicação de missões.",
+      "Caçador e estilo de respiração criado por ele, com duas espadas e movimentos animalescos."
     ]
   },
   {
@@ -1472,6 +2132,50 @@ window.CATEGORIES = [
       [
         "CJ",
         "Starla"
+      ],
+      [
+        "Lich",
+        "GOLB"
+      ],
+      [
+        "Prismo",
+        "Coruja Cósmica"
+      ],
+      [
+        "Mordomo Menta",
+        "Abracadaniel"
+      ],
+      [
+        "Leslie",
+        "Masami"
+      ],
+      [
+        "Idaho",
+        "Anton"
+      ],
+      [
+        "Larry Needlemeyer",
+        "Rocky Robinson"
+      ],
+      [
+        "Thomas",
+        "Mordecai"
+      ],
+      [
+        "Don",
+        "Rigby"
+      ],
+      [
+        "Gansos Grandes",
+        "Bebês Patos"
+      ],
+      [
+        "Dipper Pines",
+        "Mabel Pines"
+      ],
+      [
+        "Steven Universe",
+        "Connie Maheswaran"
       ]
     ],
     "connections": [
@@ -1494,12 +2198,20 @@ window.CATEGORIES = [
       "Amigos inseparáveis que trabalham no parque em Apenas um Show.",
       "Amigas que trabalham na cafeteria frequentada pelos protagonistas.",
       "Yetis parentes que aparecem nas histórias de Apenas um Show.",
-      "Personagens de Apenas um Show envolvidas em relacionamentos com funcionários do parque."
+      "Personagens de Apenas um Show envolvidas em relacionamentos com funcionários do parque.",
+      "Entidades ameaçadoras de Hora de Aventura com poderes sobrenaturais.",
+      "Seres cósmicos de Hora de Aventura associados a desejos e sonhos.",
+      "Personagens de Hora de Aventura que praticam magia.",
+      "Colegas de escola de Gumball cuja aparência representa elementos da natureza.",
+      "Colegas de Gumball com aparência de alimentos.",
+      "Trabalhadores de Elmore que aparecem em atividades e serviços do cotidiano.",
+      "Funcionários do parque em Apenas um Show.",
+      "Irmãos guaxinins de Apenas um Show.",
+      "Grupos de aves de Apenas um Show que se combinam para lutar em formas gigantes.",
+      "Gêmeos protagonistas que vivem os mistérios de Gravity Falls.",
+      "Jovens protagonistas e parceiros de aventura em Steven Universo."
     ]
-  }
-];
-
-window.CATEGORIES.push(...[
+  },
   {
     "id": "clash-royale",
     "name": "Clash Royale",
@@ -1557,7 +2269,7 @@ window.CATEGORIES.push(...[
       ],
       [
         "Barril de Goblins",
-        "Barril de Bárbaro"
+        "Broca de Goblins"
       ],
       [
         "Goblins",
@@ -1586,6 +2298,50 @@ window.CATEGORIES.push(...[
       [
         "Flechas",
         "O Tronco"
+      ],
+      [
+        "Espírito de Gelo",
+        "Espírito Elétrico"
+      ],
+      [
+        "Espírito de Fogo",
+        "Espírito Curador"
+      ],
+      [
+        "Zap",
+        "Bola de Neve"
+      ],
+      [
+        "Relâmpago",
+        "Foguete"
+      ],
+      [
+        "Terremoto",
+        "Congelamento"
+      ],
+      [
+        "Canhão",
+        "Torre Inferno"
+      ],
+      [
+        "X-Besta",
+        "Morteiro"
+      ],
+      [
+        "Bruxa",
+        "Bruxa Sombria"
+      ],
+      [
+        "Morcegos",
+        "Servos"
+      ],
+      [
+        "Fantasma Real",
+        "Bandida"
+      ],
+      [
+        "Barril de Bárbaro",
+        "Bárbaros"
       ]
     ],
     "connections": [
@@ -1601,14 +2357,25 @@ window.CATEGORIES.push(...[
       "Gigantes usados para avançar até as estruturas adversárias.",
       "Tropas rápidas que avançam diretamente para construções.",
       "Cartas aéreas que vão em direção a construções.",
-      "Cartas que enviam uma tropa escondida dentro de um barril.",
+      "Cartas que fazem goblins aparecerem no ponto escolhido, inclusive perto de torres.",
       "Cartas baratas que invocam pequenos goblins em grupo.",
       "Cartas que invocam grupos de esqueletos para defender.",
       "Cartas com combatentes que disparam à distância.",
       "Tropas de arco e flecha que atacam à distância.",
       "Construções defensivas colocadas no centro da arena.",
       "Feitiços que causam dano numa área escolhida da arena.",
-      "Feitiços baratos usados para eliminar tropas frágeis."
+      "Feitiços baratos usados para eliminar tropas frágeis.",
+      "Espíritos que saltam no alvo e interrompem ações de inimigos.",
+      "Espíritos que se sacrificam em um salto para produzir um efeito em área.",
+      "Feitiços rápidos em área que causam dano e atrapalham tropas.",
+      "Feitiços de grande dano usados contra tropas e construções.",
+      "Feitiços em área que alteram temporariamente o funcionamento da defesa.",
+      "Construções usadas para atrair e combater tropas que se aproximam.",
+      "Construções de cerco que atacam à distância e podem alcançar torres.",
+      "Bruxas que geram pequenas tropas para acompanhar seus ataques.",
+      "Grupos de tropas voadoras usados para causar dano e defender.",
+      "Tropas de combate corpo a corpo com mecânicas especiais de aproximação.",
+      "Cartas que colocam bárbaros de combate corpo a corpo na arena."
     ]
   },
   {
@@ -1636,7 +2403,7 @@ window.CATEGORIES.push(...[
       ],
       [
         "Charizard",
-        "Dragonite"
+        "Blaziken"
       ],
       [
         "Gengar",
@@ -1647,7 +2414,7 @@ window.CATEGORIES.push(...[
         "Zoroark"
       ],
       [
-        "Garchomp",
+        "Dragonite",
         "Salamence"
       ],
       [
@@ -1697,6 +2464,50 @@ window.CATEGORIES.push(...[
       [
         "Mew",
         "Mewtwo"
+      ],
+      [
+        "Kyogre",
+        "Groudon"
+      ],
+      [
+        "Dialga",
+        "Palkia"
+      ],
+      [
+        "Reshiram",
+        "Zekrom"
+      ],
+      [
+        "Lugia",
+        "Ho-Oh"
+      ],
+      [
+        "Solgaleo",
+        "Lunala"
+      ],
+      [
+        "Rayquaza",
+        "Zygarde"
+      ],
+      [
+        "Tyranitar",
+        "Hydreigon"
+      ],
+      [
+        "Swampert",
+        "Blaziken"
+      ],
+      [
+        "Sceptile",
+        "Serperior"
+      ],
+      [
+        "Decidueye",
+        "Rillaboom"
+      ],
+      [
+        "Garchomp",
+        "Hydreigon"
       ]
     ],
     "connections": [
@@ -1704,10 +2515,10 @@ window.CATEGORIES.push(...[
       "Pokémon iniciais do tipo Fogo de regiões diferentes.",
       "Pokémon iniciais do tipo Água de regiões diferentes.",
       "Pokémon iniciais do tipo Planta de regiões diferentes.",
-      "Pokémon voadores de aparência semelhante a dragões.",
+      "Evoluções finais de iniciais do tipo Fogo.",
       "Pokémon do tipo Fantasma conhecidos por suas aparências assustadoras e travessuras.",
       "Pokémon bípedes de aparência canina e poderes especiais.",
-      "Pokémon muito fortes de linhagens evolutivas do tipo Dragão.",
+      "Dragões voadores de três estágios evolutivos conhecidos por sua grande força.",
       "Pokémon do tipo Aço de corpo pesado e resistente.",
       "Evoluções finais de iniciais do tipo Água ligadas a agilidade e furtividade.",
       "Evoluções finais de Pokémon iniciais do tipo Fogo com estilos de combate esportivos.",
@@ -1719,7 +2530,18 @@ window.CATEGORIES.push(...[
       "Pokémon de pescoço longo associados a gelo e paisagens frias.",
       "Evoluções de Eevee obtidas por amizade em horários diferentes.",
       "Pokémon lendários de Galar ligados a espada e escudo.",
-      "Pokémon Psíquicos ligados por um experimento de clonagem."
+      "Pokémon Psíquicos ligados por um experimento de clonagem.",
+      "Lendários de Hoenn ligados à natureza e a mudanças no clima.",
+      "Lendários de Sinnoh ligados a dimensões fundamentais do universo.",
+      "Lendários de Unova relacionados à verdade, aos ideais e a grandes dragões.",
+      "Lendários de Johto de grande porte e aparência de ave.",
+      "Lendários de Alola que evoluem de Cosmoem e representam sol e lua.",
+      "Dragões lendários relacionados ao equilíbrio da natureza.",
+      "Pokémon muito poderosos de três estágios evolutivos que possuem o tipo Sombrio.",
+      "Evoluções finais de Pokémon iniciais de Hoenn.",
+      "Evoluções finais de iniciais do tipo Grama com aparência reptiliana.",
+      "Evoluções finais de iniciais do tipo Grama que usam objetos em seus ataques.",
+      "Dragões de três estágios evolutivos conhecidos por sua grande força."
     ]
   },
   {
@@ -1731,11 +2553,11 @@ window.CATEGORIES.push(...[
     "pairs": [
       [
         "Monkey D. Luffy",
-        "Roronoa Zoro"
+        "Shanks"
       ],
       [
-        "Sanji",
-        "Nami"
+        "Roronoa Zoro",
+        "Mihawk"
       ],
       [
         "Eren Yeager",
@@ -1808,11 +2630,51 @@ window.CATEGORIES.push(...[
       [
         "Joseph Joestar",
         "Josuke Higashikata"
+      ],
+      [
+        "Sanji",
+        "Portgas D. Ace"
+      ],
+      [
+        "Nami",
+        "Nico Robin"
+      ],
+      [
+        "Usopp",
+        "Trafalgar Law"
+      ],
+      [
+        "Shoto Todoroki",
+        "Ochaco Uraraka"
+      ],
+      [
+        "Shinra Kusakabe",
+        "Arthur Boyle"
+      ],
+      [
+        "Asta",
+        "Yuno"
+      ],
+      [
+        "Frieren",
+        "Fern"
+      ],
+      [
+        "Senku Ishigami",
+        "Chrome"
+      ],
+      [
+        "Kirito",
+        "Asuna"
+      ],
+      [
+        "Natsu Dragneel",
+        "Gray Fullbuster"
       ]
     ],
     "connections": [
-      "Piratas do mesmo bando que lutam para realizar grandes sonhos.",
-      "Integrantes dos Chapéus de Palha com funções essenciais no navio.",
+      "Capitães piratas de One Piece ligados ao chapéu de palha e ao uso de Haki.",
+      "Espadachins de One Piece ligados por rivalidade, treinamento e ambição de superar limites.",
       "Amigos de infância que enfrentam Titãs em Attack on Titan.",
       "Líderes da Tropa de Exploração que arriscam a vida fora das muralhas.",
       "Rivais de Death Note que travam uma disputa intelectual.",
@@ -1830,7 +2692,17 @@ window.CATEGORIES.push(...[
       "Parceiros caçadores de recompensas da nave Bebop.",
       "Integrantes da equipe de Cowboy Bebop com personalidades excêntricas.",
       "Adversários de JoJo que usam Stands com poderes ligados ao tempo.",
-      "Membros da família Joestar de gerações diferentes."
+      "Membros da família Joestar de gerações diferentes.",
+      "Personagens de One Piece conhecidos por ataques que utilizam fogo.",
+      "Mulheres dos Chapéus de Palha que usam conhecimento para orientar e apoiar a tripulação.",
+      "Aliados de Luffy que usam estratégias e posicionamento em combate.",
+      "Alunos da turma 1-A de My Hero Academia em formação para se tornarem heróis.",
+      "Integrantes da Companhia 8 de Fire Force que usam poderes de fogo.",
+      "Rivais de Black Clover que sonham em se tornar Rei Mago.",
+      "Magas de Frieren e a Jornada para o Além que viajam juntas.",
+      "Cientistas do Reino da Ciência em Dr. Stone.",
+      "Espadachins protagonistas que se relacionam em mundos virtuais de Sword Art Online.",
+      "Magos rivais e companheiros da guilda Fairy Tail que usam elementos em combate."
     ]
   },
   {
@@ -1919,6 +2791,50 @@ window.CATEGORIES.push(...[
       [
         "Lótus Branco",
         "Lótus Vermelha"
+      ],
+      [
+        "Dobra da Água",
+        "Dobra da Terra"
+      ],
+      [
+        "Dobra do Fogo",
+        "Dobra do Ar"
+      ],
+      [
+        "Dobra de Metal",
+        "Dobra de Lava"
+      ],
+      [
+        "Dobra de Sangue",
+        "Cura com Água"
+      ],
+      [
+        "Geração de Relâmpago",
+        "Redirecionamento de Relâmpago"
+      ],
+      [
+        "Ba Sing Se",
+        "Cidade República"
+      ],
+      [
+        "Tribo da Água do Norte",
+        "Tribo da Água do Sul"
+      ],
+      [
+        "Templo do Ar do Sul",
+        "Templo do Ar do Norte"
+      ],
+      [
+        "Estado Avatar",
+        "Conexão Espiritual"
+      ],
+      [
+        "Cometa de Sozin",
+        "Convergência Harmônica"
+      ],
+      [
+        "Eclipse Solar",
+        "Lua Cheia"
       ]
     ],
     "connections": [
@@ -1941,7 +2857,179 @@ window.CATEGORIES.push(...[
       "Irmãos adversários de Korra ligados à dobra de sangue.",
       "Irmãos da Tribo da Água do Norte ligados à família de Korra.",
       "Senhores do Fogo de duas gerações da mesma família real.",
-      "Ordens secretas com visões opostas sobre poder e equilíbrio."
+      "Ordens secretas com visões opostas sobre poder e equilíbrio.",
+      "Duas das quatro artes elementais de dobra do universo Avatar.",
+      "Duas artes elementais de dobra usadas para movimentar energia e se defender.",
+      "Especializações da dobra da terra.",
+      "Técnicas da dobra da água que agem no corpo de seres vivos.",
+      "Técnicas avançadas ligadas à dobra do fogo e à eletricidade.",
+      "Grandes cidades do universo Avatar que concentram população e conflitos políticos.",
+      "Sociedades polares do universo Avatar ligadas à água e ao gelo.",
+      "Templos dos Nômades do Ar situados em montanhas.",
+      "Formas de acessar energia espiritual e habilidades ligadas ao Avatar ou aos espíritos.",
+      "Eventos celestes raros que ampliam grandes poderes no mundo de Avatar.",
+      "Alinhamentos ou fases celestes que alteram o poder de artes de dobra."
+    ]
+  },
+  {
+    "id": "series",
+    "name": "Séries",
+    "tag": "Só mais um episódio",
+    "icon": "📺",
+    "color": "#60b9c8",
+    "pairs": [
+      [
+        "Stranger Things",
+        "Dark"
+      ],
+      [
+        "The Last of Us",
+        "The Walking Dead"
+      ],
+      [
+        "Breaking Bad",
+        "Ozark"
+      ],
+      [
+        "Better Call Saul",
+        "Suits"
+      ],
+      [
+        "Game of Thrones",
+        "A Casa do Dragão"
+      ],
+      [
+        "The Witcher",
+        "Os Anéis de Poder"
+      ],
+      [
+        "Friends",
+        "How I Met Your Mother"
+      ],
+      [
+        "Brooklyn Nine-Nine",
+        "The Office"
+      ],
+      [
+        "Modern Family",
+        "Eu, a Patroa e as Crianças"
+      ],
+      [
+        "The Big Bang Theory",
+        "Young Sheldon"
+      ],
+      [
+        "Chaves",
+        "Chapolin"
+      ],
+      [
+        "Todo Mundo Odeia o Chris",
+        "Um Maluco no Pedaço"
+      ],
+      [
+        "Supernatural",
+        "Grimm"
+      ],
+      [
+        "The Vampire Diaries",
+        "True Blood"
+      ],
+      [
+        "Wandinha",
+        "O Mundo Sombrio de Sabrina"
+      ],
+      [
+        "Round 6",
+        "Alice in Borderland"
+      ],
+      [
+        "La Casa de Papel",
+        "Lupin"
+      ],
+      [
+        "Sherlock",
+        "O Mentalista"
+      ],
+      [
+        "House",
+        "The Good Doctor"
+      ],
+      [
+        "Grey’s Anatomy",
+        "New Amsterdam"
+      ],
+      [
+        "Prison Break",
+        "Vis a Vis"
+      ],
+      [
+        "Peaky Blinders",
+        "Sons of Anarchy"
+      ],
+      [
+        "Narcos",
+        "El Chapo"
+      ],
+      [
+        "Lost",
+        "Manifest"
+      ],
+      [
+        "Black Mirror",
+        "Electric Dreams"
+      ],
+      [
+        "Ruptura",
+        "Westworld"
+      ],
+      [
+        "The Boys",
+        "The Umbrella Academy"
+      ],
+      [
+        "Loki",
+        "WandaVision"
+      ],
+      [
+        "The Mandalorian",
+        "Andor"
+      ],
+      [
+        "Cobra Kai",
+        "Ted Lasso"
+      ]
+    ],
+    "connections": [
+      "Mistérios de cidades pequenas em que desaparecimentos se ligam a fenômenos extraordinários.",
+      "Sobrevivência, conflitos humanos e infectados num mundo após o colapso da sociedade.",
+      "Famílias cuja vida se transforma ao se envolver profundamente com o crime.",
+      "Advogados que usam argumentos, estratégias e segredos para lidar com casos e ambições.",
+      "Disputas de poder entre famílias de Westeros, com dragões e intrigas políticas.",
+      "Mundos de fantasia com monstros, magia e conflitos entre diferentes povos.",
+      "Comédias sobre amizade, namoro e vida adulta de um grupo em Nova York.",
+      "Comédias de trabalho com um elenco de colegas de personalidades marcantes.",
+      "Comédias sobre pais, filhos e confusões da vida em família.",
+      "Comédias ligadas à inteligência, às particularidades e à vida de Sheldon Cooper.",
+      "Comédias de Roberto Gómez Bolaños conhecidas por personagens e bordões.",
+      "Comédias centradas num jovem, sua família e choques de experiências sociais.",
+      "Protagonistas que investigam e enfrentam criaturas escondidas no mundo cotidiano.",
+      "Dramas com vampiros, relacionamentos e conflitos entre humanos e seres sobrenaturais.",
+      "Jovens protagonistas que vivem entre escola, magia e mistérios sombrios.",
+      "Participantes que enfrentam jogos com regras e consequências fatais.",
+      "Crimes planejados com estratégia, disfarces e tentativas de enganar autoridades.",
+      "Investigadores que solucionam casos usando observação e dedução.",
+      "Médicos de habilidades excepcionais que enfrentam casos clínicos e dificuldades nas relações.",
+      "Dramas hospitalares com tratamentos, equipes médicas e conflitos pessoais.",
+      "Thrillers de prisão centrados em sobrevivência, alianças e tentativas de escapar.",
+      "Grupos criminosos com laços familiares, lealdade e disputas por poder.",
+      "Dramas sobre líderes do tráfico, cartéis e operações para combatê-los.",
+      "Passageiros de voos envolvidos em mistérios e fenômenos que transformam suas vidas.",
+      "Antologias de ficção científica com histórias independentes sobre tecnologia e humanidade.",
+      "Ficções científicas sobre identidade, memória e sistemas que controlam experiências.",
+      "Séries de superpoderes com equipes em conflito e consequências para a sociedade.",
+      "Séries da Marvel sobre realidades incomuns criadas ou alteradas por personagens com poderes.",
+      "Séries de Star Wars sobre protagonistas envolvidos em conflitos sob o domínio imperial.",
+      "Séries sobre treinamento esportivo, rivalidades e relações entre técnicos e alunos ou jogadores."
     ]
   }
-]);
+];

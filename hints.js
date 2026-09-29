@@ -1,583 +1,820 @@
-// Explicações editoriais organizadas por categoria; não revelam a palavra do outro papel.
-window.HINTS = {};
-function addHints(category, rows) {
-  window.HINTS[category] = Object.fromEntries(rows.trim().split('\n').map(row => {
-    const split = row.indexOf('|');
-    return [row.slice(0, split), row.slice(split + 1)];
-  }));
-}
-addHints('cotidiano', `
-Borracha|Objeto usado para apagar marcas de grafite no papel. É comum no material escolar.
-Apontador|Peça com uma lâmina que retira madeira do lápis e deixa a ponta de grafite pronta para escrever.
-Caneta|Instrumento que usa tinta para escrever ou desenhar, geralmente sobre papel.
-Lápis|Instrumento com uma mina de grafite, normalmente envolvida em madeira, usado para escrever e desenhar.
-Abajur|Lâmpada com uma cobertura que suaviza a luz, geralmente colocada sobre uma mesa ou ao lado da cama.
-Luminária|Peça que abriga uma fonte de luz e ajuda a iluminar um ambiente ou direcionar a iluminação para uma tarefa.
-Travesseiro|Peça macia usada principalmente para apoiar a cabeça e o pescoço durante o sono.
-Almofada|Peça acolchoada usada para decorar ou dar apoio e conforto ao sentar ou se encostar.
-Garfo|Talher com dentes que servem para espetar e segurar alimentos durante a refeição.
-Colher|Talher com uma parte côncava, usado para levar alimentos líquidos ou pastosos à boca e para misturar ingredientes.
-Prato|Recipiente relativamente raso usado para servir e consumir alimentos.
-Tigela|Recipiente fundo e aberto, usado para servir alimentos, como sopa e cereal, ou misturar ingredientes.
-Copo|Recipiente usado para beber líquidos, geralmente sem alça.
-Caneca|Recipiente com alça, usado para beber, especialmente bebidas quentes como café e chá.
-Sofá|Móvel estofado feito para acomodar várias pessoas sentadas.
-Poltrona|Assento individual, geralmente estofado e com encosto e braços, usado para descansar.
-Cama|Móvel destinado a dormir e descansar, normalmente formado por uma estrutura que sustenta o colchão.
-Colchão|Peça acolchoada sobre a qual a pessoa se deita. Pode ter espuma, molas ou outros materiais de suporte.
-Geladeira|Eletrodoméstico que mantém alimentos e bebidas refrigerados para ajudar na conservação.
-Freezer|Equipamento ou compartimento que mantém temperaturas abaixo de zero para congelar e conservar alimentos.
-Fogão|Aparelho com queimadores ou superfícies de aquecimento para cozinhar alimentos em panelas.
-Forno|Compartimento fechado que aquece alimentos ao redor, usado para assar pães, carnes, bolos e outras receitas.
-Vassoura|Utensílio com cabo e cerdas usado para varrer poeira e resíduos do chão.
-Rodo|Utensílio com uma faixa de borracha usado para puxar água de pisos ou vidros.
-Sabonete|Produto de higiene, sólido ou líquido, usado com água para limpar a pele.
-Shampoo|Produto usado para lavar o cabelo e o couro cabeludo, removendo sujeira e excesso de oleosidade.
-Toalha|Peça de tecido absorvente usada para secar o corpo, as mãos ou outras superfícies.
-Roupão|Roupa ampla, normalmente com faixa na cintura, usada para conforto, sobretudo após o banho.
-Caderno|Conjunto de folhas encadernadas usado para anotações, exercícios e desenhos.
-Agenda|Caderno ou ferramenta organizada por datas para registrar compromissos e planejar tarefas.
-Mochila|Bolsa com alças para ser carregada nas costas e transportar materiais ou objetos pessoais.
-Bolsa|Acessório usado para transportar objetos pessoais, carregado na mão, no braço ou no ombro.
-Relógio|Instrumento que indica as horas. Pode ser de pulso, de parede ou de mesa.
-Despertador|Relógio ou função que emite um aviso no horário programado, frequentemente para acordar alguém.
-Chave|Objeto que encaixa em uma fechadura e permite trancar ou destrancar seu mecanismo.
-Cadeado|Dispositivo portátil de segurança com uma haste que fecha, aberto por chave, combinação ou outro mecanismo.
-Chinelo|Calçado aberto e fácil de colocar, geralmente sem fixação atrás do calcanhar.
-Sandália|Calçado aberto preso ao pé por tiras, podendo ter uma tira atrás do calcanhar.
-Espelho|Superfície que reflete a luz e permite observar a própria imagem ou o que está à sua frente.
-Janela|Abertura em uma parede, normalmente com uma estrutura móvel e vidro, que permite entrada de luz e ventilação.
-`);
-addHints('filmes', `
-Titanic|Romance e drama em que Jack e Rose se conhecem durante a viagem do navio Titanic, que sofre um naufrágio.
-Avatar|Ficção científica ambientada em Pandora, onde humanos entram em conflito com os Na’vi. Jake Sully usa um corpo avatar.
-Shrek|Animação sobre um ogro que embarca numa aventura com um burro falante e conhece a princesa Fiona.
-Monstros S.A.|Animação sobre uma fábrica que coleta energia dos gritos das crianças. Sulley e Mike conhecem a pequena Boo.
-Procurando Nemo|Animação em que o peixe-palhaço Marlin atravessa o oceano para encontrar seu filho, levado por um mergulhador.
-Procurando Dory|Animação em que Dory, uma peixe com dificuldades de memória recente, tenta reencontrar a família.
-Toy Story|Série de animações sobre brinquedos que ganham vida quando os humanos não estão olhando, incluindo Woody e Buzz Lightyear.
-Os Incríveis|Animação sobre uma família de super-heróis que tenta conciliar a vida cotidiana com o combate ao crime.
-Frozen|Animação sobre as irmãs Anna e Elsa, princesa e rainha de Arendelle. Elsa tem poderes ligados ao gelo.
-Moana|Animação sobre uma jovem navegadora que parte pelo oceano para salvar seu povo, acompanhada pelo semideus Maui.
-O Rei Leão|Animação sobre Simba, um jovem leão que precisa descobrir seu lugar no ciclo da vida e enfrentar o passado.
-Madagascar|Animação em que animais de um zoológico de Nova York vão parar numa ilha e precisam se adaptar à vida selvagem.
-Harry Potter|Saga de fantasia sobre um jovem bruxo que estuda em Hogwarts e enfrenta o bruxo das trevas Voldemort.
-Animais Fantásticos|Saga do universo bruxo centrada nas aventuras de Newt Scamander, estudioso de criaturas mágicas, e no conflito com Grindelwald.
-Star Wars|Saga espacial sobre conflitos na galáxia, com Jedi, Sith, sabres de luz e uma energia chamada Força.
-Star Trek|Franquia de ficção científica sobre exploração espacial, contato com civilizações e as missões de tripulações da Frota Estelar.
-Matrix|Ficção científica em que Neo descobre que a realidade conhecida pelos humanos é uma simulação controlada por máquinas.
-A Origem|Suspense de ficção científica sobre especialistas que entram nos sonhos para roubar informações ou implantar uma ideia.
-Jurassic Park|Aventura sobre um parque que recria dinossauros por engenharia genética e perde o controle das criaturas.
-King Kong|História de um gorila gigantesco, associado à Ilha da Caveira, que é levado ao encontro do mundo humano.
-Velozes e Furiosos|Franquia de ação com corridas, carros, assaltos e missões perigosas, centrada no grupo de Dominic Toretto.
-Need for Speed|Filme de ação inspirado nos jogos de corrida, sobre um piloto que participa de uma competição após sair da prisão.
-Invocação do Mal|Série de terror que dramatiza casos de assombrações investigados pelo casal Ed e Lorraine Warren.
-Atividade Paranormal|Franquia de terror que usa a aparência de gravações domésticas para mostrar fenômenos sobrenaturais dentro de casas.
-It: A Coisa|Terror baseado na obra de Stephen King, sobre uma entidade que explora medos e costuma aparecer como o palhaço Pennywise.
-O Exorcista|Filme de terror sobre uma menina possuída por uma entidade e a tentativa de expulsá-la por meio de um exorcismo.
-Homem-Aranha|Filmes sobre o herói que usa teias, escala paredes e combate o crime. Peter Parker é sua identidade mais conhecida.
-Batman|Filmes sobre o vigilante de Gotham City que usa investigação, treinamento e tecnologia para combater criminosos.
-Vingadores|Filmes da Marvel que reúnem heróis como Homem de Ferro, Thor e Capitão América contra ameaças que exigem uma equipe.
-Liga da Justiça|Filmes da DC sobre a união de heróis como Batman, Mulher-Maravilha e Superman para enfrentar grandes ameaças.
-Rocky|Drama esportivo sobre Rocky Balboa, um boxeador da Filadélfia que recebe uma oportunidade de lutar pelo título mundial.
-Creed|Saga de boxe sobre Adonis Creed, filho de Apollo Creed, que busca construir a própria trajetória no esporte.
-Jogos Vorazes|Saga distópica sobre Katniss Everdeen, obrigada a participar de uma competição mortal televisionada pelo governo de Panem.
-Divergente|Saga distópica em que a sociedade é dividida em facções. Tris não se encaixa em apenas uma delas.
-O Senhor dos Anéis|Saga de fantasia em que uma comitiva parte numa missão para destruir um anel poderoso e impedir a vitória de Sauron.
-O Hobbit|Aventura de fantasia em que Bilbo Bolseiro acompanha anões numa jornada para recuperar seu reino do dragão Smaug.
-Piratas do Caribe|Saga de aventuras marítimas com o capitão Jack Sparrow, tesouros, maldições e criaturas sobrenaturais.
-Peter Pan|História de um menino que não cresce e leva crianças para a Terra do Nunca, onde enfrenta o Capitão Gancho.
-Ratatouille|Animação sobre Remy, um rato que sonha em cozinhar e encontra uma forma de trabalhar numa cozinha de Paris.
-Kung Fu Panda|Animação sobre Po, um panda escolhido para se tornar o Dragão Guerreiro e aprender kung fu.
-`);
-addHints('naruto', `
-Naruto|Naruto Uzumaki é um ninja de Konoha que sonha em ser Hokage. É conhecido por sua determinação e pelos clones das sombras.
-Sasuke|Sasuke Uchiha é um ninja do Time 7, habilidoso em técnicas de fogo e no uso dos olhos de seu clã.
-Sakura|Sakura Haruno é uma ninja do Time 7 que se especializa em medicina e em golpes fortalecidos pelo controle de energia.
-Ino|Ino Yamanaka é uma ninja de Konoha especializada em técnicas mentais, incluindo transferir sua consciência para outra pessoa.
-Kakashi|Kakashi Hatake é o professor do Time 7, conhecido pela máscara, pela leitura e por copiar técnicas de outros ninjas.
-Might Guy|Professor de Konoha especializado em taijutsu, o combate corporal. Treina com extrema dedicação e domina os Oito Portões.
-Hinata|Hinata Hyuga é uma ninja de Konoha cujo estilo usa visão especial e golpes precisos nos pontos de circulação de energia.
-Neji|Neji Hyuga é um prodígio de seu clã, conhecido pelo Punho Gentil e por uma defesa giratória.
-Itachi|Itachi Uchiha é o irmão mais velho de Sasuke, conhecido por ilusões poderosas e por integrar uma organização de ninjas renegados.
-Shisui|Shisui Uchiha é um ninja célebre por sua velocidade e por uma técnica ocular capaz de influenciar a mente.
-Gaara|Ninja da Vila da Areia que controla areia para atacar e se defender. Assume o cargo de Kazekage.
-Kankuro|Ninja da Vila da Areia especializado em marionetes, controladas à distância por fios de energia.
-Jiraiya|Um dos Três Sannin Lendários. É um mestre de Naruto e usa invocações de sapos em combate.
-Orochimaru|Um dos Três Sannin Lendários, obcecado por descobrir técnicas e prolongar a vida. É associado a serpentes e experimentos.
-Tsunade|Uma dos Três Sannin Lendários e Quinta Hokage. É uma ninja médica conhecida por sua força física extraordinária.
-Shizune|Ninja médica e assistente da Quinta Hokage. Ajuda com cuidados médicos e tarefas administrativas.
-Kunai|Ferramenta ninja semelhante a uma adaga curta, usada em combate próximo, arremessos e armadilhas.
-Shuriken|Arma de arremesso com pontas, frequentemente em formato de estrela, usada para atingir ou distrair alvos.
-Rasengan|Técnica que concentra energia numa esfera giratória na palma da mão, causando um forte impacto ao tocar o alvo.
-Chidori|Técnica que concentra relâmpagos na mão para um golpe de perfuração em alta velocidade. Produz um som agudo característico.
-Sharingan|Poder ocular do clã Uchiha que melhora a percepção de movimentos, permite copiar muitas técnicas e lançar ilusões.
-Byakugan|Poder ocular associado ao clã Hyuga. Permite visão quase completa ao redor do usuário e enxergar a rede de energia corporal.
-Konoha|A Vila Oculta da Folha, no País do Fogo. É a comunidade ninja onde o protagonista cresceu, governada pelo Hokage.
-Vila da Areia|Sunagakure, a vila ninja do País do Vento. Fica numa região desértica e é liderada pelo Kazekage.
-Chakra|Energia produzida pela combinação de componentes físicos e espirituais. Os ninjas a moldam para executar suas técnicas.
-Energia natural|Energia presente no ambiente, absorvida e equilibrada com a do próprio corpo para usar técnicas de senjutsu.
-Akatsuki|Organização de ninjas renegados, reconhecida pelos mantos escuros com nuvens vermelhas e pela perseguição às bestas com caudas.
-ANBU|Unidades ninja de operações especiais que executam missões sigilosas. Seus membros costumam usar máscaras de animais.
-Kurama|A Raposa de Nove Caudas, uma das bestas com caudas. É conhecida por sua enorme reserva de energia.
-Shukaku|A besta com uma cauda, de aparência semelhante a um tanuki. É associada à areia e a técnicas de selamento.
-Rock Lee|Ninja de Konoha que compensa a falta de talento para técnicas mágicas com treinamento intenso em combate corporal.
-Tenten|Ninja de Konoha especialista em armas, que guarda e invoca equipamentos por meio de pergaminhos.
-Shikamaru|Ninja do clã Nara, conhecido pela inteligência estratégica e por técnicas que controlam sombras.
-Choji|Ninja do clã Akimichi que usa técnicas de expansão corporal para aumentar de tamanho e combater inimigos.
-Minato|O Quarto Hokage, conhecido como Relâmpago Amarelo por sua velocidade e por uma técnica de teletransporte com marcações.
-Tobirama|O Segundo Hokage, um grande usuário de técnicas de água e criador de diversos jutsus importantes.
-Madara|Um dos fundadores de Konoha e poderoso guerreiro do clã Uchiha, conhecido por seus poderes oculares e ambição.
-Obito|Ninja do clã Uchiha que integrou a equipe de Minato. Sua história tem grande importância nos conflitos da série.
-Ninjutsu|Categoria ampla de técnicas ninja que usam energia moldada para gerar efeitos como elementos, clones ou invocações.
-Genjutsu|Categoria de técnicas de ilusão que altera a percepção dos sentidos de um alvo, fazendo-o vivenciar algo que não é real.
-`);
-addHints('hxh', `
-Gon|Gon Freecss é um jovem que se torna Hunter para procurar o pai. Luta com grande força física e uma técnica de pedra, papel e tesoura.
-Killua|Killua Zoldyck é um jovem de uma família de assassinos. É muito ágil e desenvolve habilidades que imitam eletricidade.
-Kurapika|Sobrevivente do clã Kurta, conhecido pelos olhos escarlates. Usa correntes e busca recuperar os olhos roubados de seu povo.
-Leorio|Amigo dos protagonistas que deseja se tornar médico. Busca recursos para ajudar pessoas sem acesso a tratamento.
-Hisoka|Lutador de aparência circense que procura adversários fortes. Sua aura pode adquirir propriedades de borracha e goma.
-Illumi|Assassino da família Zoldyck que utiliza agulhas para alterar aparências e controlar pessoas.
-Netero|Presidente da Associação Hunter durante parte da história. É um mestre de artes marciais com ataques ligados a uma grande figura de oração.
-Zeno|Veterano assassino da família Zoldyck que molda sua aura em formas de dragão.
-Chrollo|Líder da Trupe Fantasma. Usa um livro especial para roubar e empregar habilidades, sob condições específicas.
-Feitan|Integrante da Trupe Fantasma que luta com uma espada e pode converter dano sofrido num contra-ataque extremamente poderoso.
-Biscuit|Hunter e professora de combate, também chamada de Bisky. Sua aparência infantil esconde uma forma física muito mais forte.
-Wing|Instrutor que ensina os fundamentos do controle de aura aos protagonistas na Torre Celestial.
-Meruem|Rei das Formigas Quimera, dotado de força e inteligência extraordinárias. Desenvolve grande interesse por jogos de estratégia.
-Neferpitou|Membro da Guarda Real das Formigas Quimera, de aparência felina, com habilidades de detecção e manipulação de corpos.
-Shaiapouf|Membro da Guarda Real das Formigas Quimera, com traços de borboleta, dedicado a proteger os interesses do rei.
-Menthuthuyoupi|Membro da Guarda Real das Formigas Quimera que transforma o próprio corpo e possui imensa força física.
-Machi|Integrante da Trupe Fantasma que transforma aura em fios, usados para prender, rastrear e costurar ferimentos.
-Shizuku|Integrante da Trupe Fantasma que materializa um aspirador capaz de sugar objetos e substâncias, com limitações específicas.
-Phinks|Integrante da Trupe Fantasma que aumenta a potência de seu soco ao girar o braço.
-Uvogin|Integrante da Trupe Fantasma especializado em força bruta e resistência física, com golpes devastadores.
-Nen|Sistema de técnicas para perceber e controlar a aura, a energia vital do corpo. É a base das habilidades especiais da série.
-Hatsu|Um dos princípios básicos do controle de aura: sua expressão pessoal em ações e habilidades ligadas às aptidões do usuário.
-Ten|Princípio que mantém a aura envolvendo o corpo, reduzindo sua dispersão e oferecendo proteção básica.
-Ren|Princípio que aumenta a quantidade e a intensidade da aura liberada, elevando o poder disponível para combate.
-Zetsu|Princípio que fecha a saída de aura, ajudando a ocultar a presença, mas deixando o corpo mais vulnerável a ataques de aura.
-In|Técnica avançada que oculta a aura da percepção sem necessariamente interromper o uso de uma habilidade.
-Gyo|Técnica que concentra uma parcela maior de aura numa parte do corpo. Nos olhos, ajuda a perceber aura escondida.
-En|Técnica que expande a aura ao redor do corpo para detectar formas e movimentos dentro de uma área.
-Reforço|Categoria de aura voltada a fortalecer propriedades naturais do corpo ou de objetos, como força, resistência e recuperação.
-Emissão|Categoria de aura que facilita separar energia do corpo e mantê-la ativa à distância, como em projéteis.
-Transmutação|Categoria de aura que permite mudar suas propriedades para imitar substâncias ou fenômenos, como eletricidade.
-Manipulação|Categoria de aura voltada a controlar seres vivos ou objetos, normalmente mediante condições impostas pela habilidade.
-Materialização|Categoria de aura que permite criar objetos concretos, muitas vezes dotados de regras ou propriedades especiais.
-Especialização|Categoria para habilidades de aura que não se encaixam nas outras cinco, apresentando efeitos muito particulares.
-Exame Hunter|Processo de seleção perigoso e variado que candidatos enfrentam para conquistar uma licença profissional de Hunter.
-Torre Celestial|Arena vertical em que lutadores sobem de andar ao vencer combates, encontrando adversários cada vez mais fortes.
-Greed Island|Jogo especial criado com habilidades de aura, no qual participantes entram num ambiente real e coletam cartas.
-Yorknew|Grande cidade que recebe um leilão importante e serve de cenário para conflitos envolvendo criminosos e colecionadores.
-Trupe Fantasma|Grupo de ladrões e criminosos conhecido como Aranha, cujos membros possuem habilidades de combate muito perigosas.
-Formigas Quimera|Espécie capaz de transmitir à prole características das criaturas que a rainha consome. Constitui uma ameaça central na história.
-`);
-addHints('bleach', `
-Ichigo|Ichigo Kurosaki é um jovem que consegue ver espíritos e se torna um ceifador de almas substituto, protegendo pessoas e combatendo monstros espirituais.
-Rukia|Rukia Kuchiki é uma ceifadora de almas que introduz o protagonista ao mundo espiritual. Sua espada possui habilidades ligadas ao frio.
-Renji|Renji Abarai é um oficial da Sexta Divisão. Sua espada, Zabimaru, pode se estender em segmentos para atacar à distância.
-Ikkaku|Ikkaku Madarame é um guerreiro da Décima Primeira Divisão, conhecido pela cabeça raspada e pelo gosto por combates diretos.
-Byakuya|Byakuya Kuchiki é o capitão da Sexta Divisão. Sua espada pode se dividir em inúmeras lâminas semelhantes a pétalas.
-Toshiro|Toshiro Hitsugaya é um jovem capitão da Décima Divisão, conhecido por seus cabelos brancos e pelo controle do gelo.
-Aizen|Sosuke Aizen é um estrategista e antigo capitão, cuja espada pode submeter os sentidos de um alvo à hipnose completa.
-Gin|Gin Ichimaru é um capitão de sorriso enigmático. Sua espada pode se alongar rapidamente para atingir inimigos.
-Orihime|Orihime Inoue é amiga do protagonista. Seus poderes criam barreiras e podem rejeitar acontecimentos, permitindo reparar ferimentos.
-Chad|Yasutora Sado, chamado Chad, é um amigo fisicamente poderoso do protagonista, com habilidades espirituais concentradas nos braços.
-Uryu|Uryu Ishida é um arqueiro espiritual da linhagem Quincy. Usa partículas espirituais para formar armas e combater criaturas sobrenaturais.
-Ryuken|Ryuken Ishida é o pai de Uryu, um médico e habilidoso arqueiro espiritual de linhagem Quincy.
-Urahara|Kisuke Urahara é o dono de uma loja de artigos espirituais, um inventor habilidoso e antigo capitão da Décima Segunda Divisão.
-Yoruichi|Yoruichi Shihoin é uma antiga comandante das forças especiais, famosa por sua velocidade e pela capacidade de assumir a forma de um gato.
-Kenpachi|Kenpachi Zaraki é o capitão da Décima Primeira Divisão. Procura adversários fortes e se destaca pela força e resistência.
-Unohana|Retsu Unohana é uma capitã conhecida pela medicina e pela calma, com profundo domínio de técnicas de cura e combate.
-Yamamoto|Genryusai Yamamoto é o veterano comandante das treze divisões. Sua espada libera fogo de enorme poder destrutivo.
-Shunsui|Shunsui Kyoraku é um capitão de aparência descontraída. As habilidades de suas espadas impõem regras inspiradas em jogos.
-Ulquiorra|Ulquiorra Cifer é um dos Espada, reconhecido pela aparência pálida, postura fria e habilidades de regeneração.
-Grimmjow|Grimmjow Jaegerjaquez é um dos Espada, com cabelo azul, personalidade agressiva e uma forma liberada associada a uma pantera.
-Hollow|Espírito corrompido que costuma ter máscara e um buraco no corpo. Ataca almas e seres humanos espiritualmente sensíveis.
-Arrancar|Criatura espiritual que removeu parte de sua máscara e ganhou características semelhantes às de um ceifador de almas, incluindo uma espada.
-Shinigami|Ceifador de almas que guia espíritos ao além e combate criaturas corrompidas, ajudando a manter o equilíbrio entre os mundos.
-Quincy|Integrante de uma linhagem humana que manipula partículas espirituais para formar armas e combater seres espirituais.
-Shikai|Primeira liberação de uma espada espiritual, alcançada ao desenvolver a relação com seu espírito e conhecer seu nome.
-Bankai|Liberação avançada de uma espada espiritual, que manifesta uma forma mais completa de seu poder e exige grande domínio.
-Zanpakuto|Espada espiritual usada por ceifadores de almas, com um espírito próprio e habilidades que refletem seu portador.
-Asauchi|Espada-base, inicialmente sem identidade individual, sobre a qual um ceifador de almas imprime sua essência ao conviver com ela.
-Soul Society|Mundo espiritual para onde muitas almas humanas são encaminhadas após a morte e onde vivem os ceifadores de almas.
-Hueco Mundo|Dimensão de paisagem desértica e noite constante, habitada principalmente por espíritos corrompidos e seus derivados.
-Seireitei|Área fortificada onde ficam os quartéis e a administração dos ceifadores de almas, dentro do mundo espiritual.
-Rukongai|Conjunto de distritos ao redor da área fortificada do mundo espiritual, onde vive a maior parte das almas comuns.
-Getsuga Tensho|Ataque que concentra energia na lâmina e a libera como uma onda cortante, característico do protagonista.
-Cero|Disparo concentrado de energia espiritual, geralmente usado por criaturas corrompidas e seus derivados.
-Reiatsu|Pressão espiritual produzida quando um ser libera seu poder. Pode ser percebida por outros e até exercer força sobre o ambiente.
-Reiryoku|Poder espiritual que um ser possui e utiliza para alimentar suas habilidades sobrenaturais.
-Hogyoku|Artefato capaz de interferir nos limites entre diferentes tipos de seres espirituais, central nos planos de um dos antagonistas.
-Sokyoku|Arma de execução do mundo espiritual, que assume uma forma flamejante semelhante a uma ave quando liberada.
-Kon|Uma alma modificada que costuma habitar um leão de pelúcia e pode ocupar temporariamente um corpo humano.
-Yachiru|Yachiru Kusajishi é uma pequena oficial de cabelos rosados da Décima Primeira Divisão, muito próxima de seu capitão.
-`);
-addHints('jjk', `
-Yuji Itadori|Estudante de força física incomum que entra no mundo da feitiçaria após engolir um objeto amaldiçoado perigoso.
-Yuta Okkotsu|Jovem feiticeiro de enorme poder, ligado à entidade Rika. É o protagonista de Jujutsu Kaisen 0.
-Megumi Fushiguro|Estudante que usa a Técnica das Dez Sombras para invocar criaturas espirituais e auxiliar em combate.
-Nobara Kugisaki|Estudante que combate maldições usando martelo, pregos e bonecos de palha para canalizar sua técnica.
-Satoru Gojo|Professor e feiticeiro conhecido pela venda nos olhos. Combina os Seis Olhos com uma técnica de manipulação do espaço.
-Suguru Geto|Feiticeiro capaz de absorver e controlar espíritos amaldiçoados. Sua relação com a sociedade jujutsu é central na história.
-Sukuna|Figura lendária conhecida como Rei das Maldições, cujo poder persiste em objetos amaldiçoados extremamente perigosos.
-Mahito|Espírito amaldiçoado ligado ao ódio entre humanos, capaz de tocar e alterar a forma das almas e dos corpos.
-Maki Zenin|Estudante especializada no uso de armas amaldiçoadas e no combate físico, que desafia as expectativas de seu clã.
-Mai Zenin|Estudante de Kyoto que utiliza um revólver e uma técnica capaz de criar matéria a partir de energia.
-Toge Inumaki|Estudante cuja fala pode impor comandos aos alvos. Usa palavras de ingredientes de comida para evitar efeitos acidentais.
-Panda|Cadáver amaldiçoado autônomo com consciência e aparência de panda, criado pelo diretor da escola de Tóquio.
-Kento Nanami|Feiticeiro e ex-assalariado que usa uma técnica de proporção para criar pontos fracos nos alvos.
-Aoi Todo|Estudante de Kyoto, forte no combate corporal. Sua técnica permite trocar posições de alvos que tenham energia amaldiçoada.
-Jogo|Espírito amaldiçoado de aparência vulcânica, cujos ataques utilizam chamas e calor intenso.
-Hanami|Espírito amaldiçoado ligado ao medo da natureza, que luta usando plantas e outras habilidades relacionadas à vegetação.
-Choso|Encarnação de uma Pintura da Morte, profundamente ligado aos irmãos. Usa uma técnica de manipulação de sangue.
-Eso|Uma das Pinturas da Morte encarnadas, que utiliza sangue numa técnica capaz de provocar decomposição.
-Toji Fushiguro|Combatente sem energia amaldiçoada, mas com capacidades físicas excepcionais. É conhecido por caçar feiticeiros usando armas especiais.
-Naobito Zenin|Chefe do clã Zenin durante parte da história, que utiliza a Feitiçaria de Projeção para executar movimentos extremamente rápidos.
-Kasumi Miwa|Estudante de Kyoto que combate com uma espada e utiliza técnicas defensivas do Novo Estilo das Sombras.
-Momo Nishimiya|Estudante de Kyoto que manipula uma vassoura para voar e desempenhar funções de reconhecimento e apoio.
-Utahime|Utahime Iori é uma professora da escola de Kyoto, cuja técnica pode ampliar a energia de feiticeiros dentro de seu alcance.
-Shoko Ieiri|Médica da escola de Tóquio, capaz de usar uma técnica de energia positiva para tratar ferimentos de outras pessoas.
-Energia amaldiçoada|Energia originada das emoções negativas humanas. Alimenta técnicas de feiticeiros e está ligada à formação de maldições.
-Energia reversa|Nome usado aqui para a energia positiva gerada pela técnica reversa. Pode regenerar tecidos e alimentar efeitos invertidos de certas técnicas.
-Expansão de domínio|Técnica avançada que manifesta o domínio do usuário. Muitas formas criam uma barreira e concedem acerto garantido à técnica aplicada.
-Domínio simples|Técnica que cria uma área defensiva e pode neutralizar o efeito de acerto garantido de um domínio enquanto se mantém ativa.
-Cão Divino|Invocação canina da Técnica das Dez Sombras, usada para rastrear maldições e atacar inimigos.
-Nue|Invocação alada da Técnica das Dez Sombras, capaz de voar e produzir descargas elétricas.
-Roxo|Ataque de Gojo que combina atração e repulsão em um efeito de enorme poder destrutivo.
-Vermelho|Aplicação invertida da técnica espacial de Gojo, alimentada por energia positiva, que produz uma forte repulsão.
-Azul|Aplicação da técnica espacial de Gojo que produz atração, puxando alvos e matéria para um ponto.
-Infinito|Efeito da técnica espacial de Gojo que faz objetos desacelerarem ao se aproximar, impedindo o contato normal com ele.
-Dedo do Sukuna|Objeto amaldiçoado que preserva parte do poder de uma entidade lendária. É extremamente perigoso e atrai maldições.
-Útero amaldiçoado|Estado de formação de uma maldição, que pode evoluir para um espírito mais poderoso. Algumas formas especiais são objetos amaldiçoados.
-Escola de Tóquio|Instituição jujutsu que treina feiticeiros e organiza missões contra maldições. É a escola principal acompanhada pela série.
-Escola de Kyoto|Instituição jujutsu de Kyoto que forma feiticeiros e participa de eventos de intercâmbio com a outra escola.
-Kokushen|Fenômeno conhecido como Black Flash: energia aplicada quase simultaneamente ao impacto físico distorce o espaço e amplifica o golpe.
-Punho divergente|Golpe em que o impacto físico é seguido por uma segunda descarga de energia, devido ao atraso entre os dois.
-`);
-addHints('db', `
-Goku|Saiyajin criado na Terra que adora treinar e enfrentar adversários fortes. É o protagonista e um dos principais defensores do planeta.
-Vegeta|Príncipe dos saiyajins, orgulhoso e dedicado ao combate. Sua rivalidade e evolução o tornam um dos guerreiros centrais da série.
-Gohan|Filho mais velho do protagonista, um guerreiro com grande potencial que também valoriza os estudos e a família.
-Trunks|Filho de Bulma, conhecido pelos cabelos claros. Sua versão do futuro viaja no tempo e utiliza uma espada.
-Goten|Filho mais novo de Goku, com aparência semelhante à do pai quando criança e grande talento para lutar.
-Pan|Filha de Gohan e Videl, neta do protagonista. Demonstra talento para artes marciais desde pequena.
-Piccolo|Guerreiro namekuseijin de pele verde, antenas e grande capacidade de regeneração. Atua como aliado e mentor.
-Kami|Guardião da Terra durante parte da história, um namekuseijin que vive num templo elevado e está ligado às esferas terrestres.
-Kuririn|Guerreiro humano, amigo de infância do protagonista e praticante de artes marciais. Usa um ataque de disco cortante.
-Tenshinhan|Artista marcial humano de três olhos, conhecido por técnicas como o Kikoho e pela disciplina nos treinos.
-Bulma|Inventora e cientista da Corporação Cápsula. Desenvolve equipamentos fundamentais para as aventuras dos guerreiros.
-Chi-Chi|Artista marcial, esposa do protagonista e mãe de dois filhos, conhecida por priorizar a educação e o bem-estar da família.
-Freeza|Imperador espacial cruel, responsável por conquistar planetas. Possui várias formas de transformação e poder destrutivo imenso.
-Cell|Bioandroide criado com células de diversos guerreiros. Busca atingir sua forma perfeita e organiza um torneio de combate.
-Majin Boo|Ser mágico de aparência rosada, capaz de regenerar o corpo e transformar pessoas em doces. Possui diferentes formas.
-Janemba|Vilão do filme Uma Nova Fusão, originado de energia maligna no outro mundo. Distorce o espaço e a realidade ao redor.
-Beerus|Deus da Destruição do Universo 7, de aparência felina. Seu papel está ligado à destruição de mundos no equilíbrio cósmico.
-Champa|Deus da Destruição do Universo 6, irmão de Beerus, conhecido por sua rivalidade e interesse por comida.
-Whis|Anjo que acompanha e treina o Deus da Destruição do Universo 7. Possui habilidades extraordinárias de combate e deslocamento.
-Vados|Anjo que acompanha o Deus da Destruição do Universo 6 e é irmã de Whis.
-Broly|Saiyajin conhecido por um poder que cresce de forma extraordinária durante o combate. Suas histórias variam entre as versões dos filmes.
-Kale|Saiyajin do Universo 6, amiga de Caulifla, capaz de assumir uma transformação de enorme poder e musculatura.
-Gogeta|Guerreiro resultante da união dos dois principais saiyajins por meio da Dança da Fusão, combinando seus poderes.
-Vegetto|Guerreiro resultante da união dos dois principais saiyajins pelo uso dos brincos Potara, combinando suas habilidades.
-Kamehameha|Técnica de artes marciais que concentra energia nas mãos e a dispara em forma de uma poderosa rajada.
-Galick Ho|Técnica de Vegeta que concentra energia e lança uma grande rajada, geralmente representada em tons de roxo.
-Genki Dama|Técnica que reúne energia cedida por seres vivos e pela natureza para formar uma grande esfera de ataque.
-Esfera da Morte|Ataque associado ao imperador espacial que forma uma bola de energia com enorme capacidade de destruição.
-Super Saiyajin|Transformação que amplia o poder de um saiyajin. Sua forma clássica apresenta cabelos dourados e olhos claros.
-Kaioken|Técnica que multiplica temporariamente o desempenho e a energia do corpo, mas exige muito esforço físico do usuário.
-Shenlong|Dragão invocado quando as sete esferas mágicas da Terra são reunidas, capaz de conceder desejos dentro de limites.
-Porunga|Dragão das esferas de Namekusei, conhecido pela aparência musculosa e por conceder desejos conforme as regras de seu conjunto.
-Esferas do Dragão|Esferas mágicas que, quando reunidas num conjunto completo, permitem invocar um dragão capaz de realizar desejos.
-Radar do Dragão|Dispositivo criado para detectar e localizar as esferas mágicas, mostrando suas posições numa tela.
-Namekusei|Planeta de origem dos namekuseijins, associado a paisagens de céu esverdeado e a um conjunto próprio de esferas mágicas.
-Planeta Vegeta|Mundo que servia de lar aos saiyajins e era governado por sua monarquia antes de ser destruído.
-Nuvem Voadora|Nuvem mágica usada como transporte aéreo, que só permite que pessoas de coração puro a montem.
-Bastão Mágico|Bastão vermelho capaz de aumentar e diminuir de comprimento, utilizado pelo protagonista em suas primeiras aventuras.
-Semente dos Deuses|Alimento especial cultivado por Karin, capaz de restaurar energia e recuperar muitos ferimentos rapidamente.
-Cápsula|Pequeno recipiente tecnológico da Corporação Cápsula que armazena objetos grandes, como veículos e casas, de forma portátil.
-`);
-addHints('herois', `
-Homem de Ferro|Herói da Marvel: Tony Stark, inventor que utiliza armaduras tecnológicas para voar, se proteger e combater ameaças.
-Batman|Herói da DC: Bruce Wayne, vigilante de Gotham que utiliza investigação, treinamento e equipamentos, sem superpoderes naturais.
-Superman|Herói da DC, um kryptoniano criado na Terra como Clark Kent. Possui força, voo e visão de calor, entre outros poderes.
-Capitã Marvel|Heroína da Marvel, conhecida principalmente como Carol Danvers. Possui força ampliada, voo e capacidade de absorver e projetar energia.
-Thor|Herói da Marvel inspirado no deus nórdico do trovão. É um guerreiro asgardiano associado a tempestades e a um martelo encantado.
-Shazam|Herói da DC: um jovem, normalmente Billy Batson, que assume uma forma adulta com poderes mágicos ao dizer uma palavra.
-Flash|Título de heróis velocistas da DC, como Barry Allen e Wally West, capazes de se mover em velocidades extraordinárias.
-Mercúrio|Herói da Marvel, Pietro Maximoff, conhecido por sua supervelocidade e por ser irmão de Wanda Maximoff.
-Arqueiro Verde|Herói da DC, Oliver Queen, que usa arco, flechas especiais e habilidade de combate para enfrentar criminosos.
-Gavião Arqueiro|Herói da Marvel, mais associado a Clint Barton, um arqueiro de precisão excepcional que usa flechas com funções especiais.
-Aquaman|Herói da DC, Arthur Curry, ligado ao reino de Atlântida, capaz de viver debaixo d’água e se comunicar com a vida marinha.
-Namor|Personagem da Marvel, governante submarino com força extraordinária e pequenas asas nos tornozelos que permitem voar.
-Mulher-Maravilha|Heroína da DC, Diana, uma guerreira amazona de Themyscira. Utiliza um laço mágico e braceletes em sua defesa da humanidade.
-Valquíria|Personagem da Marvel ligada às guerreiras de Asgard. É conhecida pela habilidade com espadas e por seu vínculo com a mitologia nórdica.
-Doutor Estranho|Herói da Marvel, Stephen Strange, um ex-cirurgião que se torna mestre das artes místicas e protege o mundo de ameaças mágicas.
-Doutor Destino (DC)|Herói místico da DC, chamado Doctor Fate no original. Usa um elmo ligado a Nabu e à magia da Ordem.
-Homem-Aranha|Herói da Marvel, mais conhecido como Peter Parker. Escala paredes, usa teias e possui um sentido que alerta sobre perigos.
-Asa Noturna|Herói da DC, Dick Grayson, antigo Robin. É um acrobata e vigilante que costuma combater com dois bastões.
-Hulk|Personagem da Marvel ligado a Bruce Banner, transformado por radiação gama num ser de força e resistência extraordinárias.
-Coisa|Herói da Marvel, Ben Grimm, integrante do Quarteto Fantástico. Seu corpo rochoso proporciona grande força e resistência.
-Viúva Negra|Heroína da Marvel, mais conhecida como Natasha Romanoff, uma espiã especialista em infiltração, combate e uso de equipamentos.
-Canário Negro|Heroína da DC, geralmente Dinah Lance, especialista em artes marciais e conhecida por emitir um poderoso grito sônico.
-Wolverine|Herói mutante da Marvel, também chamado Logan. Possui sentidos aguçados, cura acelerada e garras, frequentemente revestidas de adamantium.
-Pantera Negra|Herói da Marvel e título ligado à proteção de Wakanda, conhecido principalmente por T’Challa e pelo uso de tecnologia de vibranium.
-Capitão América|Herói da Marvel, mais associado a Steve Rogers, fortalecido por um soro e conhecido por seu escudo circular.
-Soldado Invernal|Personagem da Marvel, Bucky Barnes, um combatente treinado que possui um braço cibernético e uma história como agente controlado.
-Lanterna Verde|Título de heróis da DC que usam anéis capazes de criar construções de energia alimentadas pela força de vontade.
-Nova|Título de heróis cósmicos da Marvel, como Richard Rider e Sam Alexander, ligados a uma força que concede voo e poderes energéticos.
-Feiticeira Escarlate|Personagem da Marvel, Wanda Maximoff, associada à magia do caos e a poderes capazes de alterar probabilidades e a realidade.
-Zatanna|Heroína e maga da DC, conhecida por realizar feitiços pronunciando palavras e frases ao contrário.
-Homem-Formiga|Título de heróis da Marvel, como Hank Pym e Scott Lang, que usam tecnologia para alterar de tamanho e se comunicar com formigas.
-Átomo|Título de heróis da DC, como Ray Palmer, que usam tecnologia para encolher até escalas microscópicas ou subatômicas.
-Ciborgue|Herói da DC, Victor Stone, cujo corpo foi integrado a tecnologia avançada, permitindo controlar sistemas e usar armamentos.
-Visão|Herói sintético da Marvel, capaz de alterar a densidade do corpo para atravessar objetos ou aumentar sua resistência.
-Ravena|Heroína da DC associada aos Titãs, filha do demônio Trigon. Usa poderes místicos e possui forte ligação com emoções.
-Jean Grey|Heroína mutante da Marvel, integrante dos X-Men, com telepatia, telecinese e uma conhecida ligação com a Força Fênix.
-Supergirl|Heroína da DC, conhecida principalmente como Kara Zor-El, uma kryptoniana com voo, força e outros poderes semelhantes aos do primo.
-Mulher-Hulk|Heroína da Marvel, Jennifer Walters, uma advogada que adquire força e aparência transformada após receber sangue de seu primo.
-Batgirl|Título de heroínas da DC que combatem o crime com treinamento e equipamentos. Barbara Gordon é uma de suas identidades mais conhecidas.
-Mulher-Aranha|Título de heroínas da Marvel, conhecido principalmente por Jessica Drew, que possui força ampliada e descargas bioelétricas.
-`);
-addHints('memes', `
-Amostradinho|Bordão e gíria para alguém que gosta de aparecer, se exibir ou fazer graça. Nos memes, é usado como uma provocação bem-humorada.
-Lá ele|Expressão popular usada para se afastar de uma frase de duplo sentido, como quem diz que aquilo se refere a outra pessoa.
-Bora Bill|Bordão que viralizou com um narrador chamando repetidamente um homem durante uma partida de futebol amador. Virou uma convocação brincalhona.
-Receba|Bordão popularizado em vídeos de futebol para comemorar um chute ou uma jogada bem-sucedida, dito com muita energia.
-Calma calabreso|Bordão associado ao humorista Toninho Tornado, usado para pedir calma de forma engraçada, com um apelido derivado de uma comida.
-Casca de bala|Bordão para um companheiro muito próximo, que está sempre junto nas aventuras. Também ficou conhecido em música, vídeos de amizade e montagens.
-Sigma|Nos memes, personagem que se apresenta como independente, frio e autoconfiante. É um estereótipo da internet, frequentemente usado com ironia.
-Gigachad|Figura de aparência extremamente musculosa e traços marcantes, usada nos memes como uma versão exagerada de confiança, beleza ou perfeição.
-Aura|Nos memes, é uma espécie de pontuação imaginária de presença e estilo: alguém ganha pontos ao impressionar e perde ao passar vergonha.
-Farmar aura|Gíria para tentar acumular prestígio ou parecer impressionante com poses, atitudes e cenas dramáticas, muitas vezes de forma propositalmente exagerada.
-Moggado|Gíria para alguém que foi ofuscado por outra pessoa numa comparação de aparência ou presença. Nos memes, a comparação costuma ser exagerada.
-Mewing|Termo ligado ao posicionamento da língua no céu da boca, transformado em meme de pose séria e destaque ao maxilar. O gesto de silêncio também aparece nessas piadas.
-Que viagem é essa véi|Frase de reação a algo absurdo, confuso ou sem sentido. É usada em vídeos e montagens para expressar espanto e incredulidade.
-Absolute Cinema|Expressão usada para chamar uma cena de cinema absoluto, por admiração ou ironia. Costuma acompanhar uma imagem do diretor Martin Scorsese com as mãos levantadas.
-Trollface|Rosto desenhado em preto e branco com um sorriso malicioso, usado para representar quem aprontou uma pegadinha ou provocou os outros.
-Trollagem|Pegadinha ou provocação feita para causar surpresa ou obter uma reação. Na internet, pode aparecer em vídeos, comentários e montagens.
-Skibidi Toilet|Série de animações da internet com cabeças saindo de vasos sanitários e batalhas absurdas contra personagens com equipamentos no lugar da cabeça.
-Cameraman|Personagem do universo de Skibidi Toilet que tem uma câmera no lugar da cabeça e participa dos conflitos da série.
-Tralalero Tralala|Personagem de memes de brainrot italiano: um tubarão com pernas e tênis, associado a narrações sonoras absurdas.
-Bombardiro Crocodilo|Personagem de brainrot italiano que mistura um crocodilo com um avião militar. Aparece em imagens e vídeos propositalmente absurdos.
-Tung Tung Tung Sahur|Personagem de brainrot com aparência de figura de madeira e um bastão, associado a uma narração que repete seu nome de forma rítmica.
-Ballerina Cappuccina|Personagem de brainrot que combina uma bailarina com uma xícara de cappuccino no lugar da cabeça, geralmente usando roupa de balé.
-Cappuccino Assassino|Personagem de brainrot representado como um copo de café com aparência de ninja ou assassino, frequentemente carregando espadas.
-Chimpanzini Bananini|Personagem de brainrot que mistura um chimpanzé com uma banana. Aparece em imagens absurdas e narrações com nomes rimados.
-Brr Brr Patapim|Personagem de brainrot que mistura traços de macaco e árvore, com pés grandes e aparência de criatura da floresta.
-Lirili Larila|Personagem de brainrot que combina elefante e cacto, geralmente usando sandálias numa paisagem desértica.
-Six seven|Bordão em inglês que significa seis e sete. É repetido como piada sem significado fixo, muitas vezes acompanhado por um gesto alternando as mãos.
-Brainrot|Nome dado ao humor de repetição e absurdo da internet, com frases sem contexto, vozes artificiais e personagens estranhos que ficam na cabeça.
-Chill Guy|Meme de um cachorro antropomórfico de suéter e jeans, com as mãos nos bolsos. Representa alguém tranquilo mesmo em situações complicadas.
-Nonchalant|Palavra em inglês usada em memes para alguém que aparenta indiferença e calma, como se nada o impressionasse, às vezes de propósito.
-Morango do amor|Doce de morango envolvido em brigadeiro branco e uma casca crocante de açúcar, que virou febre em vídeos, receitas e piadas sobre tendências.
-Chocolate de Dubai|Barra de chocolate com recheio de pistache e massa crocante de kataifi, que viralizou em degustações e memes sobre produtos da moda.
-Bobbie Goods|Marca conhecida por ilustrações fofas e livros de colorir. Virou tendência em vídeos de pintura com marcadores e em piadas sobre relaxamento e perfeccionismo.
-Labubu|Personagem colecionável de orelhas pontudas e sorriso com dentes, criado por Kasing Lung. Seus bonecos viraram acessórios e assunto de memes sobre consumo.
-Delulu|Gíria da internet derivada de uma palavra inglesa para ilusão. É usada de brincadeira para alguém que cria expectativas ou fantasias pouco realistas.
-POV|Sigla inglesa para ponto de vista. Nos memes, apresenta uma cena como se você estivesse vivendo a situação descrita na legenda.
-Bombombini Gusini|Personagem de brainrot que mistura um ganso com uma aeronave militar. Faz parte das montagens de animais e máquinas com nomes absurdos.
-Trippi Troppi|Personagem de brainrot com versões diferentes, incluindo uma mistura de camarão e gato. O nome aparece em áudios e montagens de criaturas híbridas.
-Eu sou o Steve|Bordão da apresentação de Jack Black como Steve no filme de Minecraft, repetido em montagens por sua entonação dramática.
-Chicken Jockey|Bebê zumbi montado numa galinha em Minecraft. A fala que anuncia a criatura no filme virou meme e reação exagerada entre fãs.
-`);
-addHints('jogos', `
-Minecraft|Jogo de construção e sobrevivência num mundo de blocos. Você coleta recursos, fabrica equipamentos, explora cavernas e constrói livremente.
-Terraria|Jogo de exploração e construção em duas dimensões, com mineração, fabricação de itens e muitos chefes para enfrentar.
-Skyrim|RPG de mundo aberto de fantasia em que você explora uma província com dragões, aprende magias e participa de missões e facções.
-The Witcher 3|RPG de mundo aberto protagonizado por Geralt de Rívia, um caçador de monstros que usa espadas, alquimia e sinais mágicos.
-Fallout 4|RPG ambientado numa região devastada por guerra nuclear, com exploração, escolhas, armas e construção de assentamentos.
-Cyberpunk 2077|RPG de ação ambientado em Night City, uma metrópole futurista. Você joga como V, mercenário que usa armas e implantes cibernéticos.
-Stardew Valley|Jogo de fazenda em que você planta, cria animais, pesca, explora minas e faz amizade com os moradores de uma pequena comunidade.
-Animal Crossing|Série de simulação de vida com vizinhos animais, decoração, coleta de objetos e atividades tranquilas acompanhando o calendário.
-League of Legends|Jogo de estratégia e combate em equipes, em que cada pessoa controla um campeão e busca destruir a base adversária.
-Dota 2|Jogo de equipes em que heróis com habilidades diferentes disputam recursos e estruturas para destruir o Ancestral da equipe inimiga.
-Valorant|Jogo de tiro tático por equipes com agentes de habilidades especiais. Um lado tenta instalar um dispositivo e o outro impedir sua detonação.
-Counter-Strike 2|Jogo de tiro tático em equipes, com compra de armas e rodadas envolvendo ataque e defesa de pontos de bomba.
-Fortnite|Jogo conhecido pelo modo battle royale, no qual jogadores disputam sobrevivência numa área que diminui. Também possui modos com construção e outras experiências.
-Free Fire|Jogo de battle royale popular em celulares, em que jogadores coletam armas e tentam sobreviver até o final da partida.
-GTA V|Jogo de ação em mundo aberto ambientado em Los Santos, com três protagonistas, veículos, missões e grandes assaltos.
-Red Dead Redemption 2|Jogo de ação em mundo aberto no Velho Oeste, acompanhando Arthur Morgan e uma gangue de foras da lei.
-Elden Ring|RPG de ação de mundo aberto com fantasia sombria, exploração, criação de personagens e combates exigentes contra chefes.
-Dark Souls III|RPG de ação de fantasia sombria, conhecido por combates difíceis, gerenciamento de resistência e exploração de áreas interligadas.
-God of War|Série de ação que acompanha Kratos enfrentando figuras mitológicas. Seus jogos exploram universos inspirados nas mitologias grega e nórdica.
-Assassin’s Creed|Série de ação e aventura em cenários históricos, com exploração, escalada, furtividade e conflitos entre assassinos e templários.
-Pokémon|Franquia em que treinadores capturam criaturas, montam equipes e participam de batalhas, frequentemente usando vantagens entre tipos.
-Palworld|Jogo de sobrevivência e construção de bases com criaturas chamadas Pals, que podem lutar e ajudar em tarefas de produção.
-Among Us|Jogo de dedução social em que tripulantes cumprem tarefas enquanto impostores sabotam e tentam eliminá-los sem serem descobertos.
-Goose Goose Duck|Jogo de dedução social com gansos, patos e papéis especiais. O grupo realiza tarefas enquanto tenta identificar sabotadores.
-Dead by Daylight|Jogo de terror assimétrico em que quatro sobreviventes tentam reparar geradores e escapar de um assassino controlado por outro jogador.
-Friday the 13th: The Game|Jogo de terror baseado em Sexta-Feira 13, no qual monitores de acampamento tentam sobreviver a Jason Voorhees.
-Resident Evil|Série de terror e sobrevivência sobre ameaças biológicas, com exploração, combate, recursos limitados e resolução de enigmas.
-Silent Hill|Série de terror psicológico conhecida pela cidade envolta em névoa, ambientes perturbadores, monstros simbólicos e enigmas.
-Roblox|Plataforma de experiências e jogos criados por usuários, com avatares e gêneros variados, de obstáculos a simulações e aventuras.
-Garry’s Mod|Jogo sandbox baseado em física, no qual é possível manipular objetos, criar cenas e experimentar modos feitos pela comunidade.
-Super Mario|Série de jogos de plataforma em que Mario atravessa fases, salta sobre obstáculos, coleta itens e enfrenta inimigos.
-Sonic|Série de jogos centrada num ouriço azul veloz, com corrida por fases, coleta de anéis e confrontos com o Dr. Eggman.
-EA Sports FC|Série de simulação de futebol da EA, com partidas, clubes e modos de gerenciamento ou montagem de equipes.
-eFootball|Jogo de futebol da Konami, sucessor da série PES, com partidas e modos de formação de equipes.
-Hollow Knight|Aventura de ação em duas dimensões num reino de insetos, com exploração, novas habilidades e combates contra chefes.
-Ori and the Blind Forest|Jogo de plataforma e exploração que acompanha um pequeno espírito numa floresta, com saltos precisos e habilidades de movimentação.
-Rocket League|Jogo que combina futebol com carros movidos a foguete. As equipes dirigem, saltam e voam para colocar a bola no gol.
-Fall Guys|Jogo de competição com personagens coloridos em provas de obstáculos e minijogos eliminatórios até restar um vencedor ou uma equipe.
-Lethal Company|Jogo cooperativo de terror em que uma equipe coleta sucata em instalações perigosas para cumprir uma cota de uma empresa.
-R.E.P.O.|Jogo cooperativo de terror em que jogadores transportam objetos valiosos usando física, evitando quebrá-los e enfrentando ameaças durante a coleta.
-`);
-
-window.HINTS["ben10"] = {
-  "Ben Tennyson": "Protagonista que encontra um dispositivo capaz de transformá-lo em diferentes espécies alienígenas e usa essas formas para salvar pessoas.",
-  "Albedo": "Galvaniano que foi assistente de Azmuth e assume uma aparência semelhante à de Ben. Usa tecnologia de transformação e costuma agir como antagonista.",
-  "Gwen Tennyson": "Prima de Ben, inteligente e habilidosa em magia e manipulação de mana, uma energia vital usada em seus poderes.",
-  "Charmcaster": "Feiticeira rival da família Tennyson, conhecida por lançar encantamentos e controlar criaturas mágicas.",
-  "Max Tennyson": "Avô de Ben e Gwen, veterano de uma organização que lida com ameaças alienígenas. Viaja com os netos num trailer.",
-  "Rook Blonko": "Parceiro de Ben em Omniverse, um agente alienígena disciplinado que usa uma ferramenta versátil chamada Proto-Ferramenta.",
-  "Vilgax": "Conquistador alienígena de aparência tentacular, um dos principais inimigos de Ben, que busca obter o poder de seu dispositivo de transformação.",
-  "Aggregor": "Antagonista que captura alienígenas e absorve seus poderes para se tornar mais forte.",
-  "Azmuth": "Cientista galvaniano de grande inteligência, criador do Omnitrix e responsável por muitas tecnologias importantes da série.",
-  "Dr. Psychobos": "Cientista cerebrocrustáceo que constrói aparelhos perigosos, incluindo o Nemetrix, e se considera um rival intelectual de Azmuth.",
-  "Omnitrix": "Aparelho que utiliza amostras de DNA para transformar seu usuário em diferentes espécies alienígenas.",
-  "Ultimatrix": "Dispositivo de transformação que também pode simular a evolução de espécies e produzir formas supremas.",
-  "Nemetrix": "Aparelho que transforma seu portador em predadores de espécies alienígenas presentes no Omnitrix. É associado a Khyber e seu animal.",
-  "Antitrix": "Dispositivo usado por Kevin na série reboot, capaz de produzir transformações alienígenas modificadas.",
-  "Chama": "Alienígena com corpo rochoso em chamas, capaz de gerar e controlar fogo e resistir a temperaturas muito altas.",
-  "Fogo Fátuo": "Alienígena de aparência vegetal que lança fogo, controla plantas e regenera partes do próprio corpo.",
-  "Diamante": "Transformação com corpo de cristal resistente, capaz de criar lâminas, barreiras e projéteis cristalinos.",
-  "Cromático": "Alienígena cristalino que absorve energia e a libera em ataques poderosos.",
-  "Quatro Braços": "Alienígena musculoso de pele vermelha e quatro braços, usado para levantar grandes pesos e enfrentar adversários no corpo a corpo.",
-  "Enormossauro": "Alienígena com aparência de dinossauro, grande força física e capacidade de aumentar o tamanho do corpo em suas apresentações clássicas.",
-  "XLR8": "Alienígena de corpo ágil e pés semelhantes a rodas, capaz de se mover e reagir em velocidade extraordinária.",
-  "Acelerado": "Alienígena velocista, também conhecido como Fasttrack, com aparência felina e grande agilidade.",
-  "Massa Cinzenta": "Pequeno alienígena galvaniano de enorme capacidade intelectual, útil para resolver problemas e entender máquinas.",
-  "Artrópode": "Alienígena de aparência semelhante a um crustáceo, com grande inteligência e capacidade de produzir eletricidade.",
-  "Fantasmático": "Alienígena fantasmagórico capaz de atravessar objetos, ficar invisível e possuir outros seres.",
-  "Friagem": "Alienígena alado semelhante a uma mariposa, que pode atravessar matéria e congelar alvos com seu sopro.",
-  "Besta": "Alienígena quadrúpede sem olhos, com sentidos aguçados, garras e capacidade de rastrear alvos pelo cheiro.",
-  "Rath": "Alienígena semelhante a um tigre musculoso, conhecido por sua força, garras e temperamento explosivo.",
-  "Aquático": "Alienígena semelhante a um peixe, com dentes afiados, grande velocidade de nado e capacidade de respirar debaixo d’água.",
-  "Ameaça Aquática": "Alienígena com armadura que armazena e lança água em jatos pressurizados, usado em resgates e combate.",
-  "Ultra T": "Alienígena de corpo tecnológico flexível que se funde a máquinas para controlá-las e aprimorá-las.",
-  "Nanomech": "Pequena transformação híbrida com asas e componentes tecnológicos, útil para entrar em espaços minúsculos e interagir com sistemas.",
-  "Eco Eco": "Pequeno alienígena capaz de se multiplicar e emitir ondas sonoras poderosas.",
-  "Lobisben": "Transformação semelhante a um lobisomem, também chamada Blitzwolfer, que abre a boca em partes para lançar ondas sonoras.",
-  "Insectóide": "Alienígena semelhante a um inseto voador que dispara uma substância pegajosa para prender inimigos.",
-  "Arraia-à-Jato": "Alienígena com aparência de arraia e jato, capaz de voar em alta velocidade e lançar raios de energia.",
-  "Feedback": "Alienígena com extensões semelhantes a cabos, capaz de absorver energia e devolvê-la em ataques.",
-  "Shocksquatch": "Alienígena peludo de grande porte que produz descargas elétricas e combina esses ataques com força física.",
-  "Encanadores": "Organização que investiga e combate ameaças extraterrestres, funcionando como uma força de proteção interplanetária.",
-  "Cavaleiros Eternos": "Organização secreta de inspiração medieval que usa armaduras e tecnologia avançada, frequentemente perseguindo alienígenas."
-};
-
-window.HINTS["demon-slayer"] = {
-  "Tanjiro Kamado": "Protagonista de grande empatia e olfato aguçado, que se torna caçador de demônios para ajudar sua irmã.",
-  "Inosuke Hashibira": "Caçador que usa uma máscara de javali e duas espadas serrilhadas, conhecido por seu comportamento impulsivo e estilo próprio de combate.",
-  "Zenitsu Agatsuma": "Caçador de audição aguçada e comportamento medroso, capaz de executar ataques extremamente rápidos com a Respiração do Trovão.",
-  "Kanao Tsuyuri": "Jovem caçadora criada na Mansão Borboleta, com excelente visão e domínio da Respiração da Flor.",
-  "Nezuko Kamado": "Irmã de Tanjiro, transformada em demônio, que luta para proteger humanos e acompanha o irmão.",
-  "Tamayo": "Demônia e médica que pesquisa formas de enfrentar Muzan e auxiliar pessoas afetadas por demônios.",
-  "Giyu Tomioka": "Hashira da Água, um espadachim reservado que tem papel importante no início da jornada do protagonista.",
-  "Sakonji Urokodaki": "Antigo Hashira da Água e treinador de espadachins, reconhecido pela máscara de tengu vermelha.",
-  "Kyojuro Rengoku": "Hashira das Chamas, conhecido por seu entusiasmo, senso de dever e estilo de espada inspirado em fogo.",
-  "Tengen Uzui": "Hashira do Som, antigo ninja que luta com duas grandes lâminas ligadas por uma corrente e utiliza explosivos.",
-  "Shinobu Kocho": "Hashira do Inseto, especialista em venenos e ataques de perfuração, ligada aos cuidados médicos da Mansão Borboleta.",
-  "Mitsuri Kanroji": "Hashira do Amor, de força física excepcional, que utiliza uma espada muito flexível semelhante a um chicote.",
-  "Muichiro Tokito": "Hashira da Névoa, um jovem prodígio conhecido por sua aparência distraída e movimentos difíceis de acompanhar.",
-  "Obanai Iguro": "Hashira da Serpente, que usa uma lâmina ondulada e costuma estar acompanhado por uma cobra branca.",
-  "Sanemi Shinazugawa": "Hashira do Vento, um guerreiro de aparência marcada por cicatrizes e temperamento agressivo contra demônios.",
-  "Gyomei Himejima": "Hashira da Pedra, um guerreiro cego e muito forte que luta usando uma arma com machado, corrente e bola com espinhos.",
-  "Muzan Kibutsuji": "Principal antagonista e origem de muitos demônios da história, capaz de alterar o corpo e controlar subordinados.",
-  "Kokushibo": "Demônio que ocupa o posto de Lua Superior Um, reconhecido por seus seis olhos e por lutar com uma espada.",
-  "Akaza": "Lua Superior Três, especializado em artes marciais e golpes de curta distância acompanhados de ondas de choque.",
-  "Doma": "Lua Superior Dois, que utiliza leques e técnicas demoníacas ligadas ao gelo.",
-  "Daki": "Demônia que luta usando faixas de tecido como armas no Distrito do Entretenimento.",
-  "Gyutaro": "Demônio de corpo magro que utiliza foices e ataques de sangue venenoso, ligado à mesma missão de sua irmã.",
-  "Rui": "Lua Inferior Cinco, um demônio de aparência infantil que usa fios cortantes e tenta formar uma família de aranhas.",
-  "Enmu": "Lua Inferior Um, um demônio capaz de colocar pessoas para dormir e manipular sonhos.",
-  "Respiração da Água": "Estilo de combate com espada inspirado na fluidez da água, com técnicas adaptáveis e movimentos contínuos.",
-  "Respiração do Trovão": "Estilo de combate com espada que enfatiza aceleração e ataques rápidos, associado a golpes de desembainhar.",
-  "Respiração das Chamas": "Estilo de combate com ataques firmes e poderosos, representados visualmente por motivos de fogo.",
-  "Respiração do Vento": "Estilo de combate que utiliza cortes agressivos, amplos e velozes, representados por motivos de vento.",
-  "Respiração da Névoa": "Estilo que emprega mudanças de ritmo e movimentos enganosos para dificultar a leitura do adversário.",
-  "Respiração da Serpente": "Estilo que utiliza trajetórias sinuosas e cortes em ângulos incomuns, inspirados no movimento de serpentes.",
-  "Respiração do Amor": "Estilo ágil e flexível, desenvolvido para aproveitar as características físicas de sua criadora e sua espada semelhante a um chicote.",
-  "Respiração do Inseto": "Estilo que prioriza estocadas e venenos, adaptado para eliminar demônios sem depender da decapitação pela força.",
-  "Espada Nichirin": "Lâmina forjada com materiais especiais que absorvem luz solar, usada pelos caçadores no combate aos demônios.",
-  "Espada de treino": "Arma usada na prática de movimentos e combates, frequentemente feita de madeira para sessões de treinamento.",
-  "Glicínia": "Planta cujas propriedades repelem demônios e podem ser utilizadas na preparação de venenos contra eles.",
-  "Luz do sol": "Radiação solar que é fatal para a grande maioria dos demônios, obrigando-os a buscar abrigo durante o dia.",
-  "Arco do Trem Infinito": "Parte da história em que caçadores investigam desaparecimentos num trem e enfrentam uma ameaça ligada a sonhos.",
-  "Arco do Distrito do Entretenimento": "Parte da história em que caçadores investigam a presença de demônios em um distrito noturno, acompanhados pelo Hashira do Som.",
-  "Arco do Treinamento dos Hashiras": "Parte da história dedicada a um programa de exercícios e treinamento conduzido pelos Hashiras para fortalecer os caçadores.",
-  "Seleção Final": "Prova de ingresso na organização dos caçadores, na qual candidatos precisam sobreviver durante vários dias numa montanha com demônios."
-};
-
-window.HINTS["desenhos"] = {
-  "Finn": "Herói humano de Hora de Aventura, que usa um gorro branco e se aventura pela Terra de Ooo com sua espada.",
-  "Jake": "Cachorro mágico de Hora de Aventura, capaz de esticar e mudar o tamanho do corpo, companheiro do herói humano.",
-  "Princesa Jujuba": "Governante do Reino Doce em Hora de Aventura, uma cientista com corpo feito de goma de mascar.",
-  "Marceline": "Rainha dos Vampiros de Hora de Aventura, conhecida pelo baixo em forma de machado e por suas músicas.",
-  "Rei Gelado": "Personagem de Hora de Aventura que usa uma coroa mágica, controla gelo e vive num reino congelado.",
-  "Princesa de Fogo": "Personagem de Hora de Aventura com corpo e poderes ligados ao fogo, associada ao Reino de Fogo.",
-  "BMO": "Pequeno aparelho vivo de Hora de Aventura, com aparência de videogame portátil, que participa da rotina da casa da árvore.",
-  "NEPTR": "Robô de Hora de Aventura com partes de micro-ondas, criado para arremessar tortas e participar de brincadeiras.",
-  "Lemongrab": "Personagem de Hora de Aventura com cabeça de limão, conhecido por sua rigidez e pelos gritos de desaprovação.",
-  "Princesa Caroço": "Personagem roxa e flutuante de Hora de Aventura, com corpo de nuvem irregular e comportamento dramático.",
-  "Rei de Ooo": "Personagem de Hora de Aventura que se apresenta como uma figura real, usando discurso persuasivo e oportunismo.",
-  "Ricardio": "Personagem de Hora de Aventura com forma de coração e rosto humano, que aparenta elegância, mas age como vilão.",
-  "Fionna": "Aventureira humana de gorro com orelhas de coelho, apresentada em Hora de Aventura e protagonista de uma série derivada.",
-  "Cake": "Gata mágica que acompanha Fionna, capaz de esticar o corpo e mudar de forma.",
-  "Gumball": "Gato azul da família Watterson, protagonista de O Incrível Mundo de Gumball, conhecido por se envolver em confusões.",
-  "Darwin": "Peixe laranja com pernas, integrante da família Watterson e melhor amigo do protagonista.",
-  "Nicole Watterson": "Mãe da família de O Incrível Mundo de Gumball, uma gata azul muito responsável, competitiva e habilidosa.",
-  "Richard Watterson": "Pai da família de O Incrível Mundo de Gumball, um coelho rosa conhecido pela preguiça e por suas ideias atrapalhadas.",
-  "Anais Watterson": "Irmã mais nova da família Watterson, uma coelha rosa muito inteligente para sua idade.",
-  "Penny Fitzgerald": "Colega de escola e interesse amoroso de Gumball, uma criatura mágica capaz de mudar de forma de acordo com suas emoções.",
-  "Carrie Krueger": "Fantasma de estilo gótico de O Incrível Mundo de Gumball, capaz de atravessar objetos e possuir pessoas.",
-  "Tina Rex": "Tiranossauro que estuda em Elmore, de grande força física e comportamento intimidador.",
-  "Tobias Wilson": "Colega de Gumball com corpo colorido, que gosta de se exibir e de se apresentar como esportista.",
-  "Banana Joe": "Colega de escola em forma de banana, conhecido por fazer piadas e brincadeiras.",
-  "Rob": "Personagem de O Incrível Mundo de Gumball que se torna um antagonista importante e tem ligação com o Vazio.",
-  "Diretor Brown": "Diretor da escola de Elmore, uma criatura peluda que lida com as confusões dos estudantes.",
-  "Sarah G. Lato": "Colega de Gumball em forma de sorvete, fã de histórias e desenhos que costuma criar narrativas sobre os amigos.",
-  "Alan Keane": "Colega de Elmore em forma de balão, conhecido por sua gentileza e atitude otimista.",
-  "Mordecai": "Gaio azul de Apenas um Show que trabalha num parque e costuma se envolver em aventuras absurdas com seu melhor amigo.",
-  "Rigby": "Guaxinim de Apenas um Show, funcionário do parque, impulsivo e pouco interessado em trabalhar.",
-  "Benson": "Máquina de chicletes viva de Apenas um Show, gerente do parque, conhecida por cobrar trabalho dos funcionários.",
-  "Pairulito": "Personagem de cabeça redonda de Apenas um Show, de comportamento gentil e inocente, ligado à família proprietária do parque.",
-  "Musculoso": "Funcionário verde do parque em Apenas um Show, conhecido pelas provocações e piadas sobre sua mãe.",
-  "Fantasmão": "Pequeno fantasma branco com uma mão sobre a cabeça, amigo próximo de Musculoso e funcionário do parque.",
-  "Margaret": "Personagem de Apenas um Show, uma ave vermelha que trabalha numa cafeteria e tem uma relação importante com Mordecai.",
-  "Eileen": "Personagem de Apenas um Show, uma toupeira de óculos que trabalha na cafeteria e se aproxima de Rigby.",
-  "Skips": "Yeti imortal de Apenas um Show, funcionário do parque com grande experiência e conhecimento de fenômenos sobrenaturais.",
-  "Saltitão": "Primo de Skips em Apenas um Show, conhecido por contar piadas e por sua ligação com aventuras sobrenaturais.",
-  "CJ": "Personagem de Apenas um Show com aparência de nuvem, que pode se tornar tempestuosa quando fica irritada.",
-  "Starla": "Personagem de Apenas um Show, companheira de Musculoso, conhecida por sua personalidade intensa."
-};
-Object.assign(window.HINTS.cotidiano, {
-  'Pente': 'Objeto com dentes usado para desembaraçar e organizar os fios de cabelo.',
-  'Porta': 'Estrutura que abre e fecha uma passagem, permitindo controlar o acesso entre ambientes.'
-});
-Object.assign(window.HINTS.filmes, {
-  'Romeu e Julieta': 'História adaptada para o cinema sobre dois jovens apaixonados de famílias rivais, baseada na peça de William Shakespeare.',
-  'Duna': 'Ficção científica sobre disputas políticas e religiosas em torno de Arrakis, planeta desértico onde se encontra uma substância extremamente valiosa.'
-});
-Object.assign(window.HINTS.bleach, {
-  'Mayuri': 'Mayuri Kurotsuchi é o capitão da Décima Segunda Divisão, um cientista que utiliza pesquisas, modificações corporais e invenções em combate.',
-  'Soi Fon': 'Capitã da Segunda Divisão e comandante das forças especiais, especializada em movimentação rápida e ataques de precisão.'
-});
-Object.assign(window.HINTS.db, {
-  'Nave espacial': 'Veículo tecnológico usado para viajar entre planetas, transportar guerreiros e realizar jornadas fora da Terra.',
-  'Espada Z': 'Espada muito pesada ligada ao mundo dos Kaioshins, utilizada por Gohan em seu treinamento.',
-  'Câmara de recuperação': 'Equipamento médico que envolve o paciente em um tanque para tratar ferimentos e ajudar na recuperação física.',
-  'Máquina do tempo': 'Veículo desenvolvido por Bulma que permite viajar entre épocas e tem papel central nas aventuras de Trunks do futuro.'
-});
-delete window.HINTS.desenhos.Skips;
-window.HINTS.desenhos['Saltitão'] = 'Yeti imortal de Apenas um Show, chamado Skips em inglês. Trabalha no parque e tem grande experiência com fenômenos sobrenaturais.';
-window.HINTS.desenhos['Zoa'] = 'Primo de Saltitão em Apenas um Show, chamado Quips em inglês. É um yeti conhecido por insistir em contar piadas ruins.';
-
-Object.assign(window.HINTS,{
+window.HINTS = {
+  "cotidiano": {
+    "Borracha": "Objeto usado para apagar marcas de grafite no papel. É comum no material escolar.",
+    "Apontador": "Peça com uma lâmina que retira madeira do lápis e deixa a ponta de grafite pronta para escrever.",
+    "Caneta": "Instrumento que usa tinta para escrever ou desenhar, geralmente sobre papel.",
+    "Lápis": "Instrumento com uma mina de grafite, normalmente envolvida em madeira, usado para escrever e desenhar.",
+    "Abajur": "Lâmpada com uma cobertura que suaviza a luz, geralmente colocada sobre uma mesa ou ao lado da cama.",
+    "Luminária": "Peça que abriga uma fonte de luz e ajuda a iluminar um ambiente ou direcionar a iluminação para uma tarefa.",
+    "Travesseiro": "Peça macia usada principalmente para apoiar a cabeça e o pescoço durante o sono.",
+    "Almofada": "Peça acolchoada usada para decorar ou dar apoio e conforto ao sentar ou se encostar.",
+    "Garfo": "Talher com dentes que servem para espetar e segurar alimentos durante a refeição.",
+    "Colher": "Talher com uma parte côncava, usado para levar alimentos líquidos ou pastosos à boca e para misturar ingredientes.",
+    "Prato": "Recipiente relativamente raso usado para servir e consumir alimentos.",
+    "Tigela": "Recipiente fundo e aberto, usado para servir alimentos, como sopa e cereal, ou misturar ingredientes.",
+    "Copo": "Recipiente usado para beber líquidos, geralmente sem alça.",
+    "Caneca": "Recipiente com alça, usado para beber, especialmente bebidas quentes como café e chá.",
+    "Sofá": "Móvel estofado feito para acomodar várias pessoas sentadas.",
+    "Poltrona": "Assento individual, geralmente estofado e com encosto e braços, usado para descansar.",
+    "Cama": "Móvel destinado a dormir e descansar, normalmente formado por uma estrutura que sustenta o colchão.",
+    "Colchão": "Peça acolchoada sobre a qual a pessoa se deita. Pode ter espuma, molas ou outros materiais de suporte.",
+    "Geladeira": "Eletrodoméstico que mantém alimentos e bebidas refrigerados para ajudar na conservação.",
+    "Freezer": "Equipamento ou compartimento que mantém temperaturas abaixo de zero para congelar e conservar alimentos.",
+    "Fogão": "Aparelho com queimadores ou superfícies de aquecimento para cozinhar alimentos em panelas.",
+    "Forno": "Compartimento fechado que aquece alimentos ao redor, usado para assar pães, carnes, bolos e outras receitas.",
+    "Vassoura": "Utensílio com cabo e cerdas usado para varrer poeira e resíduos do chão.",
+    "Rodo": "Utensílio com uma faixa de borracha usado para puxar água de pisos ou vidros.",
+    "Sabonete": "Produto de higiene, sólido ou líquido, usado com água para limpar a pele.",
+    "Shampoo": "Produto usado para lavar o cabelo e o couro cabeludo, removendo sujeira e excesso de oleosidade.",
+    "Toalha": "Peça de tecido absorvente usada para secar o corpo, as mãos ou outras superfícies.",
+    "Roupão": "Roupa ampla, normalmente com faixa na cintura, usada para conforto, sobretudo após o banho.",
+    "Caderno": "Conjunto de folhas encadernadas usado para anotações, exercícios e desenhos.",
+    "Agenda": "Caderno ou ferramenta organizada por datas para registrar compromissos e planejar tarefas.",
+    "Mochila": "Bolsa com alças para ser carregada nas costas e transportar materiais ou objetos pessoais.",
+    "Bolsa": "Acessório usado para transportar objetos pessoais, carregado na mão, no braço ou no ombro.",
+    "Relógio": "Instrumento que indica as horas. Pode ser de pulso, de parede ou de mesa.",
+    "Despertador": "Relógio ou função que emite um aviso no horário programado, frequentemente para acordar alguém.",
+    "Chave": "Objeto que encaixa em uma fechadura e permite trancar ou destrancar seu mecanismo.",
+    "Cadeado": "Dispositivo portátil de segurança com uma haste que fecha, aberto por chave, combinação ou outro mecanismo.",
+    "Chinelo": "Calçado aberto e fácil de colocar, geralmente sem fixação atrás do calcanhar.",
+    "Sandália": "Calçado aberto preso ao pé por tiras, podendo ter uma tira atrás do calcanhar.",
+    "Espelho": "Superfície que reflete a luz e permite observar a própria imagem ou o que está à sua frente.",
+    "Janela": "Abertura em uma parede, normalmente com uma estrutura móvel e vidro, que permite entrada de luz e ventilação.",
+    "Pente": "Objeto com dentes usado para desembaraçar e organizar os fios de cabelo.",
+    "Porta": "Estrutura que abre e fecha uma passagem, permitindo controlar o acesso entre ambientes.",
+    "Tesoura": "Ferramenta de duas lâminas usada para cortar papel, tecido e outros materiais.",
+    "Corretivo": "Produto branco, líquido ou em fita, que cobre erros de escrita no papel.",
+    "Escova de dentes": "Utensílio com cerdas usado para limpar os dentes.",
+    "Fio dental": "Fio usado para remover restos de alimentos e placa entre os dentes.",
+    "Panela": "Recipiente levado ao fogo para cozinhar alimentos.",
+    "Frigideira": "Utensílio de fundo largo e raso usado para fritar ou dourar alimentos.",
+    "Ventilador": "Aparelho com hélices que movimenta o ar para refrescar.",
+    "Ar-condicionado": "Aparelho que controla a temperatura do ar de um ambiente.",
+    "Controle remoto": "Dispositivo que envia comandos a aparelhos sem tocá-los diretamente.",
+    "Mouse": "Periférico usado para mover o cursor e selecionar itens no computador.",
+    "Fone de ouvido": "Acessório que reproduz som próximo aos ouvidos.",
+    "Caixa de som": "Equipamento que reproduz áudio para quem está ao redor.",
+    "Guarda-chuva": "Acessório que se abre sobre a cabeça para proteger da chuva.",
+    "Capa de chuva": "Peça impermeável vestida para proteger o corpo da chuva.",
+    "Cobertor": "Peça de tecido colocada sobre o corpo para aquecer.",
+    "Edredom": "Cobertura de cama com enchimento, usada para manter o corpo aquecido.",
+    "Esponja": "Material poroso usado, por exemplo, para esfregar louça com detergente.",
+    "Pano de limpeza": "Tecido usado para retirar poeira, sujeira e líquidos de superfícies.",
+    "Chave de fenda": "Ferramenta que aperta e solta parafusos de fenda.",
+    "Chave Phillips": "Ferramenta usada em parafusos com encaixe em formato de cruz."
+  },
+  "filmes": {
+    "Titanic": "Romance e drama em que Jack e Rose se conhecem durante a viagem do navio Titanic, que sofre um naufrágio.",
+    "Avatar": "Ficção científica ambientada em Pandora, onde humanos entram em conflito com os Na’vi. Jake Sully usa um corpo avatar.",
+    "Shrek": "Animação sobre um ogro que embarca numa aventura com um burro falante e conhece a princesa Fiona.",
+    "Monstros S.A.": "Animação sobre uma fábrica que coleta energia dos gritos das crianças. Sulley e Mike conhecem a pequena Boo.",
+    "Procurando Nemo": "Animação em que o peixe-palhaço Marlin atravessa o oceano para encontrar seu filho, levado por um mergulhador.",
+    "Procurando Dory": "Animação em que Dory, uma peixe com dificuldades de memória recente, tenta reencontrar a família.",
+    "Toy Story": "Série de animações sobre brinquedos que ganham vida quando os humanos não estão olhando, incluindo Woody e Buzz Lightyear.",
+    "Os Incríveis": "Animação sobre uma família de super-heróis que tenta conciliar a vida cotidiana com o combate ao crime.",
+    "Frozen": "Animação sobre as irmãs Anna e Elsa, princesa e rainha de Arendelle. Elsa tem poderes ligados ao gelo.",
+    "Moana": "Animação sobre uma jovem navegadora que parte pelo oceano para salvar seu povo, acompanhada pelo semideus Maui.",
+    "O Rei Leão": "Animação sobre Simba, um jovem leão que precisa descobrir seu lugar no ciclo da vida e enfrentar o passado.",
+    "Madagascar": "Animação em que animais de um zoológico de Nova York vão parar numa ilha e precisam se adaptar à vida selvagem.",
+    "Harry Potter": "Saga de fantasia sobre um jovem bruxo que estuda em Hogwarts e enfrenta o bruxo das trevas Voldemort.",
+    "Animais Fantásticos": "Saga do universo bruxo centrada nas aventuras de Newt Scamander, estudioso de criaturas mágicas, e no conflito com Grindelwald.",
+    "Star Wars": "Saga espacial sobre conflitos na galáxia, com Jedi, Sith, sabres de luz e uma energia chamada Força.",
+    "Star Trek": "Franquia de ficção científica sobre exploração espacial, contato com civilizações e as missões de tripulações da Frota Estelar.",
+    "Matrix": "Ficção científica em que Neo descobre que a realidade conhecida pelos humanos é uma simulação controlada por máquinas.",
+    "A Origem": "Suspense de ficção científica sobre especialistas que entram nos sonhos para roubar informações ou implantar uma ideia.",
+    "Jurassic Park": "Aventura sobre um parque que recria dinossauros por engenharia genética e perde o controle das criaturas.",
+    "King Kong": "História de um gorila gigantesco, associado à Ilha da Caveira, que é levado ao encontro do mundo humano.",
+    "Velozes e Furiosos": "Franquia de ação com corridas, carros, assaltos e missões perigosas, centrada no grupo de Dominic Toretto.",
+    "Need for Speed": "Filme de ação inspirado nos jogos de corrida, sobre um piloto que participa de uma competição após sair da prisão.",
+    "Invocação do Mal": "Série de terror que dramatiza casos de assombrações investigados pelo casal Ed e Lorraine Warren.",
+    "Atividade Paranormal": "Franquia de terror que usa a aparência de gravações domésticas para mostrar fenômenos sobrenaturais dentro de casas.",
+    "It: A Coisa": "Terror baseado na obra de Stephen King, sobre uma entidade que explora medos e costuma aparecer como o palhaço Pennywise.",
+    "O Exorcista": "Filme de terror sobre uma menina possuída por uma entidade e a tentativa de expulsá-la por meio de um exorcismo.",
+    "Homem-Aranha": "Filmes sobre o herói que usa teias, escala paredes e combate o crime. Peter Parker é sua identidade mais conhecida.",
+    "Batman": "Filmes sobre o vigilante de Gotham City que usa investigação, treinamento e tecnologia para combater criminosos.",
+    "Vingadores": "Filmes da Marvel que reúnem heróis como Homem de Ferro, Thor e Capitão América contra ameaças que exigem uma equipe.",
+    "Liga da Justiça": "Filmes da DC sobre a união de heróis como Batman, Mulher-Maravilha e Superman para enfrentar grandes ameaças.",
+    "Rocky": "Drama esportivo sobre Rocky Balboa, um boxeador da Filadélfia que recebe uma oportunidade de lutar pelo título mundial.",
+    "Creed": "Saga de boxe sobre Adonis Creed, filho de Apollo Creed, que busca construir a própria trajetória no esporte.",
+    "Jogos Vorazes": "Saga distópica sobre Katniss Everdeen, obrigada a participar de uma competição mortal televisionada pelo governo de Panem.",
+    "Divergente": "Saga distópica em que a sociedade é dividida em facções. Tris não se encaixa em apenas uma delas.",
+    "O Senhor dos Anéis": "Saga de fantasia em que uma comitiva parte numa missão para destruir um anel poderoso e impedir a vitória de Sauron.",
+    "O Hobbit": "Aventura de fantasia em que Bilbo Bolseiro acompanha anões numa jornada para recuperar seu reino do dragão Smaug.",
+    "Piratas do Caribe": "Saga de aventuras marítimas com o capitão Jack Sparrow, tesouros, maldições e criaturas sobrenaturais.",
+    "Peter Pan": "História de um menino que não cresce e leva crianças para a Terra do Nunca, onde enfrenta o Capitão Gancho.",
+    "Ratatouille": "Animação sobre Remy, um rato que sonha em cozinhar e encontra uma forma de trabalhar numa cozinha de Paris.",
+    "Kung Fu Panda": "Animação sobre Po, um panda escolhido para se tornar o Dragão Guerreiro e aprender kung fu.",
+    "Romeu e Julieta": "História adaptada para o cinema sobre dois jovens apaixonados de famílias rivais, baseada na peça de William Shakespeare.",
+    "Duna": "Ficção científica sobre disputas políticas e religiosas em torno de Arrakis, planeta desértico onde se encontra uma substância extremamente valiosa.",
+    "Gato de Botas": "Animação de aventura sobre o gato espadachim do universo de Shrek.",
+    "Megamente": "Animação sobre um supervilão de cabeça azul que precisa repensar seu papel após derrotar seu rival.",
+    "Tá Chovendo Hambúrguer": "Animação em que a invenção de Flint Lockwood faz comida cair do céu.",
+    "Zootopia": "Animação sobre uma coelha policial e uma raposa que investigam um mistério numa cidade de animais.",
+    "Divertida Mente": "Animação que representa as emoções como personagens dentro da mente de uma menina.",
+    "Soul": "Animação sobre um músico, a vida e um mundo habitado por almas.",
+    "Viva: A Vida é uma Festa": "Animação sobre Miguel, música, família e uma viagem ao Mundo dos Mortos.",
+    "Encanto": "Animação sobre uma família colombiana com dons mágicos e sua casa encantada.",
+    "Wall-E": "Animação sobre um robô compactador de lixo numa Terra abandonada.",
+    "Robôs": "Animação sobre um jovem inventor que chega a uma cidade povoada por robôs.",
+    "Interstellar": "Ficção científica sobre uma missão espacial que busca um futuro para a humanidade.",
+    "Perdido em Marte": "Ficção científica sobre um astronauta que tenta sobreviver sozinho em Marte.",
+    "Um Lugar Silencioso": "Terror sobre uma família que precisa ficar em silêncio para sobreviver a criaturas guiadas pelo som.",
+    "Bird Box": "Suspense sobre sobreviventes que precisam evitar olhar para uma ameaça misteriosa.",
+    "Jumanji": "Aventura sobre um jogo capaz de transformar a realidade e colocar seus jogadores em perigo.",
+    "Zathura": "Aventura sobre irmãos envolvidos num jogo de tabuleiro que leva sua casa ao espaço.",
+    "O Máskara": "Comédia sobre um homem que adquire poderes exagerados ao usar uma máscara mágica.",
+    "Todo Poderoso": "Comédia em que um homem recebe temporariamente poderes divinos.",
+    "A Era do Gelo": "Animação sobre animais pré-históricos que formam um grupo de amigos.",
+    "Os Croods": "Animação sobre uma família pré-histórica em busca de um novo lar."
+  },
+  "naruto": {
+    "Naruto": "Naruto Uzumaki é um ninja de Konoha que sonha em ser Hokage. É conhecido por sua determinação e pelos clones das sombras.",
+    "Sasuke": "Sasuke Uchiha é um ninja do Time 7, habilidoso em técnicas de fogo e no uso dos olhos de seu clã.",
+    "Sakura": "Sakura Haruno é uma ninja do Time 7 que se especializa em medicina e em golpes fortalecidos pelo controle de energia.",
+    "Ino": "Ino Yamanaka é uma ninja de Konoha especializada em técnicas mentais, incluindo transferir sua consciência para outra pessoa.",
+    "Kakashi": "Kakashi Hatake é o professor do Time 7, conhecido pela máscara, pela leitura e por copiar técnicas de outros ninjas.",
+    "Might Guy": "Professor de Konoha especializado em taijutsu, o combate corporal. Treina com extrema dedicação e domina os Oito Portões.",
+    "Hinata": "Hinata Hyuga é uma ninja de Konoha cujo estilo usa visão especial e golpes precisos nos pontos de circulação de energia.",
+    "Neji": "Neji Hyuga é um prodígio de seu clã, conhecido pelo Punho Gentil e por uma defesa giratória.",
+    "Itachi": "Itachi Uchiha é o irmão mais velho de Sasuke, conhecido por ilusões poderosas e por integrar uma organização de ninjas renegados.",
+    "Shisui": "Shisui Uchiha é um ninja célebre por sua velocidade e por uma técnica ocular capaz de influenciar a mente.",
+    "Gaara": "Ninja da Vila da Areia que controla areia para atacar e se defender. Assume o cargo de Kazekage.",
+    "Kankuro": "Ninja da Vila da Areia especializado em marionetes, controladas à distância por fios de energia.",
+    "Jiraiya": "Um dos Três Sannin Lendários. É um mestre de Naruto e usa invocações de sapos em combate.",
+    "Orochimaru": "Um dos Três Sannin Lendários, obcecado por descobrir técnicas e prolongar a vida. É associado a serpentes e experimentos.",
+    "Tsunade": "Uma dos Três Sannin Lendários e Quinta Hokage. É uma ninja médica conhecida por sua força física extraordinária.",
+    "Shizune": "Ninja médica e assistente da Quinta Hokage. Ajuda com cuidados médicos e tarefas administrativas.",
+    "Kunai": "Ferramenta ninja semelhante a uma adaga curta, usada em combate próximo, arremessos e armadilhas.",
+    "Shuriken": "Arma de arremesso com pontas, frequentemente em formato de estrela, usada para atingir ou distrair alvos.",
+    "Rasengan": "Técnica que concentra energia numa esfera giratória na palma da mão, causando um forte impacto ao tocar o alvo.",
+    "Chidori": "Técnica que concentra relâmpagos na mão para um golpe de perfuração em alta velocidade. Produz um som agudo característico.",
+    "Sharingan": "Poder ocular do clã Uchiha que melhora a percepção de movimentos, permite copiar muitas técnicas e lançar ilusões.",
+    "Byakugan": "Poder ocular associado ao clã Hyuga. Permite visão quase completa ao redor do usuário e enxergar a rede de energia corporal.",
+    "Konoha": "A Vila Oculta da Folha, no País do Fogo. É a comunidade ninja onde o protagonista cresceu, governada pelo Hokage.",
+    "Vila da Areia": "Sunagakure, a vila ninja do País do Vento. Fica numa região desértica e é liderada pelo Kazekage.",
+    "Chakra": "Energia produzida pela combinação de componentes físicos e espirituais. Os ninjas a moldam para executar suas técnicas.",
+    "Energia natural": "Energia presente no ambiente, absorvida e equilibrada com a do próprio corpo para usar técnicas de senjutsu.",
+    "Akatsuki": "Organização de ninjas renegados, reconhecida pelos mantos escuros com nuvens vermelhas e pela perseguição às bestas com caudas.",
+    "ANBU": "Unidades ninja de operações especiais que executam missões sigilosas. Seus membros costumam usar máscaras de animais.",
+    "Kurama": "A Raposa de Nove Caudas, uma das bestas com caudas. É conhecida por sua enorme reserva de energia.",
+    "Shukaku": "A besta com uma cauda, de aparência semelhante a um tanuki. É associada à areia e a técnicas de selamento.",
+    "Rock Lee": "Ninja de Konoha que compensa a falta de talento para técnicas mágicas com treinamento intenso em combate corporal.",
+    "Tenten": "Ninja de Konoha especialista em armas, que guarda e invoca equipamentos por meio de pergaminhos.",
+    "Shikamaru": "Ninja do clã Nara, conhecido pela inteligência estratégica e por técnicas que controlam sombras.",
+    "Choji": "Ninja do clã Akimichi que usa técnicas de expansão corporal para aumentar de tamanho e combater inimigos.",
+    "Minato": "O Quarto Hokage, conhecido como Relâmpago Amarelo por sua velocidade e por uma técnica de teletransporte com marcações.",
+    "Tobirama": "O Segundo Hokage, um grande usuário de técnicas de água e criador de diversos jutsus importantes.",
+    "Madara": "Um dos fundadores de Konoha e poderoso guerreiro do clã Uchiha, conhecido por seus poderes oculares e ambição.",
+    "Obito": "Ninja do clã Uchiha que integrou a equipe de Minato. Sua história tem grande importância nos conflitos da série.",
+    "Ninjutsu": "Categoria ampla de técnicas ninja que usam energia moldada para gerar efeitos como elementos, clones ou invocações.",
+    "Genjutsu": "Categoria de técnicas de ilusão que altera a percepção dos sentidos de um alvo, fazendo-o vivenciar algo que não é real.",
+    "Asuma": "Professor do Time 10 de Konoha, conhecido por lutar com lâminas de chakra.",
+    "Kurenai": "Professora do Time 8 de Konoha e especialista em genjutsu.",
+    "Hidan": "Membro da Akatsuki que usa um ritual para transferir ferimentos ao adversário.",
+    "Kakuzu": "Membro da Akatsuki que usa fios corporais e conserva vários corações.",
+    "Deidara": "Membro da Akatsuki que cria explosivos com argila moldada.",
+    "Sasori": "Membro da Akatsuki que usa marionetes como armas.",
+    "Pain": "Nome usado pelos seis corpos controlados por Nagato, reconhecidos pelos piercings e pelo Rinnegan.",
+    "Nagato": "Ninja da Vila da Chuva que controla os Seis Caminhos de Pain usando o Rinnegan.",
+    "Killer Bee": "Jinchuriki do Oito-Caudas, conhecido pelo rap e pelo uso de várias espadas.",
+    "Yugito Nii": "Ninja da Vila da Nuvem e jinchuriki do Duas-Caudas.",
+    "Hiruzen": "Terceiro Hokage de Konoha e mestre dos três Sannin.",
+    "Hashirama": "Primeiro Hokage de Konoha, famoso pelo Estilo Madeira.",
+    "Sai": "Ninja que usa desenhos de tinta para criar criaturas e atuar em missões.",
+    "Yamato": "Ninja que usa o Estilo Madeira e lidera o Time 7 em parte de sua jornada.",
+    "Susanoo": "Guerreiro de chakra manifestado por certos usuários do Mangekyo Sharingan.",
+    "Modo Sábio": "Estado que combina chakra e energia natural para ampliar as capacidades do ninja.",
+    "Vila da Nuvem": "Vila ninja do País do Relâmpago, liderada pelo Raikage.",
+    "Vila da Névoa": "Vila ninja do País da Água, liderada pelo Mizukage.",
+    "Raiz": "Organização secreta comandada por Danzo, ligada a operações clandestinas de Konoha.",
+    "Sete Espadachins da Névoa": "Grupo de ninjas da Vila da Névoa que utiliza espadas especiais."
+  },
+  "hxh": {
+    "Gon": "Gon Freecss é um jovem que se torna Hunter para procurar o pai. Luta com grande força física e uma técnica de pedra, papel e tesoura.",
+    "Killua": "Killua Zoldyck é um jovem de uma família de assassinos. É muito ágil e desenvolve habilidades que imitam eletricidade.",
+    "Kurapika": "Sobrevivente do clã Kurta, conhecido pelos olhos escarlates. Usa correntes e busca recuperar os olhos roubados de seu povo.",
+    "Leorio": "Amigo dos protagonistas que deseja se tornar médico. Busca recursos para ajudar pessoas sem acesso a tratamento.",
+    "Hisoka": "Lutador de aparência circense que procura adversários fortes. Sua aura pode adquirir propriedades de borracha e goma.",
+    "Illumi": "Assassino da família Zoldyck que utiliza agulhas para alterar aparências e controlar pessoas.",
+    "Netero": "Presidente da Associação Hunter durante parte da história. É um mestre de artes marciais com ataques ligados a uma grande figura de oração.",
+    "Zeno": "Veterano assassino da família Zoldyck que molda sua aura em formas de dragão.",
+    "Chrollo": "Líder da Trupe Fantasma. Usa um livro especial para roubar e empregar habilidades, sob condições específicas.",
+    "Feitan": "Integrante da Trupe Fantasma que luta com uma espada e pode converter dano sofrido num contra-ataque extremamente poderoso.",
+    "Biscuit": "Hunter e professora de combate, também chamada de Bisky. Sua aparência infantil esconde uma forma física muito mais forte.",
+    "Wing": "Instrutor que ensina os fundamentos do controle de aura aos protagonistas na Torre Celestial.",
+    "Meruem": "Rei das Formigas Quimera, dotado de força e inteligência extraordinárias. Desenvolve grande interesse por jogos de estratégia.",
+    "Neferpitou": "Membro da Guarda Real das Formigas Quimera, de aparência felina, com habilidades de detecção e manipulação de corpos.",
+    "Shaiapouf": "Membro da Guarda Real das Formigas Quimera, com traços de borboleta, dedicado a proteger os interesses do rei.",
+    "Menthuthuyoupi": "Membro da Guarda Real das Formigas Quimera que transforma o próprio corpo e possui imensa força física.",
+    "Machi": "Integrante da Trupe Fantasma que transforma aura em fios, usados para prender, rastrear e costurar ferimentos.",
+    "Shizuku": "Integrante da Trupe Fantasma que materializa um aspirador capaz de sugar objetos e substâncias, com limitações específicas.",
+    "Phinks": "Integrante da Trupe Fantasma que aumenta a potência de seu soco ao girar o braço.",
+    "Uvogin": "Integrante da Trupe Fantasma especializado em força bruta e resistência física, com golpes devastadores.",
+    "Nen": "Sistema de técnicas para perceber e controlar a aura, a energia vital do corpo. É a base das habilidades especiais da série.",
+    "Hatsu": "Um dos princípios básicos do controle de aura: sua expressão pessoal em ações e habilidades ligadas às aptidões do usuário.",
+    "Ten": "Princípio que mantém a aura envolvendo o corpo, reduzindo sua dispersão e oferecendo proteção básica.",
+    "Ren": "Princípio que aumenta a quantidade e a intensidade da aura liberada, elevando o poder disponível para combate.",
+    "Zetsu": "Princípio que fecha a saída de aura, ajudando a ocultar a presença, mas deixando o corpo mais vulnerável a ataques de aura.",
+    "In": "Técnica avançada que oculta a aura da percepção sem necessariamente interromper o uso de uma habilidade.",
+    "Gyo": "Técnica que concentra uma parcela maior de aura numa parte do corpo. Nos olhos, ajuda a perceber aura escondida.",
+    "En": "Técnica que expande a aura ao redor do corpo para detectar formas e movimentos dentro de uma área.",
+    "Reforço": "Categoria de aura voltada a fortalecer propriedades naturais do corpo ou de objetos, como força, resistência e recuperação.",
+    "Emissão": "Categoria de aura que facilita separar energia do corpo e mantê-la ativa à distância, como em projéteis.",
+    "Transmutação": "Categoria de aura que permite mudar suas propriedades para imitar substâncias ou fenômenos, como eletricidade.",
+    "Manipulação": "Categoria de aura voltada a controlar seres vivos ou objetos, normalmente mediante condições impostas pela habilidade.",
+    "Materialização": "Categoria de aura que permite criar objetos concretos, muitas vezes dotados de regras ou propriedades especiais.",
+    "Especialização": "Categoria para habilidades de aura que não se encaixam nas outras cinco, apresentando efeitos muito particulares.",
+    "Exame Hunter": "Processo de seleção perigoso e variado que candidatos enfrentam para conquistar uma licença profissional de Hunter.",
+    "Torre Celestial": "Arena vertical em que lutadores sobem de andar ao vencer combates, encontrando adversários cada vez mais fortes.",
+    "Greed Island": "Jogo especial criado com habilidades de aura, no qual participantes entram num ambiente real e coletam cartas.",
+    "Yorknew": "Grande cidade que recebe um leilão importante e serve de cenário para conflitos envolvendo criminosos e colecionadores.",
+    "Trupe Fantasma": "Grupo de ladrões e criminosos conhecido como Aranha, cujos membros possuem habilidades de combate muito perigosas.",
+    "Formigas Quimera": "Espécie capaz de transmitir à prole características das criaturas que a rainha consome. Constitui uma ameaça central na história.",
+    "Morel": "Hunter veterano que usa um grande cachimbo e controla fumaça com Nen.",
+    "Knov": "Hunter que cria portais e salas de uma dimensão especial por meio de Nen.",
+    "Knuckle": "Aluno de Morel cuja habilidade de Nen funciona como um empréstimo de aura com juros.",
+    "Shoot": "Aluno de Morel que luta com mãos flutuantes e uma gaiola capaz de aprisionar partes do alvo.",
+    "Pakunoda": "Membro da Trupe Fantasma capaz de obter e transmitir memórias.",
+    "Kortopi": "Membro da Trupe Fantasma que produz cópias temporárias de objetos.",
+    "Nobunaga": "Espadachim da Trupe Fantasma que usa Nen em seu combate com katana.",
+    "Franklin": "Membro da Trupe Fantasma que dispara projéteis de aura pelos dedos.",
+    "Silva Zoldyck": "Pai de Killua e assassino de grande poder da família Zoldyck.",
+    "Kalluto Zoldyck": "Irmão mais novo de Killua, ligado à família de assassinos Zoldyck e à Trupe Fantasma.",
+    "Ging Freecss": "Pai de Gon e Hunter conhecido por sua habilidade e pela exploração de ruínas.",
+    "Kite": "Hunter que usa uma arma sorteada por uma habilidade de Nen e conhece Ging.",
+    "Leol": "Formiga Quimera que pode tomar emprestadas habilidades de outros usuários de Nen.",
+    "Cheetu": "Formiga Quimera de aparência felina, conhecida pela velocidade.",
+    "Genthru": "Antagonista de Greed Island que usa habilidades de Nen ligadas a explosões.",
+    "Razor": "Usuário de Nen de Greed Island que participa de uma disputa de queimada.",
+    "Ko": "Técnica que concentra a aura num ponto do corpo para fortalecer ataque ou defesa.",
+    "Ken": "Técnica que mantém uma grande quantidade de aura ao redor do corpo para defesa.",
+    "Licença Hunter": "Documento que dá aos Hunters acesso a privilégios, informações e serviços.",
+    "Cartas de Greed Island": "Cartas de um jogo de Nen, usadas para armazenar itens e executar efeitos especiais."
+  },
+  "bleach": {
+    "Ichigo": "Ichigo Kurosaki é um jovem que consegue ver espíritos e se torna um ceifador de almas substituto, protegendo pessoas e combatendo monstros espirituais.",
+    "Rukia": "Rukia Kuchiki é uma ceifadora de almas que introduz o protagonista ao mundo espiritual. Sua espada possui habilidades ligadas ao frio.",
+    "Renji": "Renji Abarai é um oficial da Sexta Divisão. Sua espada, Zabimaru, pode se estender em segmentos para atacar à distância.",
+    "Ikkaku": "Ikkaku Madarame é um guerreiro da Décima Primeira Divisão, conhecido pela cabeça raspada e pelo gosto por combates diretos.",
+    "Byakuya": "Byakuya Kuchiki é o capitão da Sexta Divisão. Sua espada pode se dividir em inúmeras lâminas semelhantes a pétalas.",
+    "Toshiro": "Toshiro Hitsugaya é um jovem capitão da Décima Divisão, conhecido por seus cabelos brancos e pelo controle do gelo.",
+    "Aizen": "Sosuke Aizen é um estrategista e antigo capitão, cuja espada pode submeter os sentidos de um alvo à hipnose completa.",
+    "Gin": "Gin Ichimaru é um capitão de sorriso enigmático. Sua espada pode se alongar rapidamente para atingir inimigos.",
+    "Orihime": "Orihime Inoue é amiga do protagonista. Seus poderes criam barreiras e podem rejeitar acontecimentos, permitindo reparar ferimentos.",
+    "Chad": "Yasutora Sado, chamado Chad, é um amigo fisicamente poderoso do protagonista, com habilidades espirituais concentradas nos braços.",
+    "Uryu": "Uryu Ishida é um arqueiro espiritual da linhagem Quincy. Usa partículas espirituais para formar armas e combater criaturas sobrenaturais.",
+    "Ryuken": "Ryuken Ishida é o pai de Uryu, um médico e habilidoso arqueiro espiritual de linhagem Quincy.",
+    "Urahara": "Kisuke Urahara é o dono de uma loja de artigos espirituais, um inventor habilidoso e antigo capitão da Décima Segunda Divisão.",
+    "Yoruichi": "Yoruichi Shihoin é uma antiga comandante das forças especiais, famosa por sua velocidade e pela capacidade de assumir a forma de um gato.",
+    "Kenpachi": "Kenpachi Zaraki é o capitão da Décima Primeira Divisão. Procura adversários fortes e se destaca pela força e resistência.",
+    "Unohana": "Retsu Unohana é uma capitã conhecida pela medicina e pela calma, com profundo domínio de técnicas de cura e combate.",
+    "Yamamoto": "Genryusai Yamamoto é o veterano comandante das treze divisões. Sua espada libera fogo de enorme poder destrutivo.",
+    "Shunsui": "Shunsui Kyoraku é um capitão de aparência descontraída. As habilidades de suas espadas impõem regras inspiradas em jogos.",
+    "Ulquiorra": "Ulquiorra Cifer é um dos Espada, reconhecido pela aparência pálida, postura fria e habilidades de regeneração.",
+    "Grimmjow": "Grimmjow Jaegerjaquez é um dos Espada, com cabelo azul, personalidade agressiva e uma forma liberada associada a uma pantera.",
+    "Hollow": "Espírito corrompido que costuma ter máscara e um buraco no corpo. Ataca almas e seres humanos espiritualmente sensíveis.",
+    "Arrancar": "Criatura espiritual que removeu parte de sua máscara e ganhou características semelhantes às de um ceifador de almas, incluindo uma espada.",
+    "Shinigami": "Ceifador de almas que guia espíritos ao além e combate criaturas corrompidas, ajudando a manter o equilíbrio entre os mundos.",
+    "Quincy": "Integrante de uma linhagem humana que manipula partículas espirituais para formar armas e combater seres espirituais.",
+    "Shikai": "Primeira liberação de uma espada espiritual, alcançada ao desenvolver a relação com seu espírito e conhecer seu nome.",
+    "Bankai": "Liberação avançada de uma espada espiritual, que manifesta uma forma mais completa de seu poder e exige grande domínio.",
+    "Zanpakuto": "Espada espiritual usada por ceifadores de almas, com um espírito próprio e habilidades que refletem seu portador.",
+    "Asauchi": "Espada-base, inicialmente sem identidade individual, sobre a qual um ceifador de almas imprime sua essência ao conviver com ela.",
+    "Soul Society": "Mundo espiritual para onde muitas almas humanas são encaminhadas após a morte e onde vivem os ceifadores de almas.",
+    "Hueco Mundo": "Dimensão de paisagem desértica e noite constante, habitada principalmente por espíritos corrompidos e seus derivados.",
+    "Seireitei": "Área fortificada onde ficam os quartéis e a administração dos ceifadores de almas, dentro do mundo espiritual.",
+    "Rukongai": "Conjunto de distritos ao redor da área fortificada do mundo espiritual, onde vive a maior parte das almas comuns.",
+    "Getsuga Tensho": "Ataque que concentra energia na lâmina e a libera como uma onda cortante, característico do protagonista.",
+    "Cero": "Disparo concentrado de energia espiritual, geralmente usado por criaturas corrompidas e seus derivados.",
+    "Reiatsu": "Pressão espiritual produzida quando um ser libera seu poder. Pode ser percebida por outros e até exercer força sobre o ambiente.",
+    "Reiryoku": "Poder espiritual que um ser possui e utiliza para alimentar suas habilidades sobrenaturais.",
+    "Hogyoku": "Artefato capaz de interferir nos limites entre diferentes tipos de seres espirituais, central nos planos de um dos antagonistas.",
+    "Sokyoku": "Arma de execução do mundo espiritual, que assume uma forma flamejante semelhante a uma ave quando liberada.",
+    "Kon": "Uma alma modificada que costuma habitar um leão de pelúcia e pode ocupar temporariamente um corpo humano.",
+    "Yachiru": "Yachiru Kusajishi é uma pequena oficial de cabelos rosados da Décima Primeira Divisão, muito próxima de seu capitão.",
+    "Mayuri": "Mayuri Kurotsuchi é o capitão da Décima Segunda Divisão, um cientista que utiliza pesquisas, modificações corporais e invenções em combate.",
+    "Soi Fon": "Capitã da Segunda Divisão e comandante das forças especiais, especializada em movimentação rápida e ataques de precisão.",
+    "Jushiro Ukitake": "Capitão da Décima Terceira Divisão, conhecido por sua ligação com Shunsui e sua saúde frágil.",
+    "Sajin Komamura": "Capitão de aparência lupina que utiliza uma Zanpakuto ligada a um guerreiro gigante.",
+    "Shinji Hirako": "Capitão e membro dos Visored cuja espada altera a percepção de direção do adversário.",
+    "Hiyori Sarugaki": "Integrante dos Visored, capaz de utilizar uma máscara Hollow.",
+    "Starrk": "Arrancar do grupo dos Espada que combate usando disparos de energia.",
+    "Harribel": "Arrancar do grupo dos Espada cujos poderes estão ligados à água.",
+    "Neliel": "Arrancar que costuma aparecer numa forma infantil e possui uma forma adulta de combate.",
+    "Nnoitra": "Espada que utiliza várias lâminas e procura demonstrar sua força.",
+    "Yhwach": "Líder dos Quincy que enfrenta a Soul Society na Guerra Sangrenta dos Mil Anos.",
+    "Jugram Haschwalth": "Comandante dos Sternritter e aliado central de Yhwach.",
+    "Zabimaru": "Zanpakuto de Renji, cuja liberação assume uma lâmina segmentada.",
+    "Senbonzakura": "Zanpakuto de Byakuya que se fragmenta em numerosas lâminas semelhantes a pétalas.",
+    "Sode no Shirayuki": "Zanpakuto de Rukia, associada a técnicas de congelamento.",
+    "Hyorinmaru": "Zanpakuto de Toshiro Hitsugaya, associada ao controle de gelo.",
+    "Hado": "Categoria de feitiços Kido usada principalmente para ataques.",
+    "Bakudo": "Categoria de feitiços Kido ligada a contenção, imobilização e proteção.",
+    "Shunpo": "Técnica de deslocamento rápido usada pelos Shinigami.",
+    "Sonido": "Técnica de movimentação em alta velocidade usada por Arrancars.",
+    "Nemu": "Assistente de Mayuri criada artificialmente e ligada à Décima Segunda Divisão.",
+    "Ririn": "Alma modificada que pode ocupar um corpo artificial, apresentada no anime."
+  },
+  "jjk": {
+    "Yuji Itadori": "Estudante de força física incomum que entra no mundo da feitiçaria após engolir um objeto amaldiçoado perigoso.",
+    "Yuta Okkotsu": "Jovem feiticeiro de enorme poder, ligado à entidade Rika. É o protagonista de Jujutsu Kaisen 0.",
+    "Megumi Fushiguro": "Estudante que usa a Técnica das Dez Sombras para invocar criaturas espirituais e auxiliar em combate.",
+    "Nobara Kugisaki": "Estudante que combate maldições usando martelo, pregos e bonecos de palha para canalizar sua técnica.",
+    "Satoru Gojo": "Professor e feiticeiro conhecido pela venda nos olhos. Combina os Seis Olhos com uma técnica de manipulação do espaço.",
+    "Suguru Geto": "Feiticeiro capaz de absorver e controlar espíritos amaldiçoados. Sua relação com a sociedade jujutsu é central na história.",
+    "Sukuna": "Figura lendária conhecida como Rei das Maldições, cujo poder persiste em objetos amaldiçoados extremamente perigosos.",
+    "Mahito": "Espírito amaldiçoado ligado ao ódio entre humanos, capaz de tocar e alterar a forma das almas e dos corpos.",
+    "Maki Zenin": "Estudante especializada no uso de armas amaldiçoadas e no combate físico, que desafia as expectativas de seu clã.",
+    "Mai Zenin": "Estudante de Kyoto que utiliza um revólver e uma técnica capaz de criar matéria a partir de energia.",
+    "Toge Inumaki": "Estudante cuja fala pode impor comandos aos alvos. Usa palavras de ingredientes de comida para evitar efeitos acidentais.",
+    "Panda": "Cadáver amaldiçoado autônomo com consciência e aparência de panda, criado pelo diretor da escola de Tóquio.",
+    "Kento Nanami": "Feiticeiro e ex-assalariado que usa uma técnica de proporção para criar pontos fracos nos alvos.",
+    "Aoi Todo": "Estudante de Kyoto, forte no combate corporal. Sua técnica permite trocar posições de alvos que tenham energia amaldiçoada.",
+    "Jogo": "Espírito amaldiçoado de aparência vulcânica, cujos ataques utilizam chamas e calor intenso.",
+    "Hanami": "Espírito amaldiçoado ligado ao medo da natureza, que luta usando plantas e outras habilidades relacionadas à vegetação.",
+    "Choso": "Encarnação de uma Pintura da Morte, profundamente ligado aos irmãos. Usa uma técnica de manipulação de sangue.",
+    "Eso": "Uma das Pinturas da Morte encarnadas, que utiliza sangue numa técnica capaz de provocar decomposição.",
+    "Toji Fushiguro": "Combatente sem energia amaldiçoada, mas com capacidades físicas excepcionais. É conhecido por caçar feiticeiros usando armas especiais.",
+    "Naobito Zenin": "Chefe do clã Zenin durante parte da história, que utiliza a Feitiçaria de Projeção para executar movimentos extremamente rápidos.",
+    "Kasumi Miwa": "Estudante de Kyoto que combate com uma espada e utiliza técnicas defensivas do Novo Estilo das Sombras.",
+    "Momo Nishimiya": "Estudante de Kyoto que manipula uma vassoura para voar e desempenhar funções de reconhecimento e apoio.",
+    "Utahime": "Utahime Iori é uma professora da escola de Kyoto, cuja técnica pode ampliar a energia de feiticeiros dentro de seu alcance.",
+    "Shoko Ieiri": "Médica da escola de Tóquio, capaz de usar uma técnica de energia positiva para tratar ferimentos de outras pessoas.",
+    "Energia amaldiçoada": "Energia originada das emoções negativas humanas. Alimenta técnicas de feiticeiros e está ligada à formação de maldições.",
+    "Energia reversa": "Nome usado aqui para a energia positiva gerada pela técnica reversa. Pode regenerar tecidos e alimentar efeitos invertidos de certas técnicas.",
+    "Expansão de domínio": "Técnica avançada que manifesta o domínio do usuário. Muitas formas criam uma barreira e concedem acerto garantido à técnica aplicada.",
+    "Domínio simples": "Técnica que cria uma área defensiva e pode neutralizar o efeito de acerto garantido de um domínio enquanto se mantém ativa.",
+    "Cão Divino": "Invocação canina da Técnica das Dez Sombras, usada para rastrear maldições e atacar inimigos.",
+    "Nue": "Invocação alada da Técnica das Dez Sombras, capaz de voar e produzir descargas elétricas.",
+    "Roxo": "Ataque de Gojo que combina atração e repulsão em um efeito de enorme poder destrutivo.",
+    "Vermelho": "Aplicação invertida da técnica espacial de Gojo, alimentada por energia positiva, que produz uma forte repulsão.",
+    "Azul": "Aplicação da técnica espacial de Gojo que produz atração, puxando alvos e matéria para um ponto.",
+    "Infinito": "Efeito da técnica espacial de Gojo que faz objetos desacelerarem ao se aproximar, impedindo o contato normal com ele.",
+    "Dedo do Sukuna": "Objeto amaldiçoado que preserva parte do poder de uma entidade lendária. É extremamente perigoso e atrai maldições.",
+    "Útero amaldiçoado": "Estado de formação de uma maldição, que pode evoluir para um espírito mais poderoso. Algumas formas especiais são objetos amaldiçoados.",
+    "Escola de Tóquio": "Instituição jujutsu que treina feiticeiros e organiza missões contra maldições. É a escola principal acompanhada pela série.",
+    "Escola de Kyoto": "Instituição jujutsu de Kyoto que forma feiticeiros e participa de eventos de intercâmbio com a outra escola.",
+    "Kokushen": "Fenômeno conhecido como Black Flash: energia aplicada quase simultaneamente ao impacto físico distorce o espaço e amplifica o golpe.",
+    "Punho divergente": "Golpe em que o impacto físico é seguido por uma segunda descarga de energia, devido ao atraso entre os dois.",
+    "Kinji Hakari": "Estudante de jujutsu cuja expansão de domínio está ligada a um jogo de azar.",
+    "Kirara Hoshi": "Aliado de Hakari que usa uma técnica de atração baseada em marcações de estrelas.",
+    "Hiromi Higuruma": "Advogado que desperta uma técnica e um domínio com características de tribunal.",
+    "Hajime Kashimo": "Combatente antigo cuja energia amaldiçoada possui características elétricas.",
+    "Yuki Tsukumo": "Feiticeira de grau especial que investiga formas de acabar com as maldições.",
+    "Mei Mei": "Feiticeira que luta com um machado e controla corvos.",
+    "Noritoshi Kamo": "Estudante da escola de Kyoto que utiliza Manipulação de Sangue.",
+    "Kokichi Muta": "Estudante de Kyoto que controla os corpos mecânicos conhecidos como Mechamaru.",
+    "Masamichi Yaga": "Diretor da escola de Tóquio e criador de corpos amaldiçoados.",
+    "Yoshinobu Gakuganji": "Diretor da escola de Kyoto, conhecido por combater com uma guitarra.",
+    "Naoya Zenin": "Membro do clã Zenin que utiliza a Técnica de Projeção.",
+    "Kenjaku": "Feiticeiro antigo que troca de corpo e conduz planos de longa duração.",
+    "Dagon": "Maldição de aparência marinha cujo domínio representa uma praia.",
+    "Mahoraga": "Shikigami da Técnica das Dez Sombras que se adapta a fenômenos de combate.",
+    "Fala Amaldiçoada": "Técnica que aplica ordens e efeitos por meio de palavras carregadas de energia.",
+    "Manipulação de Sangue": "Técnica que controla sangue para criar ataques e outros efeitos.",
+    "Reino da Prisão": "Objeto amaldiçoado capaz de selar uma pessoa em seu interior.",
+    "Cortina": "Barreira usada para ocultar ou limitar uma área de atuação jujutsu.",
+    "Incidente de Shibuya": "Arco de uma operação de grande escala envolvendo feiticeiros e maldições em Shibuya.",
+    "Jogo do Abate": "Conflito organizado por Kenjaku com participantes submetidos a regras em colônias."
+  },
+  "db": {
+    "Goku": "Saiyajin criado na Terra que adora treinar e enfrentar adversários fortes. É o protagonista e um dos principais defensores do planeta.",
+    "Vegeta": "Príncipe dos saiyajins, orgulhoso e dedicado ao combate. Sua rivalidade e evolução o tornam um dos guerreiros centrais da série.",
+    "Gohan": "Filho mais velho do protagonista, um guerreiro com grande potencial que também valoriza os estudos e a família.",
+    "Trunks": "Filho de Bulma, conhecido pelos cabelos claros. Sua versão do futuro viaja no tempo e utiliza uma espada.",
+    "Goten": "Filho mais novo de Goku, com aparência semelhante à do pai quando criança e grande talento para lutar.",
+    "Pan": "Filha de Gohan e Videl, neta do protagonista. Demonstra talento para artes marciais desde pequena.",
+    "Piccolo": "Guerreiro namekuseijin de pele verde, antenas e grande capacidade de regeneração. Atua como aliado e mentor.",
+    "Kami": "Guardião da Terra durante parte da história, um namekuseijin que vive num templo elevado e está ligado às esferas terrestres.",
+    "Kuririn": "Guerreiro humano, amigo de infância do protagonista e praticante de artes marciais. Usa um ataque de disco cortante.",
+    "Tenshinhan": "Artista marcial humano de três olhos, conhecido por técnicas como o Kikoho e pela disciplina nos treinos.",
+    "Bulma": "Inventora e cientista da Corporação Cápsula. Desenvolve equipamentos fundamentais para as aventuras dos guerreiros.",
+    "Chi-Chi": "Artista marcial, esposa do protagonista e mãe de dois filhos, conhecida por priorizar a educação e o bem-estar da família.",
+    "Freeza": "Imperador espacial cruel, responsável por conquistar planetas. Possui várias formas de transformação e poder destrutivo imenso.",
+    "Cell": "Bioandroide criado com células de diversos guerreiros. Busca atingir sua forma perfeita e organiza um torneio de combate.",
+    "Majin Boo": "Ser mágico de aparência rosada, capaz de regenerar o corpo e transformar pessoas em doces. Possui diferentes formas.",
+    "Janemba": "Vilão do filme Uma Nova Fusão, originado de energia maligna no outro mundo. Distorce o espaço e a realidade ao redor.",
+    "Beerus": "Deus da Destruição do Universo 7, de aparência felina. Seu papel está ligado à destruição de mundos no equilíbrio cósmico.",
+    "Champa": "Deus da Destruição do Universo 6, irmão de Beerus, conhecido por sua rivalidade e interesse por comida.",
+    "Whis": "Anjo que acompanha e treina o Deus da Destruição do Universo 7. Possui habilidades extraordinárias de combate e deslocamento.",
+    "Vados": "Anjo que acompanha o Deus da Destruição do Universo 6 e é irmã de Whis.",
+    "Broly": "Saiyajin conhecido por um poder que cresce de forma extraordinária durante o combate. Suas histórias variam entre as versões dos filmes.",
+    "Kale": "Saiyajin do Universo 6, amiga de Caulifla, capaz de assumir uma transformação de enorme poder e musculatura.",
+    "Gogeta": "Guerreiro resultante da união dos dois principais saiyajins por meio da Dança da Fusão, combinando seus poderes.",
+    "Vegetto": "Guerreiro resultante da união dos dois principais saiyajins pelo uso dos brincos Potara, combinando suas habilidades.",
+    "Kamehameha": "Técnica de artes marciais que concentra energia nas mãos e a dispara em forma de uma poderosa rajada.",
+    "Galick Ho": "Técnica de Vegeta que concentra energia e lança uma grande rajada, geralmente representada em tons de roxo.",
+    "Genki Dama": "Técnica que reúne energia cedida por seres vivos e pela natureza para formar uma grande esfera de ataque.",
+    "Esfera da Morte": "Ataque associado ao imperador espacial que forma uma bola de energia com enorme capacidade de destruição.",
+    "Super Saiyajin": "Transformação que amplia o poder de um saiyajin. Sua forma clássica apresenta cabelos dourados e olhos claros.",
+    "Kaioken": "Técnica que multiplica temporariamente o desempenho e a energia do corpo, mas exige muito esforço físico do usuário.",
+    "Shenlong": "Dragão invocado quando as sete esferas mágicas da Terra são reunidas, capaz de conceder desejos dentro de limites.",
+    "Porunga": "Dragão das esferas de Namekusei, conhecido pela aparência musculosa e por conceder desejos conforme as regras de seu conjunto.",
+    "Esferas do Dragão": "Esferas mágicas que, quando reunidas num conjunto completo, permitem invocar um dragão capaz de realizar desejos.",
+    "Radar do Dragão": "Dispositivo criado para detectar e localizar as esferas mágicas, mostrando suas posições numa tela.",
+    "Namekusei": "Planeta de origem dos namekuseijins, associado a paisagens de céu esverdeado e a um conjunto próprio de esferas mágicas.",
+    "Planeta Vegeta": "Mundo que servia de lar aos saiyajins e era governado por sua monarquia antes de ser destruído.",
+    "Nuvem Voadora": "Nuvem mágica usada como transporte aéreo, que só permite que pessoas de coração puro a montem.",
+    "Bastão Mágico": "Bastão vermelho capaz de aumentar e diminuir de comprimento, utilizado pelo protagonista em suas primeiras aventuras.",
+    "Semente dos Deuses": "Alimento especial cultivado por Karin, capaz de restaurar energia e recuperar muitos ferimentos rapidamente.",
+    "Cápsula": "Pequeno recipiente tecnológico da Corporação Cápsula que armazena objetos grandes, como veículos e casas, de forma portátil.",
+    "Nave espacial": "Veículo tecnológico usado para viajar entre planetas, transportar guerreiros e realizar jornadas fora da Terra.",
+    "Espada Z": "Espada muito pesada ligada ao mundo dos Kaioshins, utilizada por Gohan em seu treinamento.",
+    "Câmara de recuperação": "Equipamento médico que envolve o paciente em um tanque para tratar ferimentos e ajudar na recuperação física.",
+    "Máquina do tempo": "Veículo desenvolvido por Bulma que permite viajar entre épocas e tem papel central nas aventuras de Trunks do futuro.",
+    "Android 17": "Humano modificado por Dr. Gero, irmão de Android 18 e combatente do Universo 7.",
+    "Android 18": "Humana modificada por Dr. Gero, irmã de Android 17 e esposa de Kuririn.",
+    "Android 16": "Androide inteiramente mecânico, conhecido por proteger a natureza e enfrentar Cell.",
+    "Dr. Gero": "Cientista que cria androides e modifica o próprio corpo, assumindo a identidade de Android 20.",
+    "Goku Black": "Adversário do futuro que possui a aparência e o corpo de Goku.",
+    "Zamasu": "Aprendiz de Kaioshin que desenvolve um plano contra os mortais.",
+    "Jiren": "Guerreiro do Universo 11 conhecido por seu enorme poder no Torneio do Poder.",
+    "Toppo": "Guerreiro do Universo 11, líder das Tropas do Orgulho.",
+    "Hit": "Assassino do Universo 6 que utiliza uma técnica capaz de saltar pequenos intervalos de tempo.",
+    "Dyspo": "Combatente das Tropas do Orgulho conhecido pela velocidade.",
+    "Mestre Kame": "Mestre de artes marciais que ensina Goku e Kuririn e vive na Casa do Kame.",
+    "Mestre Karin": "Gato mestre que vive numa torre e auxilia o treinamento e a recuperação de guerreiros.",
+    "Yamcha": "Artista marcial humano que se torna aliado de Goku.",
+    "Chaoz": "Artista marcial e companheiro de Tenshinhan, capaz de usar poderes psíquicos.",
+    "Potara": "Brincos usados por divindades que também podem fundir dois usuários.",
+    "Dança da Fusão": "Sequência de movimentos sincronizados que funde dois guerreiros compatíveis.",
+    "Torneio do Poder": "Competição entre universos em que equipes combatem numa arena.",
+    "Torneio de Artes Marciais": "Competição de lutas realizada na Terra, também chamada de Tenkaichi Budokai.",
+    "Cooler": "Irmão de Freeza apresentado nos filmes, capaz de assumir uma forma adicional de combate.",
+    "Hirudegarn": "Monstro gigante ligado à história de Tapion no filme O Ataque do Dragão."
+  },
+  "herois": {
+    "Homem de Ferro": "Herói da Marvel: Tony Stark, inventor que utiliza armaduras tecnológicas para voar, se proteger e combater ameaças.",
+    "Batman": "Herói da DC: Bruce Wayne, vigilante de Gotham que utiliza investigação, treinamento e equipamentos, sem superpoderes naturais.",
+    "Superman": "Herói da DC, um kryptoniano criado na Terra como Clark Kent. Possui força, voo e visão de calor, entre outros poderes.",
+    "Capitã Marvel": "Heroína da Marvel, conhecida principalmente como Carol Danvers. Possui força ampliada, voo e capacidade de absorver e projetar energia.",
+    "Thor": "Herói da Marvel inspirado no deus nórdico do trovão. É um guerreiro asgardiano associado a tempestades e a um martelo encantado.",
+    "Shazam": "Herói da DC: um jovem, normalmente Billy Batson, que assume uma forma adulta com poderes mágicos ao dizer uma palavra.",
+    "Flash": "Título de heróis velocistas da DC, como Barry Allen e Wally West, capazes de se mover em velocidades extraordinárias.",
+    "Mercúrio": "Herói da Marvel, Pietro Maximoff, conhecido por sua supervelocidade e por ser irmão de Wanda Maximoff.",
+    "Arqueiro Verde": "Herói da DC, Oliver Queen, que usa arco, flechas especiais e habilidade de combate para enfrentar criminosos.",
+    "Gavião Arqueiro": "Herói da Marvel, mais associado a Clint Barton, um arqueiro de precisão excepcional que usa flechas com funções especiais.",
+    "Aquaman": "Herói da DC, Arthur Curry, ligado ao reino de Atlântida, capaz de viver debaixo d’água e se comunicar com a vida marinha.",
+    "Namor": "Personagem da Marvel, governante submarino com força extraordinária e pequenas asas nos tornozelos que permitem voar.",
+    "Mulher-Maravilha": "Heroína da DC, Diana, uma guerreira amazona de Themyscira. Utiliza um laço mágico e braceletes em sua defesa da humanidade.",
+    "Valquíria": "Personagem da Marvel ligada às guerreiras de Asgard. É conhecida pela habilidade com espadas e por seu vínculo com a mitologia nórdica.",
+    "Doutor Estranho": "Herói da Marvel, Stephen Strange, um ex-cirurgião que se torna mestre das artes místicas e protege o mundo de ameaças mágicas.",
+    "Senhor Destino": "Herói místico da DC, chamado Doctor Fate no original. Usa um elmo ligado a Nabu e à magia da Ordem.",
+    "Homem-Aranha": "Herói da Marvel, mais conhecido como Peter Parker. Escala paredes, usa teias e possui um sentido que alerta sobre perigos.",
+    "Asa Noturna": "Herói da DC, Dick Grayson, antigo Robin. É um acrobata e vigilante que costuma combater com dois bastões.",
+    "Hulk": "Personagem da Marvel ligado a Bruce Banner, transformado por radiação gama num ser de força e resistência extraordinárias.",
+    "Coisa": "Herói da Marvel, Ben Grimm, integrante do Quarteto Fantástico. Seu corpo rochoso proporciona grande força e resistência.",
+    "Viúva Negra": "Heroína da Marvel, mais conhecida como Natasha Romanoff, uma espiã especialista em infiltração, combate e uso de equipamentos.",
+    "Canário Negro": "Heroína da DC, geralmente Dinah Lance, especialista em artes marciais e conhecida por emitir um poderoso grito sônico.",
+    "Wolverine": "Herói mutante da Marvel, também chamado Logan. Possui sentidos aguçados, cura acelerada e garras, frequentemente revestidas de adamantium.",
+    "Pantera Negra": "Herói da Marvel e título ligado à proteção de Wakanda, conhecido principalmente por T’Challa e pelo uso de tecnologia de vibranium.",
+    "Capitão América": "Herói da Marvel, mais associado a Steve Rogers, fortalecido por um soro e conhecido por seu escudo circular.",
+    "Soldado Invernal": "Personagem da Marvel, Bucky Barnes, um combatente treinado que possui um braço cibernético e uma história como agente controlado.",
+    "Lanterna Verde": "Título de heróis da DC que usam anéis capazes de criar construções de energia alimentadas pela força de vontade.",
+    "Nova": "Título de heróis cósmicos da Marvel, como Richard Rider e Sam Alexander, ligados a uma força que concede voo e poderes energéticos.",
+    "Feiticeira Escarlate": "Personagem da Marvel, Wanda Maximoff, associada à magia do caos e a poderes capazes de alterar probabilidades e a realidade.",
+    "Zatanna": "Heroína e maga da DC, conhecida por realizar feitiços pronunciando palavras e frases ao contrário.",
+    "Homem-Formiga": "Título de heróis da Marvel, como Hank Pym e Scott Lang, que usam tecnologia para alterar de tamanho e se comunicar com formigas.",
+    "Átomo": "Título de heróis da DC, como Ray Palmer, que usam tecnologia para encolher até escalas microscópicas ou subatômicas.",
+    "Ciborgue": "Herói da DC, Victor Stone, cujo corpo foi integrado a tecnologia avançada, permitindo controlar sistemas e usar armamentos.",
+    "Visão": "Herói sintético da Marvel, capaz de alterar a densidade do corpo para atravessar objetos ou aumentar sua resistência.",
+    "Ravena": "Heroína da DC associada aos Titãs, filha do demônio Trigon. Usa poderes místicos e possui forte ligação com emoções.",
+    "Jean Grey": "Heroína mutante da Marvel, integrante dos X-Men, com telepatia, telecinese e uma conhecida ligação com a Força Fênix.",
+    "Supergirl": "Heroína da DC, conhecida principalmente como Kara Zor-El, uma kryptoniana com voo, força e outros poderes semelhantes aos do primo.",
+    "Mulher-Hulk": "Heroína da Marvel, Jennifer Walters, uma advogada que adquire força e aparência transformada após receber sangue de seu primo.",
+    "Batgirl": "Título de heroínas da DC que combatem o crime com treinamento e equipamentos. Barbara Gordon é uma de suas identidades mais conhecidas.",
+    "Mulher-Aranha": "Título de heroínas da Marvel, conhecido principalmente por Jessica Drew, que possui força ampliada e descargas bioelétricas.",
+    "Super Choque": "Herói da DC, também chamado Static, que controla eletricidade e magnetismo.",
+    "Raio Negro": "Herói da DC conhecido por gerar e controlar eletricidade.",
+    "Homem de Gelo": "Mutante da Marvel capaz de criar gelo e assumir uma forma congelada.",
+    "Nevasca (DC)": "Personagem da DC conhecida como Killer Frost, com poderes ligados ao frio e à absorção de calor.",
+    "Falcão": "Herói da Marvel, Sam Wilson, conhecido por voar com asas tecnológicas.",
+    "Gavião Negro": "Herói da DC que voa com asas e utiliza armamentos associados ao metal enésimo.",
+    "Demolidor": "Herói da Marvel, Matt Murdock, que combate o crime usando sentidos aguçados e treinamento.",
+    "Caçadora": "Vigilante da DC associada ao uso de uma besta e ao combate contra o crime.",
+    "Motoqueiro Fantasma": "Personagem da Marvel associado a um Espírito de Vingança, fogo sobrenatural e uma moto.",
+    "Etrigan": "Demônio da DC ligado ao humano Jason Blood, conhecido por fogo infernal e força.",
+    "Senhor Fantástico": "Reed Richards, cientista da Marvel e membro do Quarteto Fantástico, capaz de esticar o corpo.",
+    "Homem-Borracha": "Herói da DC conhecido como Plastic Man, capaz de esticar e mudar a forma do corpo.",
+    "Besouro Azul": "Herói da DC cujo portador Jaime Reyes usa uma armadura criada por um escaravelho alienígena.",
+    "Aço": "Herói da DC, John Henry Irons, que utiliza uma armadura tecnológica e um martelo.",
+    "Doutor Manhattan": "Personagem de Watchmen ligado à DC, com poderes sobre matéria e percepção do tempo.",
+    "Surfista Prateado": "Herói cósmico da Marvel que viaja numa prancha e utiliza o Poder Cósmico.",
+    "Tempestade": "Mutante dos X-Men capaz de controlar fenômenos do clima.",
+    "Mera": "Personagem da DC ligada a Atlantis, capaz de controlar água.",
+    "Luke Cage": "Herói da Marvel com força ampliada e pele muito resistente.",
+    "Colossus": "Mutante dos X-Men capaz de transformar o corpo em aço orgânico."
+  },
+  "memes": {
+    "Amostradinho": "Bordão e gíria para alguém que gosta de aparecer, se exibir ou fazer graça. Nos memes, é usado como uma provocação bem-humorada.",
+    "Lá ele": "Expressão popular usada para se afastar de uma frase de duplo sentido, como quem diz que aquilo se refere a outra pessoa.",
+    "Bora Bill": "Bordão que viralizou com um narrador chamando repetidamente um homem durante uma partida de futebol amador. Virou uma convocação brincalhona.",
+    "Receba": "Bordão popularizado em vídeos de futebol para comemorar um chute ou uma jogada bem-sucedida, dito com muita energia.",
+    "Calma calabreso": "Bordão associado ao humorista Toninho Tornado, usado para pedir calma de forma engraçada, com um apelido derivado de uma comida.",
+    "Casca de bala": "Bordão para um companheiro muito próximo, que está sempre junto nas aventuras. Também ficou conhecido em música, vídeos de amizade e montagens.",
+    "Sigma": "Nos memes, personagem que se apresenta como independente, frio e autoconfiante. É um estereótipo da internet, frequentemente usado com ironia.",
+    "Gigachad": "Figura de aparência extremamente musculosa e traços marcantes, usada nos memes como uma versão exagerada de confiança, beleza ou perfeição.",
+    "Aura": "Nos memes, é uma espécie de pontuação imaginária de presença e estilo: alguém ganha pontos ao impressionar e perde ao passar vergonha.",
+    "Farmar aura": "Gíria para tentar acumular prestígio ou parecer impressionante com poses, atitudes e cenas dramáticas, muitas vezes de forma propositalmente exagerada.",
+    "Moggado": "Gíria para alguém que foi ofuscado por outra pessoa numa comparação de aparência ou presença. Nos memes, a comparação costuma ser exagerada.",
+    "Mewing": "Termo ligado ao posicionamento da língua no céu da boca, transformado em meme de pose séria e destaque ao maxilar. O gesto de silêncio também aparece nessas piadas.",
+    "Que viagem é essa véi": "Frase de reação a algo absurdo, confuso ou sem sentido. É usada em vídeos e montagens para expressar espanto e incredulidade.",
+    "Absolute Cinema": "Expressão usada para chamar uma cena de cinema absoluto, por admiração ou ironia. Costuma acompanhar uma imagem do diretor Martin Scorsese com as mãos levantadas.",
+    "Trollface": "Rosto desenhado em preto e branco com um sorriso malicioso, usado para representar quem aprontou uma pegadinha ou provocou os outros.",
+    "Trollagem": "Pegadinha ou provocação feita para causar surpresa ou obter uma reação. Na internet, pode aparecer em vídeos, comentários e montagens.",
+    "Skibidi Toilet": "Série de animações da internet com cabeças saindo de vasos sanitários e batalhas absurdas contra personagens com equipamentos no lugar da cabeça.",
+    "Cameraman": "Personagem do universo de Skibidi Toilet que tem uma câmera no lugar da cabeça e participa dos conflitos da série.",
+    "Tralalero Tralala": "Personagem de memes de brainrot italiano: um tubarão com pernas e tênis, associado a narrações sonoras absurdas.",
+    "Bombardiro Crocodilo": "Personagem de brainrot italiano que mistura um crocodilo com um avião militar. Aparece em imagens e vídeos propositalmente absurdos.",
+    "Tung Tung Tung Sahur": "Personagem de brainrot com aparência de figura de madeira e um bastão, associado a uma narração que repete seu nome de forma rítmica.",
+    "Ballerina Cappuccina": "Personagem de brainrot que combina uma bailarina com uma xícara de cappuccino no lugar da cabeça, geralmente usando roupa de balé.",
+    "Cappuccino Assassino": "Personagem de brainrot representado como um copo de café com aparência de ninja ou assassino, frequentemente carregando espadas.",
+    "Chimpanzini Bananini": "Personagem de brainrot que mistura um chimpanzé com uma banana. Aparece em imagens absurdas e narrações com nomes rimados.",
+    "Brr Brr Patapim": "Personagem de brainrot que mistura traços de macaco e árvore, com pés grandes e aparência de criatura da floresta.",
+    "Lirili Larila": "Personagem de brainrot que combina elefante e cacto, geralmente usando sandálias numa paisagem desértica.",
+    "Six seven": "Bordão em inglês que significa seis e sete. É repetido como piada sem significado fixo, muitas vezes acompanhado por um gesto alternando as mãos.",
+    "Brainrot": "Nome dado ao humor de repetição e absurdo da internet, com frases sem contexto, vozes artificiais e personagens estranhos que ficam na cabeça.",
+    "Chill Guy": "Meme de um cachorro antropomórfico de suéter e jeans, com as mãos nos bolsos. Representa alguém tranquilo mesmo em situações complicadas.",
+    "Nonchalant": "Palavra em inglês usada em memes para alguém que aparenta indiferença e calma, como se nada o impressionasse, às vezes de propósito.",
+    "Morango do amor": "Doce de morango envolvido em brigadeiro branco e uma casca crocante de açúcar, que virou febre em vídeos, receitas e piadas sobre tendências.",
+    "Chocolate de Dubai": "Barra de chocolate com recheio de pistache e massa crocante de kataifi, que viralizou em degustações e memes sobre produtos da moda.",
+    "Bobbie Goods": "Marca conhecida por ilustrações fofas e livros de colorir. Virou tendência em vídeos de pintura com marcadores e em piadas sobre relaxamento e perfeccionismo.",
+    "Labubu": "Personagem colecionável de orelhas pontudas e sorriso com dentes, criado por Kasing Lung. Seus bonecos viraram acessórios e assunto de memes sobre consumo.",
+    "Delulu": "Gíria da internet derivada de uma palavra inglesa para ilusão. É usada de brincadeira para alguém que cria expectativas ou fantasias pouco realistas.",
+    "POV": "Sigla inglesa para ponto de vista. Nos memes, apresenta uma cena como se você estivesse vivendo a situação descrita na legenda.",
+    "Bombombini Gusini": "Personagem de brainrot que mistura um ganso com uma aeronave militar. Faz parte das montagens de animais e máquinas com nomes absurdos.",
+    "Trippi Troppi": "Personagem de brainrot com versões diferentes, incluindo uma mistura de camarão e gato. O nome aparece em áudios e montagens de criaturas híbridas.",
+    "Eu sou o Steve": "Bordão da apresentação de Jack Black como Steve no filme de Minecraft, repetido em montagens por sua entonação dramática.",
+    "Chicken Jockey": "Bebê zumbi montado numa galinha em Minecraft. A fala que anuncia a criatura no filme virou meme e reação exagerada entre fãs.",
+    "Gato Oiia": "Meme de um gato girando ao som de uma música que lembra a expressão oiia.",
+    "Gato Banana": "Personagem de meme que mistura um gato e uma banana, conhecido por vídeos e sons dramáticos.",
+    "Let him cook": "Expressão que pede para deixar alguém continuar uma ideia ou ação, esperando um bom resultado.",
+    "Cooked": "Gíria usada quando alguém está em apuros, derrotado ou sem saída.",
+    "Rizz": "Gíria para carisma e habilidade de flertar ou conquistar alguém.",
+    "Rizzler": "Apelido usado para alguém visto como muito habilidoso em demonstrar rizz.",
+    "NPC": "Meme que compara uma pessoa a um personagem de jogo com falas ou comportamentos repetitivos.",
+    "Main character": "Expressão usada quando alguém age como protagonista da situação ou de uma história.",
+    "Flop": "Gíria para algo que teve pouco sucesso ou repercussão.",
+    "Hype": "Grande expectativa ou empolgação em torno de algo.",
+    "Canon event": "Meme sobre um acontecimento considerado inevitável para o desenvolvimento de uma pessoa.",
+    "Plot twist": "Expressão para uma reviravolta inesperada numa história ou situação.",
+    "Looksmaxxing": "Termo da internet para práticas que buscam melhorar a aparência, frequentemente usado em memes.",
+    "Lock in": "Expressão que pede foco total e concentração numa tarefa.",
+    "John Pork": "Personagem de meme com rosto de porco e corpo humano, conhecido por montagens de chamadas telefônicas.",
+    "Bombastic side eye": "Expressão de meme para um olhar lateral exagerado de desconfiança ou julgamento.",
+    "Chipi Chipi Chapa Chapa": "Trecho musical popularizado em vídeos de animais, principalmente um gato dançando.",
+    "Pedro Pedro Pedro": "Refrão de uma música usado no meme de um guaxinim girando numa imagem circular.",
+    "Boneca Ambalabu": "Personagem de humor absurdo associado ao brainrot, com aparência de sapo e pneu.",
+    "Burbaloni Luliloli": "Personagem de brainrot representado como uma capivara misturada com um coco."
+  },
+  "jogos": {
+    "Minecraft": "Jogo de construção e sobrevivência num mundo de blocos. Você coleta recursos, fabrica equipamentos, explora cavernas e constrói livremente.",
+    "Terraria": "Jogo de exploração e construção em duas dimensões, com mineração, fabricação de itens e muitos chefes para enfrentar.",
+    "Skyrim": "RPG de mundo aberto de fantasia em que você explora uma província com dragões, aprende magias e participa de missões e facções.",
+    "The Witcher 3": "RPG de mundo aberto protagonizado por Geralt de Rívia, um caçador de monstros que usa espadas, alquimia e sinais mágicos.",
+    "Fallout 4": "RPG ambientado numa região devastada por guerra nuclear, com exploração, escolhas, armas e construção de assentamentos.",
+    "Cyberpunk 2077": "RPG de ação ambientado em Night City, uma metrópole futurista. Você joga como V, mercenário que usa armas e implantes cibernéticos.",
+    "Stardew Valley": "Jogo de fazenda em que você planta, cria animais, pesca, explora minas e faz amizade com os moradores de uma pequena comunidade.",
+    "Animal Crossing": "Série de simulação de vida com vizinhos animais, decoração, coleta de objetos e atividades tranquilas acompanhando o calendário.",
+    "League of Legends": "Jogo de estratégia e combate em equipes, em que cada pessoa controla um campeão e busca destruir a base adversária.",
+    "Dota 2": "Jogo de equipes em que heróis com habilidades diferentes disputam recursos e estruturas para destruir o Ancestral da equipe inimiga.",
+    "Valorant": "Jogo de tiro tático por equipes com agentes de habilidades especiais. Um lado tenta instalar um dispositivo e o outro impedir sua detonação.",
+    "Counter-Strike 2": "Jogo de tiro tático em equipes, com compra de armas e rodadas envolvendo ataque e defesa de pontos de bomba.",
+    "Fortnite": "Jogo conhecido pelo modo battle royale, no qual jogadores disputam sobrevivência numa área que diminui. Também possui modos com construção e outras experiências.",
+    "Free Fire": "Jogo de battle royale popular em celulares, em que jogadores coletam armas e tentam sobreviver até o final da partida.",
+    "GTA V": "Jogo de ação em mundo aberto ambientado em Los Santos, com três protagonistas, veículos, missões e grandes assaltos.",
+    "Red Dead Redemption 2": "Jogo de ação em mundo aberto no Velho Oeste, acompanhando Arthur Morgan e uma gangue de foras da lei.",
+    "Elden Ring": "RPG de ação de mundo aberto com fantasia sombria, exploração, criação de personagens e combates exigentes contra chefes.",
+    "Dark Souls III": "RPG de ação de fantasia sombria, conhecido por combates difíceis, gerenciamento de resistência e exploração de áreas interligadas.",
+    "God of War": "Série de ação que acompanha Kratos enfrentando figuras mitológicas. Seus jogos exploram universos inspirados nas mitologias grega e nórdica.",
+    "Assassin’s Creed": "Série de ação e aventura em cenários históricos, com exploração, escalada, furtividade e conflitos entre assassinos e templários.",
+    "Pokémon": "Franquia em que treinadores capturam criaturas, montam equipes e participam de batalhas, frequentemente usando vantagens entre tipos.",
+    "Palworld": "Jogo de sobrevivência e construção de bases com criaturas chamadas Pals, que podem lutar e ajudar em tarefas de produção.",
+    "Among Us": "Jogo de dedução social em que tripulantes cumprem tarefas enquanto impostores sabotam e tentam eliminá-los sem serem descobertos.",
+    "Goose Goose Duck": "Jogo de dedução social com gansos, patos e papéis especiais. O grupo realiza tarefas enquanto tenta identificar sabotadores.",
+    "Dead by Daylight": "Jogo de terror assimétrico em que quatro sobreviventes tentam reparar geradores e escapar de um assassino controlado por outro jogador.",
+    "Friday the 13th: The Game": "Jogo de terror baseado em Sexta-Feira 13, no qual monitores de acampamento tentam sobreviver a Jason Voorhees.",
+    "Resident Evil": "Série de terror e sobrevivência sobre ameaças biológicas, com exploração, combate, recursos limitados e resolução de enigmas.",
+    "Silent Hill": "Série de terror psicológico conhecida pela cidade envolta em névoa, ambientes perturbadores, monstros simbólicos e enigmas.",
+    "Roblox": "Plataforma de experiências e jogos criados por usuários, com avatares e gêneros variados, de obstáculos a simulações e aventuras.",
+    "Garry’s Mod": "Jogo sandbox baseado em física, no qual é possível manipular objetos, criar cenas e experimentar modos feitos pela comunidade.",
+    "Super Mario": "Série de jogos de plataforma em que Mario atravessa fases, salta sobre obstáculos, coleta itens e enfrenta inimigos.",
+    "Sonic": "Série de jogos centrada num ouriço azul veloz, com corrida por fases, coleta de anéis e confrontos com o Dr. Eggman.",
+    "EA Sports FC": "Série de simulação de futebol da EA, com partidas, clubes e modos de gerenciamento ou montagem de equipes.",
+    "eFootball": "Jogo de futebol da Konami, sucessor da série PES, com partidas e modos de formação de equipes.",
+    "Hollow Knight": "Aventura de ação em duas dimensões num reino de insetos, com exploração, novas habilidades e combates contra chefes.",
+    "Ori and the Blind Forest": "Jogo de plataforma e exploração que acompanha um pequeno espírito numa floresta, com saltos precisos e habilidades de movimentação.",
+    "Rocket League": "Jogo que combina futebol com carros movidos a foguete. As equipes dirigem, saltam e voam para colocar a bola no gol.",
+    "Fall Guys": "Jogo de competição com personagens coloridos em provas de obstáculos e minijogos eliminatórios até restar um vencedor ou uma equipe.",
+    "Lethal Company": "Jogo cooperativo de terror em que uma equipe coleta sucata em instalações perigosas para cumprir uma cota de uma empresa.",
+    "R.E.P.O.": "Jogo cooperativo de terror em que jogadores transportam objetos valiosos usando física, evitando quebrá-los e enfrentando ameaças durante a coleta.",
+    "Stumble Guys": "Jogo de obstáculos com partidas em grupo, quedas e eliminação de participantes.",
+    "Rematch": "Jogo de futebol em equipes no qual cada jogador controla um atleta em campo.",
+    "Sekiro": "Jogo de ação ambientado no Japão fictício, com combate de espadas e defesa precisa.",
+    "Nioh": "Jogo de ação e RPG com samurais, yokais e combates exigentes.",
+    "Overwatch 2": "Jogo de tiro em equipes com heróis de habilidades e funções diferentes.",
+    "Paladins": "Jogo de tiro em equipes com campeões, habilidades e personalização por cartas.",
+    "Hades": "Jogo de ação com tentativas repetidas de fuga do submundo e poderes de deuses gregos.",
+    "Dead Cells": "Jogo de ação e plataformas com exploração, armas variadas e novas tentativas após morrer.",
+    "Clash of Clans": "Jogo de estratégia em que se constrói uma vila e se atacam bases com tropas.",
+    "Clash Royale": "Jogo de estratégia com cartas, tropas e torres disputadas em uma arena.",
+    "Genshin Impact": "RPG de ação com exploração, personagens e poderes elementais.",
+    "Honkai: Star Rail": "RPG com combates por turnos e uma viagem por mundos numa aventura espacial.",
+    "The Sims 4": "Simulador de vida em que se criam pessoas, casas e rotinas.",
+    "inZOI": "Simulador de vida com personagens, moradias e atividades cotidianas.",
+    "Portal 2": "Jogo de quebra-cabeças que usa portais, com uma campanha cooperativa.",
+    "It Takes Two": "Aventura cooperativa para duas pessoas, com desafios e mecânicas que mudam a cada cenário.",
+    "Subnautica": "Jogo de sobrevivência e exploração num planeta oceânico, com construção de equipamentos e bases.",
+    "Raft": "Jogo de sobrevivência em que se coleta material e se amplia uma jangada no oceano.",
+    "Phasmophobia": "Jogo cooperativo de investigação de fantasmas por meio de pistas e equipamentos.",
+    "Demonologist": "Jogo cooperativo de terror em que se investigam entidades sobrenaturais em locais assombrados."
+  },
+  "ben10": {
+    "Ben Tennyson": "Protagonista que encontra um dispositivo capaz de transformá-lo em diferentes espécies alienígenas e usa essas formas para salvar pessoas.",
+    "Albedo": "Galvaniano que foi assistente de Azmuth e assume uma aparência semelhante à de Ben. Usa tecnologia de transformação e costuma agir como antagonista.",
+    "Gwen Tennyson": "Prima de Ben, inteligente e habilidosa em magia e manipulação de mana, uma energia vital usada em seus poderes.",
+    "Charmcaster": "Feiticeira rival da família Tennyson, conhecida por lançar encantamentos e controlar criaturas mágicas.",
+    "Max Tennyson": "Avô de Ben e Gwen, veterano de uma organização que lida com ameaças alienígenas. Viaja com os netos num trailer.",
+    "Rook Blonko": "Parceiro de Ben em Omniverse, um agente alienígena disciplinado que usa uma ferramenta versátil chamada Proto-Ferramenta.",
+    "Vilgax": "Conquistador alienígena de aparência tentacular, um dos principais inimigos de Ben, que busca obter o poder de seu dispositivo de transformação.",
+    "Aggregor": "Antagonista que captura alienígenas e absorve seus poderes para se tornar mais forte.",
+    "Azmuth": "Cientista galvaniano de grande inteligência, criador do Omnitrix e responsável por muitas tecnologias importantes da série.",
+    "Dr. Psychobos": "Cientista cerebrocrustáceo que constrói aparelhos perigosos, incluindo o Nemetrix, e se considera um rival intelectual de Azmuth.",
+    "Omnitrix": "Aparelho que utiliza amostras de DNA para transformar seu usuário em diferentes espécies alienígenas.",
+    "Ultimatrix": "Dispositivo de transformação que também pode simular a evolução de espécies e produzir formas supremas.",
+    "Nemetrix": "Aparelho que transforma seu portador em predadores de espécies alienígenas presentes no Omnitrix. É associado a Khyber e seu animal.",
+    "Antitrix": "Dispositivo usado por Kevin na série reboot, capaz de produzir transformações alienígenas modificadas.",
+    "Chama": "Alienígena com corpo rochoso em chamas, capaz de gerar e controlar fogo e resistir a temperaturas muito altas.",
+    "Fogo Fátuo": "Alienígena de aparência vegetal que lança fogo, controla plantas e regenera partes do próprio corpo.",
+    "Diamante": "Transformação com corpo de cristal resistente, capaz de criar lâminas, barreiras e projéteis cristalinos.",
+    "Cromático": "Alienígena cristalino que absorve energia e a libera em ataques poderosos.",
+    "Quatro Braços": "Alienígena musculoso de pele vermelha e quatro braços, usado para levantar grandes pesos e enfrentar adversários no corpo a corpo.",
+    "Enormossauro": "Alienígena com aparência de dinossauro, grande força física e capacidade de aumentar o tamanho do corpo em suas apresentações clássicas.",
+    "XLR8": "Alienígena de corpo ágil e pés semelhantes a rodas, capaz de se mover e reagir em velocidade extraordinária.",
+    "Acelerado": "Alienígena velocista, também conhecido como Fasttrack, com aparência felina e grande agilidade.",
+    "Massa Cinzenta": "Pequeno alienígena galvaniano de enorme capacidade intelectual, útil para resolver problemas e entender máquinas.",
+    "Artrópode": "Alienígena de aparência semelhante a um crustáceo, com grande inteligência e capacidade de produzir eletricidade.",
+    "Fantasmático": "Alienígena fantasmagórico capaz de atravessar objetos, ficar invisível e possuir outros seres.",
+    "Friagem": "Alienígena alado semelhante a uma mariposa, que pode atravessar matéria e congelar alvos com seu sopro.",
+    "Besta": "Alienígena quadrúpede sem olhos, com sentidos aguçados, garras e capacidade de rastrear alvos pelo cheiro.",
+    "Rath": "Alienígena semelhante a um tigre musculoso, conhecido por sua força, garras e temperamento explosivo.",
+    "Aquático": "Alienígena semelhante a um peixe, com dentes afiados, grande velocidade de nado e capacidade de respirar debaixo d’água.",
+    "Ameaça Aquática": "Alienígena com armadura que armazena e lança água em jatos pressurizados, usado em resgates e combate.",
+    "Ultra T": "Alienígena de corpo tecnológico flexível que se funde a máquinas para controlá-las e aprimorá-las.",
+    "Nanomech": "Pequena transformação híbrida com asas e componentes tecnológicos, útil para entrar em espaços minúsculos e interagir com sistemas.",
+    "Eco Eco": "Pequeno alienígena capaz de se multiplicar e emitir ondas sonoras poderosas.",
+    "Lobisben": "Transformação semelhante a um lobisomem, também chamada Blitzwolfer, que abre a boca em partes para lançar ondas sonoras.",
+    "Insectóide": "Alienígena semelhante a um inseto voador que dispara uma substância pegajosa para prender inimigos.",
+    "Arraia-à-Jato": "Alienígena com aparência de arraia e jato, capaz de voar em alta velocidade e lançar raios de energia.",
+    "Feedback": "Alienígena com extensões semelhantes a cabos, capaz de absorver energia e devolvê-la em ataques.",
+    "Shocksquatch": "Alienígena peludo de grande porte que produz descargas elétricas e combina esses ataques com força física.",
+    "Encanadores": "Organização que investiga e combate ameaças extraterrestres, funcionando como uma força de proteção interplanetária.",
+    "Cavaleiros Eternos": "Organização secreta de inspiração medieval que usa armaduras e tecnologia avançada, frequentemente perseguindo alienígenas.",
+    "Bala de Canhão": "Alienígena do Omnitrix que se enrola numa esfera resistente para atingir inimigos.",
+    "Cipó Selvagem": "Alienígena vegetal que estica partes do corpo, produz sementes e usa cipós.",
+    "Glutão": "Alienígena capaz de consumir materiais e convertê-los em projéteis de energia.",
+    "Chocante": "Alienígena conhecido como Buzzshock, de aparência semelhante a uma bateria e poderes elétricos.",
+    "Alien X": "Celestialsapien de poder imenso, capaz de alterar a realidade e com decisões divididas entre personalidades.",
+    "Contra-Tempo": "Alienígena mecânico conhecido como Clockwork, capaz de manipular o tempo.",
+    "NRG": "Alienígena radioativo que normalmente usa uma armadura de contenção e libera calor e energia.",
+    "Atômico": "Alienígena do Omnitrix com poderes associados a energia nuclear e ataques de grande potência.",
+    "Anfíbio": "Alienígena aquático com poderes elétricos que pode absorver e liberar eletricidade.",
+    "Iguana Ártica": "Alienígena que usa gelo e pode mudar para uma forma de calor e fogo.",
+    "Gigante": "Alienígena de tamanho colossal conhecido como Way Big, com força e raios de energia.",
+    "Armatu": "Alienígena de braços mecânicos que produzem golpes, perfuração e vibrações no solo.",
+    "Gravattack": "Alienígena com aparência rochosa e poderes de controlar a gravidade.",
+    "Gosma": "Alienígena de corpo gelatinoso que depende de um pequeno projetor antigravidade.",
+    "Macaco-Aranha": "Alienígena ágil com vários braços que dispara teias.",
+    "Idem": "Alienígena conhecido como Ditto, capaz de criar cópias de si mesmo.",
+    "Terraspin": "Alienígena parecido com uma tartaruga que gira e gera correntes de ar.",
+    "Astrodáctilo": "Alienígena voador com aparência de pterossauro e propulsão e chicotes de energia.",
+    "Kevin Levin": "Personagem que absorve energia e propriedades de materiais, tornando-se rival e aliado de Ben.",
+    "Malware": "Galvanic Mechamorph defeituoso que absorve tecnologia e é inimigo de Ben."
+  },
+  "demon-slayer": {
+    "Tanjiro Kamado": "Protagonista de grande empatia e olfato aguçado, que se torna caçador de demônios para ajudar sua irmã.",
+    "Inosuke Hashibira": "Caçador que usa uma máscara de javali e duas espadas serrilhadas, conhecido por seu comportamento impulsivo e estilo próprio de combate.",
+    "Zenitsu Agatsuma": "Caçador de audição aguçada e comportamento medroso, capaz de executar ataques extremamente rápidos com a Respiração do Trovão.",
+    "Kanao Tsuyuri": "Jovem caçadora criada na Mansão Borboleta, com excelente visão e domínio da Respiração da Flor.",
+    "Nezuko Kamado": "Irmã de Tanjiro, transformada em demônio, que luta para proteger humanos e acompanha o irmão.",
+    "Tamayo": "Demônia e médica que pesquisa formas de enfrentar Muzan e auxiliar pessoas afetadas por demônios.",
+    "Giyu Tomioka": "Hashira da Água, um espadachim reservado que tem papel importante no início da jornada do protagonista.",
+    "Sakonji Urokodaki": "Antigo Hashira da Água e treinador de espadachins, reconhecido pela máscara de tengu vermelha.",
+    "Kyojuro Rengoku": "Hashira das Chamas, conhecido por seu entusiasmo, senso de dever e estilo de espada inspirado em fogo.",
+    "Tengen Uzui": "Hashira do Som, antigo ninja que luta com duas grandes lâminas ligadas por uma corrente e utiliza explosivos.",
+    "Shinobu Kocho": "Hashira do Inseto, especialista em venenos e ataques de perfuração, ligada aos cuidados médicos da Mansão Borboleta.",
+    "Mitsuri Kanroji": "Hashira do Amor, de força física excepcional, que utiliza uma espada muito flexível semelhante a um chicote.",
+    "Muichiro Tokito": "Hashira da Névoa, um jovem prodígio conhecido por sua aparência distraída e movimentos difíceis de acompanhar.",
+    "Obanai Iguro": "Hashira da Serpente, que usa uma lâmina ondulada e costuma estar acompanhado por uma cobra branca.",
+    "Sanemi Shinazugawa": "Hashira do Vento, um guerreiro de aparência marcada por cicatrizes e temperamento agressivo contra demônios.",
+    "Gyomei Himejima": "Hashira da Pedra, um guerreiro cego e muito forte que luta usando uma arma com machado, corrente e bola com espinhos.",
+    "Muzan Kibutsuji": "Principal antagonista e origem de muitos demônios da história, capaz de alterar o corpo e controlar subordinados.",
+    "Kokushibo": "Demônio que ocupa o posto de Lua Superior Um, reconhecido por seus seis olhos e por lutar com uma espada.",
+    "Akaza": "Lua Superior Três, especializado em artes marciais e golpes de curta distância acompanhados de ondas de choque.",
+    "Doma": "Lua Superior Dois, que utiliza leques e técnicas demoníacas ligadas ao gelo.",
+    "Daki": "Demônia que luta usando faixas de tecido como armas no Distrito do Entretenimento.",
+    "Gyutaro": "Demônio de corpo magro que utiliza foices e ataques de sangue venenoso, ligado à mesma missão de sua irmã.",
+    "Rui": "Lua Inferior Cinco, um demônio de aparência infantil que usa fios cortantes e tenta formar uma família de aranhas.",
+    "Enmu": "Lua Inferior Um, um demônio capaz de colocar pessoas para dormir e manipular sonhos.",
+    "Respiração da Água": "Estilo de combate com espada inspirado na fluidez da água, com técnicas adaptáveis e movimentos contínuos.",
+    "Respiração do Trovão": "Estilo de combate com espada que enfatiza aceleração e ataques rápidos, associado a golpes de desembainhar.",
+    "Respiração das Chamas": "Estilo de combate com ataques firmes e poderosos, representados visualmente por motivos de fogo.",
+    "Respiração do Vento": "Estilo de combate que utiliza cortes agressivos, amplos e velozes, representados por motivos de vento.",
+    "Respiração da Névoa": "Estilo que emprega mudanças de ritmo e movimentos enganosos para dificultar a leitura do adversário.",
+    "Respiração da Serpente": "Estilo que utiliza trajetórias sinuosas e cortes em ângulos incomuns, inspirados no movimento de serpentes.",
+    "Respiração do Amor": "Estilo ágil e flexível, desenvolvido para aproveitar as características físicas de sua criadora e sua espada semelhante a um chicote.",
+    "Respiração do Inseto": "Estilo que prioriza estocadas e venenos, adaptado para eliminar demônios sem depender da decapitação pela força.",
+    "Espada Nichirin": "Lâmina forjada com materiais especiais que absorvem luz solar, usada pelos caçadores no combate aos demônios.",
+    "Espada de treino": "Arma usada na prática de movimentos e combates, frequentemente feita de madeira para sessões de treinamento.",
+    "Glicínia": "Planta cujas propriedades repelem demônios e podem ser utilizadas na preparação de venenos contra eles.",
+    "Luz do sol": "Radiação solar que é fatal para a grande maioria dos demônios, obrigando-os a buscar abrigo durante o dia.",
+    "Arco do Trem Infinito": "Parte da história em que caçadores investigam desaparecimentos num trem e enfrentam uma ameaça ligada a sonhos.",
+    "Arco do Distrito do Entretenimento": "Parte da história em que caçadores investigam a presença de demônios em um distrito noturno, acompanhados pelo Hashira do Som.",
+    "Arco do Treinamento dos Hashiras": "Parte da história dedicada a um programa de exercícios e treinamento conduzido pelos Hashiras para fortalecer os caçadores.",
+    "Seleção Final": "Prova de ingresso na organização dos caçadores, na qual candidatos precisam sobreviver durante vários dias numa montanha com demônios.",
+    "Genya Shinazugawa": "Caçador que usa uma arma de fogo e consegue adquirir temporariamente características de demônios ao consumi-los.",
+    "Yushiro": "Demônio aliado de Tamayo, com técnicas ligadas à visão, ocultação e talismãs.",
+    "Kagaya Ubuyashiki": "Líder da organização dos caçadores de demônios, conhecido como Oyakata-sama.",
+    "Amane Ubuyashiki": "Esposa de Kagaya que o auxilia na liderança e nas atividades da família Ubuyashiki.",
+    "Hotaru Haganezuka": "Ferreiro responsável por espadas de Tanjiro, muito dedicado ao seu trabalho.",
+    "Kozo Kanamori": "Ferreiro ligado aos caçadores que produz e cuida de espadas Nichirin.",
+    "Sabito": "Discípulo de Sakonji Urokodaki que ajuda Tanjiro durante seu treinamento.",
+    "Makomo": "Discípula de Urokodaki que auxilia Tanjiro no aperfeiçoamento de seus movimentos.",
+    "Gyokko": "Lua Superior de aparência monstruosa que usa vasos e criaturas aquáticas em suas técnicas.",
+    "Hantengu": "Lua Superior que cria manifestações ligadas a emoções e diferentes poderes.",
+    "Nakime": "Demônio que usa um biwa para controlar espaços do Castelo Infinito.",
+    "Kaigaku": "Demônio que foi discípulo da Respiração do Trovão e enfrenta Zenitsu.",
+    "Respiração do Sol": "Estilo de respiração original associado a Yoriichi e ao Hinokami Kagura.",
+    "Respiração da Lua": "Estilo usado por Kokushibo, com golpes de espada e lâminas em forma de crescente.",
+    "Respiração da Pedra": "Estilo de Gyomei Himejima, usado com seu machado e mangual ligados por corrente.",
+    "Respiração da Besta": "Estilo criado por Inosuke, com duas espadas e movimentos inspirados em animais.",
+    "Marca do Caçador": "Marca que surge em determinados caçadores e amplia suas capacidades físicas.",
+    "Mundo Transparente": "Estado de percepção que permite observar detalhes internos do corpo e antecipar movimentos.",
+    "Corvo Kasugai": "Ave mensageira que transmite missões e informações aos caçadores.",
+    "Pardal Chuntaro": "Pardal que acompanha Zenitsu e atua como seu mensageiro."
+  },
+  "desenhos": {
+    "Finn": "Herói humano de Hora de Aventura, que usa um gorro branco e se aventura pela Terra de Ooo com sua espada.",
+    "Jake": "Cachorro mágico de Hora de Aventura, capaz de esticar e mudar o tamanho do corpo, companheiro do herói humano.",
+    "Princesa Jujuba": "Governante do Reino Doce em Hora de Aventura, uma cientista com corpo feito de goma de mascar.",
+    "Marceline": "Rainha dos Vampiros de Hora de Aventura, conhecida pelo baixo em forma de machado e por suas músicas.",
+    "Rei Gelado": "Personagem de Hora de Aventura que usa uma coroa mágica, controla gelo e vive num reino congelado.",
+    "Princesa de Fogo": "Personagem de Hora de Aventura com corpo e poderes ligados ao fogo, associada ao Reino de Fogo.",
+    "BMO": "Pequeno aparelho vivo de Hora de Aventura, com aparência de videogame portátil, que participa da rotina da casa da árvore.",
+    "NEPTR": "Robô de Hora de Aventura com partes de micro-ondas, criado para arremessar tortas e participar de brincadeiras.",
+    "Lemongrab": "Personagem de Hora de Aventura com cabeça de limão, conhecido por sua rigidez e pelos gritos de desaprovação.",
+    "Princesa Caroço": "Personagem roxa e flutuante de Hora de Aventura, com corpo de nuvem irregular e comportamento dramático.",
+    "Rei de Ooo": "Personagem de Hora de Aventura que se apresenta como uma figura real, usando discurso persuasivo e oportunismo.",
+    "Ricardio": "Personagem de Hora de Aventura com forma de coração e rosto humano, que aparenta elegância, mas age como vilão.",
+    "Fionna": "Aventureira humana de gorro com orelhas de coelho, apresentada em Hora de Aventura e protagonista de uma série derivada.",
+    "Cake": "Gata mágica que acompanha Fionna, capaz de esticar o corpo e mudar de forma.",
+    "Gumball": "Gato azul da família Watterson, protagonista de O Incrível Mundo de Gumball, conhecido por se envolver em confusões.",
+    "Darwin": "Peixe laranja com pernas, integrante da família Watterson e melhor amigo do protagonista.",
+    "Nicole Watterson": "Mãe da família de O Incrível Mundo de Gumball, uma gata azul muito responsável, competitiva e habilidosa.",
+    "Richard Watterson": "Pai da família de O Incrível Mundo de Gumball, um coelho rosa conhecido pela preguiça e por suas ideias atrapalhadas.",
+    "Anais Watterson": "Irmã mais nova da família Watterson, uma coelha rosa muito inteligente para sua idade.",
+    "Penny Fitzgerald": "Colega de escola e interesse amoroso de Gumball, uma criatura mágica capaz de mudar de forma de acordo com suas emoções.",
+    "Carrie Krueger": "Fantasma de estilo gótico de O Incrível Mundo de Gumball, capaz de atravessar objetos e possuir pessoas.",
+    "Tina Rex": "Tiranossauro que estuda em Elmore, de grande força física e comportamento intimidador.",
+    "Tobias Wilson": "Colega de Gumball com corpo colorido, que gosta de se exibir e de se apresentar como esportista.",
+    "Banana Joe": "Colega de escola em forma de banana, conhecido por fazer piadas e brincadeiras.",
+    "Rob": "Personagem de O Incrível Mundo de Gumball que se torna um antagonista importante e tem ligação com o Vazio.",
+    "Diretor Brown": "Diretor da escola de Elmore, uma criatura peluda que lida com as confusões dos estudantes.",
+    "Sarah G. Lato": "Colega de Gumball em forma de sorvete, fã de histórias e desenhos que costuma criar narrativas sobre os amigos.",
+    "Alan Keane": "Colega de Elmore em forma de balão, conhecido por sua gentileza e atitude otimista.",
+    "Mordecai": "Gaio azul de Apenas um Show que trabalha num parque e costuma se envolver em aventuras absurdas com seu melhor amigo.",
+    "Rigby": "Guaxinim de Apenas um Show, funcionário do parque, impulsivo e pouco interessado em trabalhar.",
+    "Benson": "Máquina de chicletes viva de Apenas um Show, gerente do parque, conhecida por cobrar trabalho dos funcionários.",
+    "Pairulito": "Personagem de cabeça redonda de Apenas um Show, de comportamento gentil e inocente, ligado à família proprietária do parque.",
+    "Musculoso": "Funcionário verde do parque em Apenas um Show, conhecido pelas provocações e piadas sobre sua mãe.",
+    "Fantasmão": "Pequeno fantasma branco com uma mão sobre a cabeça, amigo próximo de Musculoso e funcionário do parque.",
+    "Margaret": "Personagem de Apenas um Show, uma ave vermelha que trabalha numa cafeteria e tem uma relação importante com Mordecai.",
+    "Eileen": "Personagem de Apenas um Show, uma toupeira de óculos que trabalha na cafeteria e se aproxima de Rigby.",
+    "Saltitão": "Yeti imortal de Apenas um Show, chamado Skips em inglês. Trabalha no parque e tem grande experiência com fenômenos sobrenaturais.",
+    "CJ": "Personagem de Apenas um Show com aparência de nuvem, que pode se tornar tempestuosa quando fica irritada.",
+    "Starla": "Personagem de Apenas um Show, companheira de Musculoso, conhecida por sua personalidade intensa.",
+    "Zoa": "Primo de Saltitão em Apenas um Show, chamado Quips em inglês. É um yeti conhecido por insistir em contar piadas ruins.",
+    "Lich": "Vilão de Hora de Aventura ligado à morte e à destruição da vida.",
+    "GOLB": "Entidade de Hora de Aventura associada ao caos e a transformações de grande poder.",
+    "Prismo": "Mestre dos desejos de Hora de Aventura que vive na Sala do Tempo.",
+    "Coruja Cósmica": "Ser cósmico de Hora de Aventura ligado a sonhos importantes e premonições.",
+    "Mordomo Menta": "Mordomo do Reino Doce em Hora de Aventura, com conhecimento de magia e ocultismo.",
+    "Abracadaniel": "Mago de Hora de Aventura com aparência rosada e habilidades mágicas.",
+    "Leslie": "Personagem de O Incrível Mundo de Gumball representado por uma flor num vaso.",
+    "Masami": "Colega de Gumball com aparência de nuvem e poderes ligados ao clima.",
+    "Idaho": "Colega de Gumball representado como uma batata e associado à vida no campo.",
+    "Anton": "Colega de Gumball representado por uma fatia de torrada.",
+    "Larry Needlemeyer": "Personagem de Gumball que trabalha em diversos estabelecimentos de Elmore.",
+    "Rocky Robinson": "Personagem de Gumball que trabalha na escola e é filho dos Robinson.",
+    "Thomas": "Estagiário do parque em Apenas um Show, representado como uma cabra e com uma identidade secreta.",
+    "Don": "Irmão mais novo de Rigby em Apenas um Show, conhecido por trabalhar como contador.",
+    "Gansos Grandes": "Grupo de gansos de Apenas um Show que ameaça o parque e pode se combinar numa forma gigante.",
+    "Bebês Patos": "Patinhos de Apenas um Show que combatem juntos e podem formar um ser gigante.",
+    "Dipper Pines": "Um dos gêmeos protagonistas de Gravity Falls, que investiga mistérios com um diário.",
+    "Mabel Pines": "Irmã gêmea de Dipper em Gravity Falls, conhecida por criatividade, suéteres e otimismo.",
+    "Steven Universe": "Protagonista de Steven Universo, um garoto com uma gema e poderes ligados às Crystal Gems.",
+    "Connie Maheswaran": "Amiga de Steven que aprende a lutar com espada e participa das aventuras."
+  },
   "clash-royale": {
     "Cavaleiro": "Carta de tropa terrestre resistente, armada com espada, que ataca um inimigo por vez.",
     "Valquíria": "Carta de tropa terrestre com machado que gira para atingir vários inimigos ao redor.",
@@ -618,7 +855,29 @@ Object.assign(window.HINTS,{
     "Bola de Fogo": "Feitiço de impacto que causa dano instantâneo e empurra tropas próximas.",
     "Veneno": "Feitiço que cria uma área tóxica e causa dano durante alguns segundos.",
     "Flechas": "Feitiço que lança várias flechas sobre uma região e acerta também unidades aéreas.",
-    "O Tronco": "Feitiço que rola um tronco pelo chão, atingindo e empurrando tropas terrestres."
+    "O Tronco": "Feitiço que rola um tronco pelo chão, atingindo e empurrando tropas terrestres.",
+    "Espírito de Gelo": "Pequena tropa que salta no alvo e provoca um efeito de congelamento.",
+    "Espírito Elétrico": "Pequena tropa que salta e causa dano e atordoamento encadeado.",
+    "Espírito de Fogo": "Pequena tropa que salta no alvo e causa dano em área.",
+    "Espírito Curador": "Pequena tropa que salta no inimigo e gera uma área de cura para aliados.",
+    "Zap": "Feitiço de descarga elétrica que causa dano e um breve atordoamento.",
+    "Bola de Neve": "Feitiço que lança uma bola de neve, causa dano e afeta o movimento de tropas.",
+    "Relâmpago": "Feitiço que atinge alvos dentro de uma área com descargas de dano elevado.",
+    "Foguete": "Feitiço que lança um projétil de grande dano numa área pequena.",
+    "Terremoto": "Feitiço que causa tremores numa área e é especialmente útil contra construções.",
+    "Congelamento": "Feitiço que paralisa temporariamente inimigos e construções dentro de uma área.",
+    "Canhão": "Construção defensiva que dispara contra tropas terrestres.",
+    "Torre Inferno": "Construção defensiva cujo dano aumenta enquanto mantém o ataque no mesmo alvo.",
+    "X-Besta": "Construção de longo alcance que dispara rapidamente e pode pressionar torres.",
+    "Morteiro": "Construção de longo alcance que lança projéteis contra alvos terrestres.",
+    "Bruxa": "Tropa que ataca à distância e invoca esqueletos.",
+    "Bruxa Sombria": "Tropa que luta de perto e invoca morcegos.",
+    "Morcegos": "Grupo de pequenas tropas voadoras que atacam de perto.",
+    "Servos": "Grupo de criaturas voadoras que atacam inimigos terrestres e aéreos.",
+    "Fantasma Real": "Tropa que fica invisível fora de combate e causa dano em área com sua espada.",
+    "Bandida": "Tropa que avança rapidamente até um alvo e usa uma investida para atacar.",
+    "Broca de Goblins": "Construção que viaja pelo solo e faz goblins surgirem no local escolhido.",
+    "Bárbaros": "Grupo de guerreiros de combate corpo a corpo que usa espadas."
   },
   "pokemon": {
     "Pikachu": "Pequeno Pokémon elétrico de bochechas vermelhas, conhecido por armazenar e lançar eletricidade.",
@@ -660,7 +919,27 @@ Object.assign(window.HINTS,{
     "Zacian": "Pokémon lendário que porta uma espada em sua forma coroada.",
     "Zamazenta": "Pokémon lendário que porta um escudo em sua forma coroada.",
     "Mew": "Pokémon mítico raro e pequeno, associado ao material genético de muitas espécies.",
-    "Mewtwo": "Pokémon criado por experimentos genéticos com o DNA de Mew, de enorme poder psíquico."
+    "Mewtwo": "Pokémon criado por experimentos genéticos com o DNA de Mew, de enorme poder psíquico.",
+    "Kyogre": "Pokémon lendário do tipo Água associado aos oceanos e à chuva.",
+    "Groudon": "Pokémon lendário do tipo Terra associado aos continentes e à luz solar intensa.",
+    "Dialga": "Pokémon lendário dos tipos Aço e Dragão, associado ao tempo.",
+    "Palkia": "Pokémon lendário dos tipos Água e Dragão, associado ao espaço.",
+    "Reshiram": "Pokémon lendário dos tipos Dragão e Fogo, associado à verdade.",
+    "Zekrom": "Pokémon lendário dos tipos Dragão e Elétrico, associado aos ideais.",
+    "Lugia": "Pokémon lendário dos tipos Psíquico e Voador, associado ao mar e a tempestades.",
+    "Ho-Oh": "Pokémon lendário dos tipos Fogo e Voador, conhecido por suas penas coloridas.",
+    "Solgaleo": "Pokémon lendário dos tipos Psíquico e Aço, com aparência de leão e ligação ao sol.",
+    "Lunala": "Pokémon lendário dos tipos Psíquico e Fantasma, com aparência de morcego e ligação à lua.",
+    "Rayquaza": "Pokémon lendário dos tipos Dragão e Voador, de corpo serpentino e associado ao céu.",
+    "Zygarde": "Pokémon lendário dos tipos Dragão e Terra, formado por células e ligado ao equilíbrio do ecossistema.",
+    "Tyranitar": "Pokémon dos tipos Pedra e Sombrio, evolução final de Larvitar.",
+    "Hydreigon": "Pokémon dos tipos Sombrio e Dragão, evolução final de Deino, com três cabeças.",
+    "Swampert": "Evolução final de Mudkip, dos tipos Água e Terra.",
+    "Blaziken": "Evolução final de Torchic, dos tipos Fogo e Lutador.",
+    "Sceptile": "Evolução final de Treecko, do tipo Grama, com aparência de réptil.",
+    "Serperior": "Evolução final de Snivy, do tipo Grama, com corpo de serpente.",
+    "Decidueye": "Evolução final de Rowlet, dos tipos Grama e Fantasma em sua forma de Alola, que ataca como um arqueiro.",
+    "Rillaboom": "Evolução final de Grookey, do tipo Grama, que usa um tambor de madeira."
   },
   "animes": {
     "Monkey D. Luffy": "Protagonista de One Piece, capitão dos Chapéus de Palha, cujo corpo elástico e vontade de liberdade marcam sua jornada.",
@@ -702,7 +981,27 @@ Object.assign(window.HINTS,{
     "Jotaro Kujo": "Protagonista de Stardust Crusaders que controla Star Platinum, um Stand de combate poderoso.",
     "DIO": "Vilão vampiro de JoJo que controla The World e pode parar o tempo.",
     "Joseph Joestar": "Personagem de JoJo conhecido pela astúcia e pela técnica de Hamon, pai de Josuke.",
-    "Josuke Higashikata": "Protagonista de Diamond is Unbreakable cujo Stand Crazy Diamond pode consertar objetos e curar outras pessoas."
+    "Josuke Higashikata": "Protagonista de Diamond is Unbreakable cujo Stand Crazy Diamond pode consertar objetos e curar outras pessoas.",
+    "Shanks": "Pirata de One Piece, conhecido como Ruivo, que inspira Luffy e lidera sua própria tripulação.",
+    "Mihawk": "Espadachim de One Piece conhecido como Olhos de Falcão e associado ao treinamento de Zoro.",
+    "Nico Robin": "Arqueóloga dos Chapéus de Palha em One Piece, capaz de fazer partes do corpo surgirem em superfícies.",
+    "Usopp": "Atirador dos Chapéus de Palha em One Piece, conhecido por inventar histórias e usar um estilingue.",
+    "Trafalgar Law": "Pirata e médico de One Piece que utiliza a Ope Ope no Mi para criar uma área chamada ROOM.",
+    "Portgas D. Ace": "Pirata de One Piece, irmão de consideração de Luffy, com poderes de fogo da Mera Mera no Mi.",
+    "Shoto Todoroki": "Aluno de My Hero Academia que controla gelo e fogo.",
+    "Ochaco Uraraka": "Aluna de My Hero Academia que pode retirar a gravidade dos objetos que toca.",
+    "Shinra Kusakabe": "Protagonista de Fire Force que usa chamas nos pés para lutar e se impulsionar.",
+    "Arthur Boyle": "Soldado de Fire Force que combate com uma espada de plasma e se imagina um cavaleiro.",
+    "Asta": "Protagonista de Black Clover que utiliza espadas com antimagia.",
+    "Yuno": "Rival e amigo de infância de Asta em Black Clover, conhecido por sua magia do vento.",
+    "Frieren": "Maga elfa de longa vida que viaja após a derrota do Rei Demônio.",
+    "Fern": "Maga humana discípula de Frieren que a acompanha na jornada.",
+    "Senku Ishigami": "Protagonista de Dr. Stone que usa ciência para reconstruir a civilização após a petrificação.",
+    "Chrome": "Personagem de Dr. Stone que investiga materiais e aprende ciência com Senku.",
+    "Kirito": "Protagonista de Sword Art Online conhecido por habilidades com espadas em mundos virtuais.",
+    "Asuna": "Protagonista de Sword Art Online que luta com uma espada fina e forma uma parceria com Kirito.",
+    "Natsu Dragneel": "Mago de Fairy Tail que utiliza magia de Dragon Slayer do fogo.",
+    "Gray Fullbuster": "Mago de Fairy Tail conhecido pela criação de objetos e ataques de gelo."
   },
   "avatar": {
     "Aang": "Último dominador de ar de sua época, protagonista de A Lenda de Aang, que precisa aprender os quatro elementos.",
@@ -744,6 +1043,90 @@ Object.assign(window.HINTS,{
     "Sozin": "Senhor do Fogo que dá início à Guerra dos Cem Anos ao tentar expandir a Nação do Fogo.",
     "Azulon": "Filho de Sozin e pai de Ozai, que governa a Nação do Fogo durante parte da Guerra dos Cem Anos.",
     "Lótus Branco": "Sociedade que reúne membros de várias nações para preservar conhecimento e equilíbrio.",
-    "Lótus Vermelha": "Grupo que rompe com a Lótus Branco e busca derrubar estruturas de poder."
+    "Lótus Vermelha": "Grupo que rompe com a Lótus Branco e busca derrubar estruturas de poder.",
+    "Dobra da Água": "Arte de controlar água e suas formas, praticada por personagens das Tribos da Água.",
+    "Dobra da Terra": "Arte de controlar terra e rochas, associada ao Reino da Terra.",
+    "Dobra do Fogo": "Arte de gerar e controlar fogo, associada à Nação do Fogo.",
+    "Dobra do Ar": "Arte de controlar correntes de ar, associada aos Nômades do Ar.",
+    "Dobra de Metal": "Especialização da dobra da terra que controla impurezas de terra presentes no metal.",
+    "Dobra de Lava": "Especialização da dobra da terra que transforma e controla rocha derretida.",
+    "Dobra de Sangue": "Técnica da dobra da água que manipula a água dentro de seres vivos para controlar seus movimentos.",
+    "Cura com Água": "Uso especializado da dobra da água para tratar ferimentos e auxiliar a recuperação.",
+    "Geração de Relâmpago": "Técnica avançada da dobra do fogo que cria uma descarga elétrica.",
+    "Redirecionamento de Relâmpago": "Técnica que conduz uma descarga recebida através do corpo e a envia para outra direção.",
+    "Ba Sing Se": "Grande cidade do Reino da Terra cercada por muralhas, presente em A Lenda de Aang.",
+    "Cidade República": "Cidade multicultural de A Lenda de Korra, com tecnologia, política e conflitos entre dobradores.",
+    "Tribo da Água do Norte": "Sociedade do polo norte com tradições de dobra da água e uma grande cidade de gelo.",
+    "Tribo da Água do Sul": "Sociedade do polo sul de onde vêm Katara e Sokka.",
+    "Templo do Ar do Sul": "Templo dos Nômades do Ar onde Aang viveu e foi treinado.",
+    "Templo do Ar do Norte": "Templo dos Nômades do Ar associado a uma comunidade que usa tecnologia para voar.",
+    "Estado Avatar": "Estado de poder ampliado em que o Avatar acessa habilidades ligadas a Raava e às suas vidas passadas.",
+    "Convergência Harmônica": "Evento de alinhamento planetário que fortalece a energia espiritual e abre caminhos entre mundos.",
+    "Cometa de Sozin": "Cometa cuja passagem amplia o poder dos dobradores de fogo.",
+    "Eclipse Solar": "Alinhamento que encobre o Sol e impede temporariamente a dobra do fogo.",
+    "Conexão Espiritual": "Ligação com a energia e o mundo dos espíritos, desenvolvida por meditação e sensibilidade espiritual.",
+    "Lua Cheia": "Fase lunar que fortalece a dobra da água e permite técnicas especialmente poderosas."
+  },
+  "series": {
+    "Stranger Things": "Série sobre jovens de Hawkins, experiências secretas e ameaças do Mundo Invertido.",
+    "Dark": "Série alemã sobre desaparecimentos, famílias e viagens no tempo na cidade de Winden.",
+    "The Last of Us": "Série em que Joel e Ellie atravessam um mundo devastado por uma infecção fúngica.",
+    "The Walking Dead": "Série sobre grupos que tentam sobreviver após um apocalipse de mortos-vivos.",
+    "Breaking Bad": "Série sobre um professor de química que entra no crime produzindo metanfetamina.",
+    "Ozark": "Série sobre uma família envolvida com lavagem de dinheiro e organizações criminosas.",
+    "Better Call Saul": "Série que acompanha a transformação do advogado Jimmy McGill em Saul Goodman.",
+    "Suits": "Série sobre advogados de um grande escritório e um jovem que trabalha sem formação jurídica.",
+    "Game of Thrones": "Fantasia sobre casas nobres que disputam poder em Westeros diante de ameaças maiores.",
+    "A Casa do Dragão": "Série de fantasia sobre a disputa de sucessão da família Targaryen, anterior a Game of Thrones.",
+    "The Witcher": "Fantasia que acompanha o caçador de monstros Geralt, a feiticeira Yennefer e Ciri.",
+    "Os Anéis de Poder": "Fantasia ambientada na Terra-média durante a Segunda Era e ligada à criação dos anéis.",
+    "Friends": "Comédia sobre seis amigos que convivem e se relacionam em Nova York.",
+    "How I Met Your Mother": "Comédia em que Ted conta aos filhos a história de sua vida com um grupo de amigos.",
+    "Brooklyn Nine-Nine": "Comédia sobre detetives e funcionários de uma delegacia de Nova York.",
+    "The Office": "Comédia em estilo de documentário sobre funcionários de uma empresa de papel.",
+    "Modern Family": "Comédia sobre três núcleos de uma família, com entrevistas e situações do cotidiano.",
+    "Eu, a Patroa e as Crianças": "Comédia sobre Michael Kyle, sua esposa e seus filhos lidando com conflitos familiares.",
+    "The Big Bang Theory": "Comédia sobre um grupo de amigos cientistas e suas relações pessoais.",
+    "Young Sheldon": "Comédia sobre a infância de Sheldon Cooper no Texas e sua vida em família.",
+    "Chaves": "Comédia mexicana sobre moradores de uma vila e um menino conhecido como Chaves.",
+    "Chapolin": "Comédia mexicana sobre um herói atrapalhado que tenta ajudar pessoas em apuros.",
+    "Todo Mundo Odeia o Chris": "Comédia inspirada na adolescência de Chris Rock, com conflitos na escola e em família.",
+    "Um Maluco no Pedaço": "Comédia sobre Will, um jovem que vai morar com parentes ricos em Bel-Air.",
+    "Supernatural": "Série sobre os irmãos Winchester, que caçam monstros, demônios e outras ameaças sobrenaturais.",
+    "Grimm": "Série sobre um detetive que descobre criaturas ocultas e sua origem como caçador Grimm.",
+    "The Vampire Diaries": "Drama sobrenatural sobre Elena, os irmãos Salvatore e conflitos na cidade de Mystic Falls.",
+    "True Blood": "Drama sobrenatural sobre humanos e vampiros que passam a coexistir publicamente.",
+    "Wandinha": "Série sobre Wandinha Addams, sua vida na Escola Nunca Mais e uma investigação de mistério.",
+    "O Mundo Sombrio de Sabrina": "Série sobre uma jovem bruxa dividida entre sua vida humana e deveres sobrenaturais.",
+    "Round 6": "Série sul-coreana sobre pessoas endividadas que participam de jogos infantis mortais por dinheiro.",
+    "Alice in Borderland": "Série japonesa sobre pessoas presas numa Tóquio esvaziada que precisam vencer jogos perigosos.",
+    "La Casa de Papel": "Série espanhola sobre um grupo que executa grandes assaltos planejados pelo Professor.",
+    "Lupin": "Série francesa sobre Assane Diop, que usa disfarces e planos inspirados no ladrão Arsène Lupin.",
+    "Sherlock": "Versão contemporânea das investigações de Sherlock Holmes e John Watson em Londres.",
+    "O Mentalista": "Série sobre Patrick Jane, que usa observação e leitura de comportamento para ajudar a investigar crimes.",
+    "House": "Drama médico sobre um especialista em diagnóstico e sua equipe diante de casos difíceis.",
+    "The Good Doctor": "Drama médico sobre Shaun Murphy, um jovem cirurgião autista com síndrome de savant.",
+    "Grey’s Anatomy": "Drama sobre cirurgiões, formação médica, relacionamentos e a rotina de um hospital.",
+    "New Amsterdam": "Drama sobre um diretor médico que busca mudar o funcionamento de um hospital público.",
+    "Prison Break": "Série sobre um plano de fuga de prisão para salvar um irmão condenado.",
+    "Vis a Vis": "Série espanhola sobre uma mulher presa que aprende a sobreviver e lidar com conflitos no cárcere.",
+    "Peaky Blinders": "Drama sobre a família Shelby e sua organização criminosa em Birmingham.",
+    "Sons of Anarchy": "Drama sobre integrantes de um clube de motociclistas envolvido em atividades criminosas.",
+    "Narcos": "Drama sobre o tráfico de drogas e a perseguição a organizações criminosas na Colômbia.",
+    "El Chapo": "Drama sobre a trajetória de Joaquín Guzmán e seu poder no tráfico mexicano.",
+    "Lost": "Série sobre sobreviventes de uma queda de avião numa ilha repleta de mistérios.",
+    "Manifest": "Série sobre passageiros de um avião que reaparece anos depois e passam a viver fenômenos inexplicáveis.",
+    "Black Mirror": "Antologia de histórias sobre tecnologia, sociedade e consequências inquietantes.",
+    "Electric Dreams": "Antologia de ficção científica inspirada em histórias de Philip K. Dick.",
+    "Ruptura": "Série sobre funcionários cujas memórias de trabalho são separadas das memórias da vida pessoal.",
+    "Westworld": "Ficção científica sobre um parque com anfitriões artificiais e questões de consciência e controle.",
+    "The Boys": "Série sobre um grupo que enfrenta super-heróis poderosos e uma empresa que explora sua imagem.",
+    "The Umbrella Academy": "Série sobre irmãos adotivos com poderes que se reencontram e enfrentam ameaças ao mundo.",
+    "Loki": "Série da Marvel sobre Loki, variantes e uma organização ligada às linhas do tempo.",
+    "WandaVision": "Série da Marvel em que Wanda e Visão vivem uma realidade com aparência de comédias televisivas.",
+    "The Mandalorian": "Série de Star Wars sobre um caçador de recompensas que protege a criança Grogu.",
+    "Andor": "Série de Star Wars sobre Cassian Andor e a formação da resistência contra o Império.",
+    "Cobra Kai": "Série que retoma a rivalidade de Karate Kid e acompanha alunos de diferentes dojos.",
+    "Ted Lasso": "Comédia sobre um treinador de futebol americano que assume um time de futebol inglês."
   }
-});
+};
