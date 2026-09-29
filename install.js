@@ -32,5 +32,31 @@ installDialog.querySelector('#install-close').addEventListener('click', () => in
 installDialog.addEventListener('click', event => { if (event.target === installDialog) installDialog.close(); });
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  const startedWithController = Boolean(navigator.serviceWorker.controller);
+  let registration = null;
+  let lastUpdateCheck = 0;
+  let reloading = false;
+
+  // A troca do cache não apaga uma partida nem os nomes já adicionados.
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    const emptySetup = typeof phase === 'undefined' || (phase === 'setup' && players.length === 0);
+    if (startedWithController && emptySetup && !reloading) {
+      reloading = true;
+      window.location.reload();
+    }
+  });
+
+  async function checkForAppUpdate() {
+    if (!registration || document.hidden || !navigator.onLine || Date.now() - lastUpdateCheck < 60000) return;
+    lastUpdateCheck = Date.now();
+    try { await registration.update(); } catch (_) { /* O jogo continua disponível offline. */ }
+  }
+
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
+      .then(value => { registration = value; lastUpdateCheck = Date.now(); })
+      .catch(() => {});
+  });
+  window.addEventListener('focus', checkForAppUpdate);
+  document.addEventListener('visibilitychange', checkForAppUpdate);
 }

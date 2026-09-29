@@ -1,7 +1,7 @@
 {
   "name": "Entre Nós — Encontre o impostor",
   "short_name": "Entre Nós",
-  "description": "Um jogo de encontrar o impostor para jogar com os amigos no mesmo celular.",
+  "description": "Encontre os impostores com 18 temas, palavras relacionadas, vários impostores e cartas de perguntas. Jogue no mesmo celular, inclusive offline após o primeiro acesso.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",
